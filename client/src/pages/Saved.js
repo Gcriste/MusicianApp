@@ -9,14 +9,14 @@ class Saved extends Component {
       savedBooks: []
   };
 
-  //when this component mounts, grab all books that were save to the database 
+  //gets all books from database
   componentDidMount() {
       API.getBooks()
           .then(res => this.setState({ savedBooks: res.data }))
           .catch(err => console.log(err))
   }
 
-  //function to remove book by id
+  //removes book by id
   handleDeleteButton = id => {
       API.deleteBook(id)
           .then(res => this.componentDidMount())

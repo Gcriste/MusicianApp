@@ -13,12 +13,15 @@ const SavedResult = props => {
 
     return (
       <li className="saved-list list-group-item">
-        <Row className="SearchResult" id={savedbook.title + "Card"} key={savedbook._id}>
-          <Col size="2" className="bookImage">
+        <Row className="SearchResult" 
+        id={savedbook.title} 
+        key={savedbook._id}>
+          <Col 
+          className="bookImage">
             <img src={savedbook.image} alt={savedbook.title} />
           </Col>
 
-          <Col size="10" className="bookInfo">
+          <Col className="bookInfo">
           <Row>
               <h2 className="bookTitle">{savedbook.title}</h2>
           </Row>
@@ -32,7 +35,7 @@ const SavedResult = props => {
           </Col>
           </Row>
               <br></br>
-          <Row className="buttonDiv ">
+          <Row className="buttonDiv">
               <button 
               className="deleteBook btn btn-danger" 
               id={savedbook._id} 
