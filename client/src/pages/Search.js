@@ -68,7 +68,7 @@ class SearchBooks extends Component {
         return (
             <Container fluid>
                 <Jumbotron>
-                    <h1 className="text-white">Search for your favorite book through the Google Api!</h1>
+                    <h1 className="text-black">Search for your favorite book through the Google Api!</h1>
                 </Jumbotron>
                 <Container>
                     <Row>
