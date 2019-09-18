@@ -12,9 +12,11 @@ return (
                     return (
                     <li className="search-list list-group-item">
                         <Row 
+                        className="SearchResult row" 
                         id={book.title} 
                         key={book._id}>
                             <Col 
+                                size="2" 
                                 className="bookImage">
                                 <img 
                                 src={book.image} 
@@ -22,6 +24,7 @@ return (
                             </Col>
                                
                             <Col 
+                                size="9" 
                                 className="bookInfo">
                                 <Row>
                                 <h3 className="bookTitle">{book.title}</h3>

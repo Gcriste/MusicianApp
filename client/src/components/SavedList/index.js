@@ -17,11 +17,12 @@ const SavedResult = props => {
         id={savedbook.title} 
         key={savedbook._id}>
           <Col 
+          size="2" 
           className="bookImage">
             <img src={savedbook.image} alt={savedbook.title} />
           </Col>
 
-          <Col className="bookInfo">
+          <Col size="10" className="bookInfo">
           <Row>
               <h2 className="bookTitle">{savedbook.title}</h2>
           </Row>
@@ -35,7 +36,7 @@ const SavedResult = props => {
           </Col>
           </Row>
               <br></br>
-          <Row className="buttonDiv">
+          <Row className="buttonDiv ">
               <button 
               className="deleteBook btn btn-danger" 
               id={savedbook._id} 

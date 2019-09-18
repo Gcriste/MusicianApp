@@ -26,6 +26,11 @@ class SearchBooks extends Component {
         // api call to google search
         API.googleSearch(this.state.search)
             .then(res => {
+                if (res.data.items === "error") {
+                    throw new Error(res.data.items);
+                 
+                }
+                else {
                 
                     let results = res.data.items
                     //map through the array of books
@@ -44,7 +49,7 @@ class SearchBooks extends Component {
                     })
    
                     this.setState({ books: results, error: "" })
-                
+                }
             })
             .catch(err => this.setState({ error: err.items }));
     }
@@ -53,8 +58,7 @@ class SearchBooks extends Component {
         // console.log(event)
         event.preventDefault();
         console.log(this.state.books)
-        let savedBooks = this.state.books.filter(book => 
-            book.id === event.target.id)
+        let savedBooks = this.state.books.filter(book => book.id === event.target.id)
         savedBooks = savedBooks[0];
         API.saveBook(savedBooks)
             .then(this.setState({ message: alert("Your saved the book " + savedBooks.title) }))
