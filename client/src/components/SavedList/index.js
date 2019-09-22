@@ -5,56 +5,59 @@ import {Row, Col} from "../Grid"
 
 const SavedResult = props => {
   return (
-    <div className="card">
-      <div className="card-body player">
-        <div className="article">
-            <h3>Saved Books</h3>
-              {props.savedBooks.map(savedbook => {
 
-    return (
-      <li className="saved-list list-group-item">
-        <Row className="SearchResult" 
-        id={savedbook.title} 
-        key={savedbook._id}>
-          <Col 
-          size="2" 
-          className="bookImage">
-            <img src={savedbook.image} alt={savedbook.title} />
-          </Col>
+    <h1> hello</h1>
+    
+//     <div className="card">
+//       <div className="card-body player">
+//         <div className="article">
+//             <h3>Saved Gigs</h3>
+//               {props.savedGigs.map(savedgig => {
 
-          <Col size="10" className="bookInfo">
-          <Row>
-              <h2 className="bookTitle">{savedbook.title}</h2>
-          </Row>
+//     return (
+//       <li className="saved-list list-group-item">
+//         <Row className="SearchResult" 
+//         id={savedgig.title} 
+//         key={savedgig._id}>
+//           <Col 
+//           size="2" 
+//           className="gigImage">
+//             <img src={savedgig.image} alt={savedgig.title} />
+//           </Col>
 
-          <Row>
-              <h3 className="bookAuthor">{savedbook.authors}</h3>
-          </Row>
-          <Row>
-              <p className="bookDescription">{savedbook.description}</p>
-          </Row>
-          </Col>
-          </Row>
-              <br></br>
-          <Row className="buttonDiv ">
-              <button 
-              className="deleteBook btn btn-danger" 
-              id={savedbook._id} 
-              onClick={() => props.handleDeleteButton(savedbook._id)}>
-                 Delete Book
-              </button>
-              <a href={savedbook.link} target="_blank">
-                  <button className="viewBook btn btn-success">
-                    View Book
-                  </button>
-              </a>
-            </Row>
-      </li>
-);
-})}
-          </div>
-        </div>
-      </div>
+//           <Col size="10" className="gigInfo">
+//           <Row>
+//               <h2 className="gigTitle">{savedgig.title}</h2>
+//           </Row>
+
+//           <Row>
+//               <h3 className="gigAuthor">{savedgig.authors}</h3>
+//           </Row>
+//           <Row>
+//               <p className="bookDescription">{savedbook.description}</p>
+//           </Row>
+//           </Col>
+//           </Row>
+//               <br></br>
+//           <Row className="buttonDiv ">
+//               <button 
+//               className="deleteBook btn btn-danger" 
+//               id={savedbook._id} 
+//               onClick={() => props.handleDeleteButton(savedbook._id)}>
+//                  Delete Book
+//               </button>
+//               <a href={savedbook.link} target="_blank">
+//                   <button className="viewBook btn btn-success">
+//                     View Book
+//                   </button>
+//               </a>
+//             </Row>
+//       </li>
+// );
+// })}
+//           </div>
+//         </div>
+//       </div>
     )
 }
 export default SavedResult;

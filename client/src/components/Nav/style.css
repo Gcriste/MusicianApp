@@ -1,7 +1,11 @@
-.nav-link{
-    color:white;
-}
 
 .navbar{
+    color:black;
     font-family: 'Fira Sans', sans-serif;
+    background:#AFEEEE;
+  
 }
+
+/* .navbar-nav{
+    text-align:center;
+} */

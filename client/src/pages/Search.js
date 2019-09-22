@@ -6,13 +6,14 @@ import SearchForm from "../components/Form";
 import SearchResult from "../components/SearchResults"
 
 
-class SearchBooks extends Component {
+class SearchGigs extends Component {
     //create state
     state = {
-        search: "",
-        books: [],
-        error: "",
-        message: ""
+        date: "",
+        pay: 0,
+        venue: "",
+        bandname: "",
+        musictype: ""
     };
 
    
@@ -39,16 +40,16 @@ class SearchBooks extends Component {
                         result = {
                             key: result.id,
                             id: result.id,
-                            title: result.volumeInfo.title,
-                            author: result.volumeInfo.authors,
-                            description: result.volumeInfo.description,
-                            image: result.volumeInfo.imageLinks.thumbnail,
-                            link: result.volumeInfo.infoLink
+                            pay: result.pay,
+                            venue: result.venue,
+                            bandname: result.bandname,
+                            musictype: result.musictype,
+                            date: result.date
                         }
                         return result;
                     })
    
-                    this.setState({ books: results, error: "" })
+                    this.setState({ gigs: results, error: "" })
                 }
             })
             .catch(err => this.setState({ error: err.items }));
@@ -57,18 +58,18 @@ class SearchBooks extends Component {
     handleSavedButton = event => {
         // console.log(event)
         event.preventDefault();
-        console.log(this.state.books)
-        let savedBooks = this.state.books.filter(book => book.id === event.target.id)
-        savedBooks = savedBooks[0];
-        API.saveBook(savedBooks)
-            .then(this.setState({ message: alert("Your saved the book " + savedBooks.title) }))
+        console.log(this.state.gigs)
+        let savedGigs = this.state.gigs.filter(gig => gig.id === event.target.id)
+        savedGigs = savedGigs[0];
+        API.saveBook(savedGigs)
+            .then(this.setState({ message: alert("Your saved the gig " + savedGigs.result) }))
             .catch(err => console.log(err))
     }
     render() {
         return (
             <Container fluid>
                 <Jumbotron>
-                    <h1 className="text-black">Search for your favorite book through the Google Api!</h1>
+                    <h1 className="text-black">Search for upcoming Gigs!</h1>
                 </Jumbotron>
                 <Container>
                     <Row>
@@ -93,4 +94,4 @@ class SearchBooks extends Component {
 
 }
 
-export default SearchBooks;
+export default SearchGigs;

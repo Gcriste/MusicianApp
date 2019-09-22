@@ -4,6 +4,7 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Post from "./components/Post"
 import "./App.css"
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
           <Route exact path="/" component={Search} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/saved/:id" component={Saved} />
+          <Route exact path="/post" component={Post} />
+          <Route exact path="/post/:id" component={Post} />
           <Route component={NoMatch} />
         </Switch>
       </div>

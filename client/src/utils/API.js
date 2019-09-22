@@ -1,24 +1,24 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  googleSearch:function(query){
-  return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query)
-}, 
+  // Gets all Gigs
+//   googleSearch:function(query){
+//   return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query)
+// }, 
 
-  getBooks: function() {
-    return axios.get("/api/books");
+  getGigs: function() {
+    return axios.get("/api/gigs");
   },
   // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  getGig: function(id) {
+    return axios.get("/api/gigs/" + id);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  deleteGig: function(id) {
+    return axios.delete("/api/gigs/" + id);
   },
   // Saves a book to the database
-  saveBook: function(savedBooks) {
-    return axios.post("/api/books", savedBooks);
+  saveGig: function(savedGigs) {
+    return axios.post("/api/gigs", savedGigs);
   }
 };
