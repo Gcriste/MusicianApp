@@ -6,7 +6,8 @@ const gigSchema = new Schema({
   venue: {type: String, required: true},
   bandname: String,
   musictype: {type: String, trim: true},
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  time:{type:String, }
 });
 
 const Gig = mongoose.model("Gig", gigSchema);

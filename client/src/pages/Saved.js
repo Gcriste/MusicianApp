@@ -6,7 +6,7 @@ import SavedResult from "../components/SavedList"
 
 class Saved extends Component {
   state = {
-      savedGigs: []
+      savedGigs:[]
   };
 
   //gets all books from database
@@ -18,7 +18,7 @@ class Saved extends Component {
 
   //removes book by id
   handleDeleteButton = id => {
-      API.deleteBook(id)
+      API.deleteGig(id)
           .then(res => this.componentDidMount())
           .catch(err => console.log(err))
   }
@@ -30,7 +30,9 @@ class Saved extends Component {
                     <h1 className="text-black">You can view or delete the book from your saved list!</h1>
                 </Jumbotron>
               <Container>
-                  <SavedResult savedGigs={this.state.savedGigs} handleDeleteButton={this.handleDeleteButton} />
+                  <SavedResult 
+                  savedGigs={this.state.savedGigs} 
+                  handleDeleteButton={this.handleDeleteButton} />
               </Container>
           </Container>
       )

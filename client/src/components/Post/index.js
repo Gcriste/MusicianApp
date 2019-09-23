@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 
-
-    const PostResult = props => {
+const PostResult = props => {
 
   
         return (
@@ -13,42 +12,50 @@ import React, { Component } from 'react';
      <input className="col-12 form-control"
           value={props.search}
           type="text"
-          name="searchTime"
+          name="searchDate"
           placeholder="Enter Date"
-          onChange={props.handleInputChange}
+          onChange={props.handlePostChange}
     />
-     <input className="col-12 form-control"
+    <input className="col-12 form-control"
           value={props.search}
           type="text"
-          name="searchPay"
-          placeholder="Enter Pay"
-          onChange={props.handleInputChange}
+          name="searchTime"
+          placeholder="Enter Time"
+          onChange={props.handlePostChange}
     />
+   
      <input className="col-12 form-control"
           value={props.search}
           type="text"
           name="searchVenue"
           placeholder="Enter Venue"
-          onChange={props.handleInputChange}
+          onChange={props.handlePostChange}
+    />
+      <input className="col-12 form-control"
+          value={props.search}
+          type="text"
+          name="searchPay"
+          placeholder="Enter Pay"
+          onChange={props.handlePostChange}
     />
      <input className="col-12 form-control"
           value={props.search}
           type="text"
           name="searchBandName"
           placeholder="Enter Band Name"
-          onChange={props.handleInputChange}
+          onChange={props.handlePostChange}
     />
      <input className="col-12 form-control"
           value={props.search}
           type="text"
-          name="searchMusic"
+          name="searchMusicType"
           placeholder="Enter Music Type"
-          onChange={props.handleInputChange}
+          onChange={props.handlePostChange}
     />
 
 <button type="submit" 
         className="PostBtn btn btn-primary" 
-        onClick={props.handleFormSubmit}>
+        onClick={props.handlePostSubmit}>
                 Submit
    </button>
             </div>

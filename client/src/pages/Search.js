@@ -9,14 +9,20 @@ import SearchResult from "../components/SearchResults"
 class SearchGigs extends Component {
     //create state
     state = {
-        date: "",
-        pay: 0,
-        venue: "",
-        bandname: "",
-        musictype: ""
+        gigs:[]
+       
     };
 
-   
+    componentDidMount() {
+       this.loadGigs();
+    }
+
+    loadGigs = () => {
+        API.getGigs()
+        .then(res => this.setState({ gigs: res.data, date:"", pay:0, venue:"", bandname:"", musictype:"" }))
+        .catch(err => console.log(err))
+    }
+
     handleInputChange = event => {
         this.setState({ search: event.target.value })
     }
@@ -25,13 +31,8 @@ class SearchGigs extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         // api call to google search
-        API.googleSearch(this.state.search)
+        API.getGigs(this.state.search)
             .then(res => {
-                if (res.data.items === "error") {
-                    throw new Error(res.data.items);
-                 
-                }
-                else {
                 
                     let results = res.data.items
                     //map through the array of books
@@ -44,13 +45,14 @@ class SearchGigs extends Component {
                             venue: result.venue,
                             bandname: result.bandname,
                             musictype: result.musictype,
-                            date: result.date
+                            date: result.date,
+                            time:result.time
                         }
                         return result;
                     })
    
                     this.setState({ gigs: results, error: "" })
-                }
+                
             })
             .catch(err => this.setState({ error: err.items }));
     }
@@ -61,8 +63,9 @@ class SearchGigs extends Component {
         console.log(this.state.gigs)
         let savedGigs = this.state.gigs.filter(gig => gig.id === event.target.id)
         savedGigs = savedGigs[0];
-        API.saveBook(savedGigs)
-            .then(this.setState({ message: alert("Your saved the gig " + savedGigs.result) }))
+        console.log(savedGigs)
+        API.saveGig(savedGigs)
+            .then(this.setState({ message: alert("Your saved the gig ") }))
             .catch(err => console.log(err))
     }
     render() {
@@ -84,7 +87,7 @@ class SearchGigs extends Component {
                 <br></br>
                 <Container>
                     <SearchResult 
-                    books={this.state.books} 
+                    gigs={this.state.gigs} 
                     handleSavedButton={this.handleSavedButton} />
                 </Container>
             </Container>
