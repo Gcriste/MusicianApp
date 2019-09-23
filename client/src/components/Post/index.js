@@ -15,7 +15,7 @@ export function Input(props) {
        
         <button type="submit" 
               className="PostBtn btn btn-primary" 
-              onClick={props.handlePostSubmit}>
+              onClick={(event) => props.handlePostSubmit(event)}>
                       Submit
                 </button>
 

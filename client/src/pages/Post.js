@@ -8,15 +8,17 @@ class Post extends Component {
 
     state = {
         musician:"",
-        // search:"",
         date: "",
         pay: "",
         venue: "",
         bandname: "",
         musictype: "",
+        savedGigs:[],
+        time:"",
+        message:""
     };
- 
-    
+
+
   handlePostChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -27,42 +29,20 @@ class Post extends Component {
      //submit button function
      handlePostSubmit = event => {
          event.preventDefault();
-         // api call to google search
+         console.log("hi")
+         // api call to post gig
          API.saveGig({
             musician:this.state.musician,
             pay: this.state.pay,
             venue: this.state.venue,
             bandname: this.state.pay,
-            musictype: {type: String, trim: true},
-            date: { type: Date, default: Date.now },
-            time:{type:String, }
+            musictype: this.state.musictype,
+            date: this.state.date,
+            time:this.state.time
          })
-             .then(res => {
-                 
-                     let results = res.data.items
-                     //map through the array of books
-                     results = results.map(result => {
-                         //store each book information in a new object 
-                         result = {
-                             key: result.id,
-                             id: result.id,
-                             musician:result.musician,
-                             pay: result.pay,
-                             venue: result.venue,
-                             bandname: result.bandname,
-                             musictype: result.musictype,
-                             date: result.date,
-                             time:result.time
-                         }
-                         return result;
-                     })
-    
-                     this.setState({ gigs: results, error: "" })
-                 
-             })
-             .catch(err => this.setState({ error: err.items }));
-     }
- 
+         .then(this.setState({ message: alert("Your posted a gig! on " + this.state.date) }))
+         .catch(err => console.log(err));
+        }
 
     render() {
         return (
@@ -114,9 +94,8 @@ class Post extends Component {
                 placeholder="Music Type"
             
             />
-             <PostButton
-                disabled={!(this.state.musician && this.state.date && this.state.time && this.state.pay && this.state.venue)}
-                onClick={this.handlePostSubmit}
+             <PostButton 
+                handlePostSubmit={this.handlePostSubmit}
               >
                 Submit Book
               </PostButton>

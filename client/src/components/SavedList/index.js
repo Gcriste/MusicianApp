@@ -9,7 +9,7 @@ const SavedResult = props => {
     <div className="card">
       <div className="card-body player">
         <div className="article">
-            <h3>Saved Gigs</h3>
+            <h3>Request to play show</h3>
               {props.savedGigs.map(savedgig => {
 
     return (

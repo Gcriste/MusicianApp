@@ -19,7 +19,7 @@ class SearchGigs extends Component {
 
     loadGigs = () => {
         API.getGigs()
-        .then(res => this.setState({ gigs: res.data, date:"", pay:0, venue:"", bandname:"", musictype:"" }))
+        .then(res => this.setState({ gigs: res.data, date:"", pay:0, venue:"", bandname:"", musictype:"", time:"" }))
         .catch(err => console.log(err))
     }
 
@@ -65,7 +65,7 @@ class SearchGigs extends Component {
         savedGigs = savedGigs[0];
         console.log(savedGigs)
         API.saveGig(savedGigs)
-            .then(this.setState({ message: alert("Your saved the gig ") }))
+            .then(this.setState({ message: alert("You saved the gig ") }))
             .catch(err => console.log(err))
     }
     render() {
