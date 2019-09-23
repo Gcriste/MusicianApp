@@ -4,7 +4,7 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Post from "./components/Post"
+import Post from "./pages/Post"
 import "./App.css"
 
 function App() {

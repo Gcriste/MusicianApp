@@ -17,7 +17,7 @@ export default {
   deleteGig: function(id) {
     return axios.delete("/api/gigs/" + id);
   },
-  // Saves a book to the database
+  // Saves a gig to the database
   saveGig: function(savedGigs) {
     return axios.post("/api/gigs", savedGigs);
   }

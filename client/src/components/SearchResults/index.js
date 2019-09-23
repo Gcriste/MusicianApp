@@ -23,18 +23,23 @@ return (
                             <Col 
                                 size="9" 
                                 className="gigInfo">
+                                
                                 <Row>
-                                <h3 className="gigVenue">Venue: {gig.venue}</h3>
+                                <h4 className="gigMusician">Musician Type: {gig.musician}</h4>
                                 </Row>
                                 <Row>
                                 <h3 className="gigDate">Date: {gig.date}</h3>
                                 </Row>
                                 <Row>
-                                <h4 className="gigTime">Time: {gig.time}</h4>
+                                <h3 className="gigVenue">Venue: {gig.venue}</h3>
                                 </Row>
                                 <Row>
                                 <h3 className="gigPay">Pay: {gig.pay}</h3>
                                 </Row>
+                                <Row>
+                                <h4 className="gigTime">Time: {gig.time}</h4>
+                                </Row>
+                               
                                 <Row>
                                 <h4 className="gigBandName">Band Name: {gig.bandname}</h4>
                                 </Row>
