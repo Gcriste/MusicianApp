@@ -1,17 +1,18 @@
 import React from "react";
 import "./style.css";
-import {Row, Col} from "../Grid"
+import {Row, Col} from "../Grid";
+import {Link} from "react-router-dom";
 
 const SearchResult = props => {
 return (
 
     <div>
-    <h3> gigs will go here</h3>
+   
 
     <div className="card">
         <div className="card-body player">
             <div className="article">
-                <h3>Search Results</h3>
+                <h3>Upcoming Gigs</h3>
                 {props.gigs.map(gig => {                            
                     return (
                     <li className="search-list list-group-item">
@@ -58,7 +59,8 @@ return (
                                      onClick={(event) => props.handleSavedButton(event)}>
                                          Save Gig
                                 </button>
-                            <a href={gig.link} target="_blank">
+                               
+                            <a href={"/saved/" + gig._id} target="_blank">
                                 <button className="viewGig btn btn-success">
                                     View Details
                                 </button>

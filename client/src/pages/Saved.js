@@ -8,14 +8,17 @@ class Saved extends Component {
   state = {
       savedGigs:[]
   };
+//   componentDidMount() {
+//     API.getGig(this.props.match.params.id)
+//       .then(res => this.setState({ savedGigs: res.data }))
+//       .catch(err => console.log(err));
+//   }
 
-  //gets all books from database
   componentDidMount() {
-      API.getGigs()
-          .then(res => this.setState({ savedGigs: res.data }))
-          .catch(err => console.log(err))
-  }
-
+    API.getGigs()
+        .then(res => this.setState({ savedGigs: res.data }))
+        .catch(err => console.log(err))
+}
   //removes book by id
   handleDeleteButton = id => {
       API.deleteGig(id)

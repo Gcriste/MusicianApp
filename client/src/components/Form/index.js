@@ -7,7 +7,7 @@ const SearchForm = props => {
   return (
     <form>
     <div className="form-group">
-    <h3>Search for Upcoming Gig by Giving a Date!</h3>
+    <h3>Search for an upcoming gig by providing a date or scroll through all available gigs!</h3>
     <br></br>
    <input className="col-12 form-control"
           value={props.search}
@@ -24,12 +24,12 @@ const SearchForm = props => {
         onClick={props.handleFormSubmit}>
                 Submit
      </button>
-<h3> Or search for all upcoming Gigs!</h3>
+{/* <h3> Or search for all upcoming Gigs!</h3>
 <button type="submit" 
         className="SearchBtn btn btn-warning" 
         onClick={props.handleFormSubmit}>
                 Search All Gigs
-   </button>
+   </button> */}
   
    </form>
   )

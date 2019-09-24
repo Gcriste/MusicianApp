@@ -18,6 +18,12 @@ function Nav() {
                     <li className="nav-item" id="report">
                       <a className="nav-link" href="/post">Post a Show</a>
                   </li>
+                  <li className="nav-item" id="report">
+                      <a className="nav-link" href="/login">Login</a>
+                  </li>
+                  <li className="nav-item" id="report">
+                      <a className="nav-link" href="/createaccount">Create Account</a>
+                  </li>
               </ul>
           </div>
       </nav>

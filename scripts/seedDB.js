@@ -14,6 +14,8 @@ const gigSeed = {
   bandname: "Maddie in Good Company",
     musictype: "funk soul rock",
   date: "10/18/2019",
+  time: "6:30-9:30pm"
+
 }
 
 db.Gig

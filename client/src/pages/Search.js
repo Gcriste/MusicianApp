@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import { Container, Row, Col } from "../components/Grid";
 import SearchForm from "../components/Form";
 import SearchResult from "../components/SearchResults"
+import { Link } from "react-router-dom";
 
 
 class SearchGigs extends Component {
@@ -63,7 +64,7 @@ class SearchGigs extends Component {
         console.log(this.state.gigs)
         let savedGigs = this.state.gigs.filter(gig => gig.id === event.target.id)
         savedGigs = savedGigs[0];
-        console.log(savedGigs)
+      
         API.saveGig(savedGigs)
             .then(this.setState({ message: alert("You saved the gig ") }))
             .catch(err => console.log(err))
@@ -86,6 +87,8 @@ class SearchGigs extends Component {
                 </Container>
                 <br></br>
                 <Container>
+
+                   
                     <SearchResult 
                     gigs={this.state.gigs} 
                     handleSavedButton={this.handleSavedButton} />

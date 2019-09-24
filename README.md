@@ -1,4 +1,21 @@
-Heroku Link: https://mysterious-wave-30496.herokuapp.com/
+pseudocode
+-need login password page
+four navbars - search shows, (fill out request), my shows(ones I've posted or requested) and post a show
+search shows - can search by date, or can search all shows
+            -each show has a request button
+fill out request- after you click on a show you can fill out request
+        -request is name, age, experience (in years), reference, and link(video of them playing)
+post a show- date, venue, time, pay, band name, music type
+
+Once a show is posted it is added to all shows Available
+Once a request is made, the user(who posted the show) is notified
+
+
+
+
+
+
+Heroku Link:
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -4,7 +4,9 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Post from "./pages/Post"
+import Post from "./pages/Post";
+import Login from "./pages/Login";
+import CreateAccount from "./pages/CreateAccount";
 import "./App.css"
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
           <Route exact path="/saved/:id" component={Saved} />
           <Route exact path="/post" component={Post} />
           <Route exact path="/post/:id" component={Post} />
+          <Route exact path = "/login" component = {Login}/>
+          <Route exact path = "/createaccount" component= {CreateAccount}/>
+          {/* <Route exact path = "" */}
           <Route component={NoMatch} />
         </Switch>
       </div>
