@@ -9,13 +9,27 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import "./App.css"
 
+
+
+// if (localStorage.budget) {
+// 	setAuthToken(localStorage.budget);
+
+// 	const decoded = jwtDecode(localStorage.budget);
+// 	store.dispatch(setCurrentUser(decoded));
+
+// 	const currentTime = Date.now() / 1000;
+// 	if (decoded.exp < currentTime) {
+// 		store.dispatch(logoutUser());
+// 		window.location.href = '/';
+// 	}
+// }
 function App() {
   return (
     <Router>
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Search} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/saved" component={Saved} />
           <Route exact path="/saved/:id" component={Saved} />
           <Route exact path="/post" component={Post} />

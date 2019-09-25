@@ -1,4 +1,9 @@
 const db = require("../models");
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const jwt = require("jsonwebtoken");
+const keys = require("../config/keys");
+
 
 // Defining methods for the UserController
 module.exports = {
