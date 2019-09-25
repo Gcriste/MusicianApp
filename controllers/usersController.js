@@ -22,10 +22,42 @@ module.exports = {
   },
   create: function(req, res) {
     db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .findOne({
+      where: {
+        email: req.body.email
+      }
+    })
+    .then((user) => {
+      if (user) {
+        return res.status(400).json({ email: 'This email already exists.' });
+      } else {
+        const newUser = {
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          email: req.body.email,
+          password: req.body.password
+        };
+
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            newUser.password = hash;
+
+            db.User
+              .create(newUser)
+              .then((user) => {
+                res.status(200).json({
+                  message: 'User account successfully created.',
+                  userCreated: true
+                });
+              })
+              .catch((err) => console.log(err));
+          });
+        });
+      }
+    });
   },
+ 
   update: function(req, res) {
     db.User
       .findOneAndUpdate({ _id: req.params.id }, req.body)
