@@ -7,14 +7,19 @@ const bcrypt = require("bcryptjs")
 router
    .route("/")
   .get(usersController.findAll)
-  .post(usersController.create);
+  .post(usersController.create)
+  .put(usersController.update, passport.authenticate('jwt', {session:false}));
 
-// Matches with "/api/user/:id"
+// Matches with "/api/users/:id"
 router
   .route("/:id")
   .get(usersController.findById)
-  .put(usersController.update)
+  .put(usersController.update, passport.authenticate('jwt', {session:false}))
   .delete(usersController.remove);
+
+  router
+  .route("/login")
+  .post(usersController.login)
 
 // router.get('/login', (req,res) =>{
 //   res.render("login");

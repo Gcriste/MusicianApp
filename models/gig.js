@@ -8,7 +8,8 @@ const gigSchema = new Schema({
   bandname: String,
   musictype: {type: String, trim: true},
   date: { type: Date, default: Date.now },
-  time:{type:String, required:true }
+  time:{type:String, required:true },
+  userId:{type:Number}
 });
 
 const Gig = mongoose.model("Gig", gigSchema);

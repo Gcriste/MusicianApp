@@ -20,10 +20,10 @@ app.use(routes);
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
-// require("./routes/api/users")(app)
+// require("./routes/api/users")(router)
 // Connect to the Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/musicianapp");
+mongoose.connect(process.env.MONGODB_URI);
 
 // Start the API server
 app.listen(PORT, function() {

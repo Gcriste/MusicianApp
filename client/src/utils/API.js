@@ -21,6 +21,9 @@ export default {
   saveUser: function(savedUsers) {
     return axios.post("/api/users", savedUsers);
   },
+  logsUser: function(){
+    return axios.post("/api/user/login");
+  },
 
   getGigs: function() {
     return axios.get("/api/gigs");
