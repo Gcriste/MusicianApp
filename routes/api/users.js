@@ -8,23 +8,25 @@ router
    .route("/")
   .get(usersController.findAll)
   .post(usersController.create)
-  .put(usersController.update, passport.authenticate('jwt', {session:false}));
+  .put(passport.authenticate('jwt', {session:false}), usersController.update);
+
+  router
+  .route("/test")
+  .get(passport.authenticate('jwt', {session:false}), usersController.test)
 
 // Matches with "/api/users/:id"
 router
   .route("/:id")
   .get(usersController.findById)
-  .put(usersController.update, passport.authenticate('jwt', {session:false}))
+  .put(usersController.update)
   .delete(usersController.remove);
 
   router
   .route("/login")
   .post(usersController.login)
 
-// router.get('/login', (req,res) =>{
-//   res.render("login");
 
-// })
+
 module.exports = router;
 
 

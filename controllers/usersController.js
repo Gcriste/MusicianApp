@@ -58,8 +58,25 @@ module.exports = {
   update: function(req, res) {
     console.log(req.user)
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .update({_id:req.user.id}, {
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        email:req.body.email
+      })
+      .then(()=>{
+        db.User.findOne({_id:req.user.id})
+        .then(user =>{
+          res.status(200).json({
+            firstname:user.firstname,
+            lastname:user.lastname,
+            email:user.email,
+            message:"user account successfully updated",
+            userUpdated:true
+          })
+        })
+      }
+        
+      )
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
@@ -115,5 +132,15 @@ module.exports = {
     
 
     })
+  },
+
+  test: function(req,res){
+    res.json({
+      success:true,
+      msg:"testing endpoing works"
+    })
+     
+    }
+  
   }
-};
+
