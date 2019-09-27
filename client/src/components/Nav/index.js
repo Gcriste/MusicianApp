@@ -9,19 +9,19 @@ function Nav() {
           </a>
           <div id="navbarNav">
               <ul className="navbar-nav">
-                  <li className="nav-item" id="home">
-                      <a className="nav-link" href="/">Search for Shows</a>
+                  <li className="nav-item" id="search">
+                      <a className="nav-link" href="/search">Search for Shows</a>
                   </li>
-                  <li className="nav-item" id="report">
+                  <li className="nav-item" id="saved">
                       <a className="nav-link" href="/saved">Saved Shows</a>
                   </li>
-                    <li className="nav-item" id="report">
+                    <li className="nav-item" id="post">
                       <a className="nav-link" href="/post">Post a Show</a>
                   </li>
-                  <li className="nav-item" id="report">
+                  <li className="nav-item" id="login">
                       <a className="nav-link" href="/login">Login</a>
                   </li>
-                  <li className="nav-item" id="report">
+                  <li className="nav-item" id="createaccount">
                       <a className="nav-link" href="/createaccount">Create Account</a>
                   </li>
               </ul>

@@ -18,9 +18,26 @@ export default {
     return axios.delete("/api/users/" + id);
   },
   // Saves a gig to the database
-  saveUser: function(savedUsers) {
-    return axios.post("/api/users", savedUsers);
-  },
+  // saveUser:function (savedUsers) {
+
+  //  return axios.post("/api/users/login", savedUsers)
+  //   .then(response => {
+  //     console.log(response.data)
+  //   })
+  //   .catch(err=> {
+  //     this.setState({
+  //       errors:err.response.data
+  //     })
+  //   })
+  
+// },
+  // saveUser: function(savedUsers) {
+  //   return axios.post("/api/users", savedUsers)
+  //   .then(response => {
+  //     console.log(response.data)
+  //   })
+  //   console.log(savedUsers)
+  // },
   logsUser: function(){
     return axios.post("/api/users/login");
   },

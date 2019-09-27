@@ -92,7 +92,7 @@ module.exports = {
     .findOne({email})
     .then(user => {
       if(!user){
-        return res.status(404).json({user: "User not found"})
+        return res.status(404).json({user: "Email not found"})
       }
      
       
@@ -125,7 +125,7 @@ module.exports = {
         }
         else{
           return res.status(400).json({
-            password:"User password could not be validated"
+            password:"Incorrect password"
           })
         }
       })
