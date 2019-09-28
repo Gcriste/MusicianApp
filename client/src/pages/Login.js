@@ -26,7 +26,7 @@ class Login extends Component {
     }
   }
 
-  ComponentDidMount(){
+  componentDidMount() {
     const token = localStorage.getItem('example-app');
 
     if (authenticate(token)){
