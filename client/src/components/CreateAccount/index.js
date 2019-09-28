@@ -7,12 +7,6 @@ export function Input(props) {
         <input className="form-control" {...props} />
       </div>
     
-    
-        {/* <button type="submit" 
-            className="FormBtn btn btn-warning" 
-            onClick={props.handleFormSubmit}>
-                    Submit
-         </button> */}
       </div>
 
     )

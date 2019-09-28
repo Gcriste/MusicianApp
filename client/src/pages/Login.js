@@ -89,10 +89,20 @@ class Login extends Component {
 
          
             <div className = "login">
-                <Container fluid>
-        <Row>
-          <Col size="md-6">
-             <form>
+                <div className = "container">
+                  <div className = "row">
+                    <div className = "col-md-6 m-auto">
+                      <div className = "card">
+                        <div className = "card-body">
+                          <h1 className = "display-4 text-center">
+                            Log In  {' '}
+                          </h1>
+                          <h4 className = "text-center">
+                          Or if you don't have an account hit the create account button
+                          </h4>
+                          <br></br>
+
+                          <form>
               <Input
                 value={this.state.email}
                 type="email"
@@ -129,11 +139,19 @@ class Login extends Component {
               >
               </PostButton>
 
+              <button className = "btn btn-danger">
+                <a href= "/createaccount"></a>
+                Create Account
+              </button>
            
             </form>
-            </Col>
-            </Row>
-            </Container>
+          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
              
             </div>
         )

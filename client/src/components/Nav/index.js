@@ -18,12 +18,12 @@ function Nav() {
                     <li className="nav-item" id="post">
                       <a className="nav-link" href="/post">Post a Show</a>
                   </li>
-                  <li className="nav-item" id="login">
+                  {/* <li className="nav-item" id="login">
                       <a className="nav-link" href="/login">Login</a>
                   </li>
                   <li className="nav-item" id="createaccount">
                       <a className="nav-link" href="/createaccount">Create Account</a>
-                  </li>
+                  </li> */}
               </ul>
           </div>
       </nav>
