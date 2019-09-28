@@ -4,18 +4,44 @@ import Jumbotron from "../components/Jumbotron";
 import { Container, Row, Col } from "../components/Grid";
 import SearchForm from "../components/Form";
 import SearchResult from "../components/SearchResults"
-import { Link } from "react-router-dom";
-
+import {Redirect } from "react-router-dom";
+import setAuthToken from "../utils/setAuthToken";
+import Moment from 'react-moment';
 
 class SearchGigs extends Component {
     //create state
     state = {
-        gigs:[]
+        gigs:[],
+        redirect:false,
+        user:{}
        
     };
 
+    handleLogout = () => {
+        localStorage.removeItem('example-app')
+        this.setState({
+            redirect:true
+        })
+    }
+
     componentDidMount() {
+        
+        const token = localStorage.getItem('example-item');
+
+        if(token){
+            setAuthToken(token);
+        }
        this.loadGigs();
+        
+       API.getUsers()
+       .then(response => {
+          this.setState({
+              user:response.data
+          })
+       })
+       .catch(err => console.log(err.response))
+
+
     }
 
     loadGigs = () => {
@@ -70,10 +96,31 @@ class SearchGigs extends Component {
             .catch(err => console.log(err))
     }
     render() {
+
+        const {redirect, user} = this.state;
+
+        if(redirect){
+            return <Redirect to="/" />
+        }
+      
+           
+
         return (
+            
+    
             <Container fluid>
                 <Jumbotron>
                     <h1 className="text-black">Search for upcoming Gigs!</h1>
+                    <p> You have successfully authenticated!</p>
+                    <p> <strong> Welcome {user.firstname}</strong></p>
+                        {' '}
+                    <p> <strong> Email Address: {user.email}</strong></p>
+                        {' '}
+                    <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
+                        {' '}
+                    <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
+                        {' '}
+                     <button className = "btn btn-danger" onClick = { this.handleLogout}> Logout </button>
                 </Jumbotron>
                 <Container>
                     <Row>

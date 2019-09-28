@@ -5,6 +5,7 @@ import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton } from "../components/Login";
 import {Redirect } from "react-router-dom"
 import authenticate from '../utils/Authenticate';
+import setAuthToken from '../utils/setAuthToken';
 
 const styles = {
   error:{
@@ -60,7 +61,7 @@ class Login extends Component {
             const{token} = response.data;
 
             localStorage.setItem('example-app', token);
-          
+            setAuthToken(token);
 
 
            this.setState({
