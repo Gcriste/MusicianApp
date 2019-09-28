@@ -26,7 +26,7 @@ class SearchGigs extends Component {
 
     componentDidMount() {
         
-        const token = localStorage.getItem('example-item');
+        const token = localStorage.getItem('example-app');
 
         if(token){
             setAuthToken(token);
