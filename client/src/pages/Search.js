@@ -13,7 +13,8 @@ class SearchGigs extends Component {
     state = {
         gigs:[],
         redirect:false,
-        user:{}
+        user:{},
+        userid:""
        
     };
 
@@ -27,7 +28,6 @@ class SearchGigs extends Component {
     componentDidMount() {
         
         const token = localStorage.getItem('example-app');
-
         if(token){
             setAuthToken(token);
         }
@@ -36,8 +36,10 @@ class SearchGigs extends Component {
        API.getUsers()
        .then(response => {
           this.setState({
-              user:response.data
+              user:response.data,
+              userid: response.data._id
           })
+         console.log(response.data._id) 
        })
        .catch(err => console.log(err.response))
 
@@ -46,7 +48,12 @@ class SearchGigs extends Component {
 
     loadGigs = () => {
         API.getGigs()
-        .then(res => this.setState({ gigs: res.data, date:"", pay:0, venue:"", bandname:"", musictype:"", time:"" }))
+        .then(res => {
+            this.setState({ 
+                gigs: res.data, 
+                })
+                console.log(res.data)
+            })
         .catch(err => console.log(err))
     }
 
@@ -62,9 +69,9 @@ class SearchGigs extends Component {
             .then(res => {
                 
                     let results = res.data.items
-                    //map through the array of books
+                    //map through the array of gigs
                     results = results.map(result => {
-                        //store each book information in a new object 
+                        //store each gig information in a new object 
                         result = {
                             key: result.id,
                             id: result.id,
@@ -73,7 +80,8 @@ class SearchGigs extends Component {
                             bandname: result.bandname,
                             musictype: result.musictype,
                             date: result.date,
-                            time:result.time
+                            time:result.time,
+                            userid:result.userid
                         }
                         return result;
                     })

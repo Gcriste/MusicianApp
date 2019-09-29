@@ -3,6 +3,7 @@ import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron"
 import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton } from "../components/Post";
+import setAuthToken from "../utils/setAuthToken";
 
 class Post extends Component {
 
@@ -15,9 +16,33 @@ class Post extends Component {
         musictype: "",
         savedGigs:[],
         time:"",
-        message:""
+        message:"",
+        userid:"",
+        user:{}
     };
 
+  
+    componentDidMount() {
+        
+      const token = localStorage.getItem('example-app');
+      if(token){
+          setAuthToken(token);
+      }
+      
+     API.getUsers()
+     .then(response => {
+        this.setState({
+            user:response.data,
+            userid:response.data._id
+        })
+
+       console.log(response.data._id) 
+       console.log(response.data) 
+     })
+     .catch(err => console.log(err.response))
+
+
+  }
 
   handlePostChange = event => {
     const { name, value } = event.target;
@@ -30,17 +55,23 @@ class Post extends Component {
      handlePostSubmit = event => {
          event.preventDefault();
          console.log("hi")
+
+         const newGig = {
+           musician:this.state.musician,
+          pay: this.state.pay,
+          venue: this.state.venue,
+          bandname: this.state.pay,
+          musictype: this.state.musictype,
+          date: this.state.date,
+          time:this.state.time,
+          userid:this.state.userid
+        }
+        console.log(newGig)
          // api call to post gig
-         API.saveGig({
-            musician:this.state.musician,
-            pay: this.state.pay,
-            venue: this.state.venue,
-            bandname: this.state.pay,
-            musictype: this.state.musictype,
-            date: this.state.date,
-            time:this.state.time
-         })
-         .then(this.setState({ message: alert("Your posted a gig! on " + this.state.date) }))
+         API.saveGig(newGig)
+         .then(this.setState({ 
+           message: alert("Your posted a gig! on " + this.state.date) })
+           )
          .catch(err => console.log(err));
         }
 
@@ -97,7 +128,6 @@ class Post extends Component {
              <PostButton 
                 handlePostSubmit={this.handlePostSubmit}
               >
-                Submit Book
               </PostButton>
 
            
