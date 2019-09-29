@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import {Row, Col} from "../Grid";
 import {Link} from "react-router-dom";
+import Moment from 'react-moment';
 
 const SearchResult = props => {
 return (
@@ -29,13 +30,13 @@ return (
                                 <h4 className="gigMusician">Musician Type: {gig.musician}</h4>
                                 </Row>
                                 <Row>
-                                <h3 className="gigDate">Date: {gig.date}</h3>
+                                <h3 className="gigDate">Date: <Moment date={gig.date} format="MM/DD/YYYY"/></h3>
                                 </Row>
                                 <Row>
                                 <h3 className="gigVenue">Venue: {gig.venue}</h3>
                                 </Row>
                                 <Row>
-                                <h3 className="gigPay">Pay: {gig.pay}</h3>
+                                <h3 className="gigPay">Pay: ${gig.pay}</h3>
                                 </Row>
                                 <Row>
                                 <h4 className="gigTime">Time: {gig.time}</h4>
