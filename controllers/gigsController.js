@@ -4,14 +4,14 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Gig
-      .find(req.query)
+      .findById(req.params.userid)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.Gig
-      .findById(req.params.id)
+      .findById(req.params.userid)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron"
 import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton } from "../components/Post";
 import setAuthToken from "../utils/setAuthToken";
+import {Redirect } from "react-router-dom";
 
 class Post extends Component {
 
@@ -18,7 +19,8 @@ class Post extends Component {
         time:"",
         message:"",
         userid:"",
-        user:{}
+        user:{},
+        redirect:false
     };
 
   
@@ -70,12 +72,21 @@ class Post extends Component {
          // api call to post gig
          API.saveGig(newGig)
          .then(this.setState({ 
-           message: alert("Your posted a gig! on " + this.state.date) })
+           redirect:true,
+           message: alert("Your posted a gig! on " + this.state.date) 
+          })
            )
          .catch(err => console.log(err));
         }
 
     render() {
+
+      const {redirect} = this.state;
+
+      if (redirect)  {
+        return <Redirect to="/search"/>
+      }
+
         return (
             <div>
     <Container fluid>

@@ -2,18 +2,37 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import SavedResult from "../components/SavedList"
+import SavedResult from "../components/SavedList";
+import setAuthToken from "../utils/setAuthToken";
 
 class Saved extends Component {
   state = {
-      savedGigs:[]
+      savedGigs:[],
+      userid:""
   };
-//   componentDidMount() {
-//     API.getGig(this.props.match.params.id)
-//       .then(res => this.setState({ savedGigs: res.data }))
-//       .catch(err => console.log(err));
-//   }
 
+
+  componentDidMount() {
+        
+    const token = localStorage.getItem('example-app');
+    if(token){
+        setAuthToken(token);
+    }
+    
+   API.getUsers()
+   .then(response => {
+      this.setState({
+          user:response.data,
+          userid:response.data._id
+      })
+
+     console.log(response.data._id) 
+     console.log(response.data) 
+   })
+   .catch(err => console.log(err.response))
+
+
+}
   componentDidMount() {
     API.getGigs()
         .then(res => this.setState({ savedGigs: res.data }))
