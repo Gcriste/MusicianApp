@@ -18,13 +18,13 @@ function App() {
         <Nav />
         <Switch>
         <PrivateRoute exact path="/search" component={SearchGigs} />
-          <Route exact path="/" component={Login} />
-          <Route exact path="/saved" component={Saved} />
-          <Route exact path="/saved/:id" component={Saved} />
-          <Route exact path="/post" component={Post} />
-          <Route exact path="/post/:id" component={Post} />
+          <Route exact path="/createaccount" component={CreateAccount} />
+          <PrivateRoute exact path="/saved" component={Saved} />
+          <PrivateRoute exact path="/saved/:id" component={Saved} />
+          <PrivateRoute exact path="/post" component={Post} />
+          <PrivateRoute exact path="/post/:id" component={Post} />
           <Route exact path = "/login" component = {Login}/>
-          <Route exact path = "/createaccount" component= {CreateAccount}/>
+          <Route exact path = "/" component= {CreateAccount}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

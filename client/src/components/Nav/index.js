@@ -10,7 +10,7 @@ function Nav() {
           <div id="navbarNav">
               <ul className="navbar-nav">
                   <li className="nav-item" id="search">
-                      <a className="nav-link" href="/search">Search for Shows</a>
+                      <a className="nav-link" href="/search">Home</a>
                   </li>
                   <li className="nav-item" id="saved">
                       <a className="nav-link" href="/saved">Saved Shows</a>

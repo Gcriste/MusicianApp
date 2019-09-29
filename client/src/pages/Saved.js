@@ -30,7 +30,7 @@ class Saved extends Component {
       return (
           <Container fluid className="container">
          <Jumbotron>
-                    <h1 className="text-black">You can view or delete the book from your saved list!</h1>
+                    <h1 className="text-black">You can view your saved Gigs here!</h1>
                 </Jumbotron>
               <Container>
                   <SavedResult 

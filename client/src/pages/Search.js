@@ -109,10 +109,10 @@ class SearchGigs extends Component {
             
     
             <Container fluid>
-                <Jumbotron>
+               <div className = "form profileForm">
                     <h1 className="text-black">Search for upcoming Gigs!</h1>
                     <p> You have successfully authenticated!</p>
-                    <p> <strong> Welcome {user.firstname}</strong></p>
+                    <p> <strong> Welcome: {user.firstname}</strong></p>
                         {' '}
                     <p> <strong> Email Address: {user.email}</strong></p>
                         {' '}
@@ -121,7 +121,7 @@ class SearchGigs extends Component {
                     <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
                         {' '}
                      <button className = "btn btn-danger" onClick = { this.handleLogout}> Logout </button>
-                </Jumbotron>
+                </div>
                 <Container>
                     <Row>
                         <Col size="12">

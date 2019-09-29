@@ -133,17 +133,20 @@ class Login extends Component {
                     </div>
                     )
               }
-          
+          <div className="text-left">
              <PostButton 
                 handleLoginSubmit={this.handleLoginSubmit}
               >
               </PostButton>
 
+              </div>
+
+                <div className="text-right">
               <button className = "btn btn-danger">
-                <a href= "/createaccount"></a>
-                Create Account
+                <a href= "/createaccount">  Create Account</a>
+               
               </button>
-           
+              </div>
             </form>
           
                         </div>
