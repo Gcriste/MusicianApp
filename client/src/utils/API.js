@@ -31,13 +31,18 @@ export default {
   //   })
   
 // },
-  // saveUser: function(savedUsers) {
-  //   return axios.post("/api/users", savedUsers)
-  //   .then(response => {
-  //     console.log(response.data)
-  //   })
-  //   console.log(savedUsers)
-  // },
+  saveUser: function(savedUsers) {
+    console.log(savedUsers)
+    return axios.post("/api/users", savedUsers)
+   
+    .then(response => {
+      console.log(response.data)
+      
+    })
+    .catch(err=> {
+      console.log(err)
+    })
+  },
   logsUser: function(){
     return axios.post("/api/users/login");
   },
