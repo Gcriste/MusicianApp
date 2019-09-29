@@ -26,18 +26,22 @@ class Saved extends Component {
           userid:response.data._id
       })
 
+
      console.log(response.data._id) 
      console.log(response.data) 
    })
    .catch(err => console.log(err.response))
 
+   API.getSavedGigs()
+   .then(res => {
+        this.setState({ 
+        savedGigs: res.data })
+        console.log(res.data)
+   })
+   .catch(err => console.log(err))
 
 }
-  componentDidMount() {
-    API.getGigs()
-        .then(res => this.setState({ savedGigs: res.data }))
-        .catch(err => console.log(err))
-}
+
   //removes book by id
   handleDeleteButton = id => {
       API.deleteGig(id)

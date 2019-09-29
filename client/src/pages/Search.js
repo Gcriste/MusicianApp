@@ -64,7 +64,7 @@ class SearchGigs extends Component {
     //submit button function
     handleFormSubmit = event => {
         event.preventDefault();
-        // api call to google search
+        // api call to search
         API.getGigs(this.state.search)
             .then(res => {
                 

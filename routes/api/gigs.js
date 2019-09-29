@@ -7,10 +7,12 @@ router.route("/")
   .post(gigsController.create);
 
 // Matches with "/api/gigs/:id"
-router
-  .route("/:id")
-  .get(gigsController.findById)
+router.route("/:id")
+  // .get(gigsController.findById)
   .put(gigsController.update)
   .delete(gigsController.remove);
+
+  router.route("/:userid")
+  .get(gigsController.findbyId)
 
 module.exports = router;

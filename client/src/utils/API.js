@@ -50,6 +50,10 @@ export default {
   getGigs: function() {
     return axios.get("/api/gigs");
   },
+
+  getSavedGigs:function(userid){
+    return axios.get("/api/gigs/" + userid);
+  },
   // Gets the book with the given id
   getGig: function(id) {
     return axios.get("/api/gigs/" + id);
