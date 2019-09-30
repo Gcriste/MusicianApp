@@ -51,8 +51,8 @@ export default {
     return axios.get("/api/gigs");
   },
 
-  getSavedGigs:function(userid){
-    return axios.get("/api/gigs/" + userid);
+  getSavedGigs:function(userId){
+    return axios.get("/api/gigs/" + userId);
   },
   // Gets the book with the given id
   getGig: function(id) {

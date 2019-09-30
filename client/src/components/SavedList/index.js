@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css"
 import {Row, Col} from "../Grid"
-
+import Moment from 'react-moment';
 
 const SavedResult = props => {
   return (
@@ -26,7 +26,7 @@ const SavedResult = props => {
               <h3 className="gigVenue">Venue: {savedgig.venue}</h3>
               </Row>
               <Row>
-              <h3 className="gigDate">Date: {savedgig.date}</h3>
+              <h3 className="gigDate">Date:<Moment date={savedgig.date} format="MM/DD/YYYY"/> </h3>
               </Row>
               <Row>
               <h4 className="gigTime">Time: {savedgig.time}</h4>

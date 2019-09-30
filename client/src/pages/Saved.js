@@ -21,26 +21,25 @@ class Saved extends Component {
     
    API.getUsers()
    .then(response => {
+     let userId = response.data._id
       this.setState({
           userid:response.data._id
       })
-
+      API.getSavedGigs(userId)
+      .then(res => {
+       this.setState({ 
+       savedGigs: res.data 
+     })
+       console.log(res.data)
+   })
+     
 
      console.log(response.data._id) 
      console.log(response.data) 
    })
    .catch(err => console.log(err.response))
-
-   API.getSavedGigs(userid)
-   .then(res => {
-    this.setState({ 
-    savedGigs: res.data })
-    console.log(res.data)
-
-  
-  
-})
   }
+  
   
 //   loadSavedGigs = userid =>{
 //     API.getSavedGigs(userid)
