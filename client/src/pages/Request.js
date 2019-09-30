@@ -21,7 +21,8 @@ class PostRequest extends Component {
         message:"",
         userid:"",
         user:{},
-        redirect:false
+        redirect:false,
+        post:[]
     };
 
 
@@ -37,10 +38,11 @@ class PostRequest extends Component {
       API.getUsers()
       .then(response => {
           console.log(response.data)
-        // let userId = response.data._id
+        let userId = response.data._id
          this.setState({
              userid:response.data._id
          })
+         console.log(userId)
     //      API.getSavedGigs(userId)
     //      .then(res => {
     //       this.setState({ 
@@ -50,26 +52,6 @@ class PostRequest extends Component {
     //   })
     })
    
-    //     console.log(response.data._id) 
-    //     console.log(response.data) 
-    //   })
-    //   .catch(err => console.log(err.response))
-    //  }
-     
-     API.getGigs()
-     .then(response => {
-         console.log(response.data)
-        this.setState({
-            gigid:response.data._id,
-            userid:response.data.userid,
-
-        })
-
-       console.log(response.data._id) 
-       console.log(response.data[0].userid) 
-     })
-     .catch(err => console.log(err.response))
-
 
   }
 
@@ -94,7 +76,7 @@ class PostRequest extends Component {
           referencenumber: this.state.referencenumber,
           link:this.state.link,
           userid:this.state.userid,
-          gigid:this.state.gigid
+          gigid:this.props.match.params.id
          }
         console.log(newRequest)
          // api call to post gig
