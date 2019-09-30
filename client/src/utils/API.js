@@ -76,7 +76,7 @@ export default {
   },
 
   getRequest:function(gigId){
-    return axios.get("/api/requests" + gigId)
+    return axios.get("/api/requests/" + gigId)
   }
 
 };

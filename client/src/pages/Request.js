@@ -34,17 +34,39 @@ class PostRequest extends Component {
           setAuthToken(token);
       }
       
+      API.getUsers()
+      .then(response => {
+          console.log(response.data)
+        // let userId = response.data._id
+         this.setState({
+             userid:response.data._id
+         })
+    //      API.getSavedGigs(userId)
+    //      .then(res => {
+    //       this.setState({ 
+    //       savedGigs: res.data 
+    //     })
+    //       console.log(res.data)
+    //   })
+    })
+   
+    //     console.log(response.data._id) 
+    //     console.log(response.data) 
+    //   })
+    //   .catch(err => console.log(err.response))
+    //  }
+     
      API.getGigs()
      .then(response => {
          console.log(response.data)
         this.setState({
-            user:response.data,
-            userid:response.data._id,
+            gigid:response.data._id,
+            userid:response.data.userid,
 
         })
 
        console.log(response.data._id) 
-       console.log(response.data) 
+       console.log(response.data[0].userid) 
      })
      .catch(err => console.log(err.response))
 
@@ -76,10 +98,10 @@ class PostRequest extends Component {
          }
         console.log(newRequest)
          // api call to post gig
-         API.saveRequest(newRequest)
+         API.postRequest(newRequest)
          .then(this.setState({ 
            redirect:true,
-           message: alert("Your posted a gig! on " + this.state.date) 
+           message: alert("Your posted a request! ") 
           })
            )
          .catch(err => console.log(err));
@@ -90,7 +112,7 @@ class PostRequest extends Component {
       const {redirect} = this.state;
 
       if (redirect)  {
-        return <Redirect to="/search"/>
+        return <Redirect to="/saved"/>
       }
 
         return (
