@@ -4,6 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import SavedResult from "../components/SavedList";
 import setAuthToken from "../utils/setAuthToken";
+import PostRequest from "../components/PostRequest"
 
 class Saved extends Component {
   state = {
@@ -60,13 +61,28 @@ class Saved extends Component {
   render() {
       return (
           <Container fluid className="container">
-         <Jumbotron>
+         {/* <Jumbotron>
                     <h1 className="text-black">You can view your saved Gigs here!</h1>
-                </Jumbotron>
+                </Jumbotron> */}
               <Container>
-                  <SavedResult 
+                <div className = "container">
+                  <div className = "row">
+                    <div className = "col-6">
+                    <SavedResult 
                   savedGigs={this.state.savedGigs} 
                   handleDeleteButton={this.handleDeleteButton} />
+                    </div>
+                  </div>
+               
+                 
+                 <div class ="row">
+                  <div className = "col-6">
+                    <PostRequest
+                    requests= {this.state.requests}
+                    />
+                  </div>
+                 </div>
+                 </div>
               </Container>
           </Container>
       )

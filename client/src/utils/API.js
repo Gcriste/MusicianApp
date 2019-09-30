@@ -65,5 +65,18 @@ export default {
   // Saves a gig to the database
   saveGig: function(savedGigs) {
     return axios.post("/api/gigs", savedGigs);
+  },
+
+  postRequest: function(savedRequest){
+    return axios.post("/api/requests", savedRequest)
+  },
+
+  getRequests:function(){
+    return axios.get("/api/requests");
+  },
+
+  getRequest:function(gigId){
+    return axios.get("/api/requests" + gigId)
   }
+
 };

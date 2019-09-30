@@ -3,13 +3,14 @@ import "./style.css"
 import {Row, Col} from "../Grid"
 import Moment from 'react-moment';
 
+
 const SavedResult = props => {
   return (
     
     <div className="card">
       <div className="card-body player">
         <div className="article">
-            <h3>Request to play show</h3>
+            <h3>Your Posted Shows</h3>
               {props.savedGigs.map(savedgig => {
 
     return (
