@@ -5,7 +5,7 @@ module.exports = {
 
   findById: function(req,res){
     db.Request
-    .find({userid:req.params.userid})
+    .find({gigid:req.params.gigid})
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err))
   },

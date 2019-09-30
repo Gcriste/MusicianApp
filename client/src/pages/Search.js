@@ -92,16 +92,18 @@ class SearchGigs extends Component {
             .catch(err => this.setState({ error: err.items }));
     }
 
-    handleSavedButton = event => {
+    handlePostButton = event => {
         // console.log(event)
         event.preventDefault();
-        console.log(this.state.gigs)
-        let savedGigs = this.state.gigs.filter(gig => gig.id === event.target.id)
-        savedGigs = savedGigs[0];
+
+        
+        // console.log(this.state.gigs)
+        // let savedGigs = this.state.gigs.filter(gig => gig.id === event.target.id)
+        // savedGigs = savedGigs[0];
       
-        API.saveGig(savedGigs)
-            .then(this.setState({ message: alert("You saved the gig ") }))
-            .catch(err => console.log(err))
+        // API.saveGig(savedGigs)
+        //     .then(this.setState({ message: alert("You saved the gig ") }))
+        //     .catch(err => console.log(err))
     }
     render() {
 
@@ -146,7 +148,8 @@ class SearchGigs extends Component {
                    
                     <SearchResult 
                     gigs={this.state.gigs} 
-                    handleSavedButton={this.handleSavedButton} />
+                    handlePostButton={this.handlePostButton} 
+                    />
                 </Container>
             </Container>
         )

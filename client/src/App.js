@@ -8,7 +8,8 @@ import Post from "./pages/Post";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import PrivateRoute from "./utils/PrivateRoute";
-import "./App.css"
+import "./App.css";
+import PostRequest from "./pages/Request";
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
           <PrivateRoute exact path="/post/:id" component={Post} />
           <Route exact path = "/login" component = {Login}/>
           <Route exact path = "/" component= {CreateAccount}/>
+          <PrivateRoute exact path ="/request" component = {PostRequest}/>
+          <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
           <Route component={NoMatch} />
         </Switch>
       </div>

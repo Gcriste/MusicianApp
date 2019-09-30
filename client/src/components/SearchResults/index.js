@@ -55,17 +55,16 @@ return (
 
                         <br></br>
                         <Row className="buttonDiv ">
-                            <button className="saveGig btn btn-primary" 
-                                    id={gig.id} 
-                                     onClick={(event) => props.handleSavedButton(event)}>
-                                         Save Gig
+                            <a href={"/request/" + gig._id} target="_blank">
+                            <button className="requestGig btn btn-primary">
+                                         Request To Play Gig
                                 </button>
-                               
-                            <a href={"/saved/" + gig.userid} target="_blank">
+                                </a>
+                            {/* <a href={"/saved/" + gig.userid} target="_blank">
                                 <button className="viewGig btn btn-success">
                                     View Details
                                 </button>
-                            </a>
+                            </a> */}
                         </Row>
                             </li>
                             );

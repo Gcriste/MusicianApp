@@ -4,7 +4,7 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import SavedResult from "../components/SavedList";
 import setAuthToken from "../utils/setAuthToken";
-import PostRequest from "../components/PostRequest"
+import PostRequest from "../components/PostRequest";
 
 class Saved extends Component {
   state = {
@@ -72,15 +72,15 @@ class Saved extends Component {
                   savedGigs={this.state.savedGigs} 
                   handleDeleteButton={this.handleDeleteButton} />
                     </div>
-                  </div>
+                  
                
                  
-                 <div class ="row">
-                  <div className = "col-6">
+                
+                  {/* <div className = "col-6">
                     <PostRequest
                     requests= {this.state.requests}
                     />
-                  </div>
+                 </div> */}
                  </div>
                  </div>
               </Container>
