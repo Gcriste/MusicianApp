@@ -2,9 +2,10 @@ const db = require("../models");
 
 // Defining methods for the GigsController
 module.exports = {
-  findById:function(req,res){
+
+  findById: function(req,res){
     db.Gig
-    .findById(req.params.userid)
+    .find(req.params.userid)
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err))
   },

@@ -22,7 +22,6 @@ class Saved extends Component {
    API.getUsers()
    .then(response => {
       this.setState({
-          user:response.data,
           userid:response.data._id
       })
 
@@ -32,16 +31,26 @@ class Saved extends Component {
    })
    .catch(err => console.log(err.response))
 
-   API.getSavedGigs()
+   API.getSavedGigs(userid)
    .then(res => {
-        this.setState({ 
-        savedGigs: res.data })
-        console.log(res.data)
-   })
-   .catch(err => console.log(err))
+    this.setState({ 
+    savedGigs: res.data })
+    console.log(res.data)
 
-}
-
+  
+  
+})
+  }
+  
+//   loadSavedGigs = userid =>{
+//     API.getSavedGigs(userid)
+//     .then(res => {
+//      this.setState({ 
+//      savedGigs: res.data })
+//      console.log(res.data)
+// })
+// .catch(err => console.log(err))
+// }
   //removes book by id
   handleDeleteButton = id => {
       API.deleteGig(id)

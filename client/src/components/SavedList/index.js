@@ -16,7 +16,7 @@ const SavedResult = props => {
       <li className="search-list list-group-item">
       <Row 
       className="SearchResult row" 
-      id={savedgig.id} 
+      id={savedgig.userid} 
       key={savedgig._id}>
              
           <Col 

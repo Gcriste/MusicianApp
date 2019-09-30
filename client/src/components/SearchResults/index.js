@@ -61,7 +61,7 @@ return (
                                          Save Gig
                                 </button>
                                
-                            <a href={"/saved/" + gig._id} target="_blank">
+                            <a href={"/saved/" + gig.userid} target="_blank">
                                 <button className="viewGig btn btn-success">
                                     View Details
                                 </button>
