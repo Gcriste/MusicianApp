@@ -4,12 +4,14 @@ import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import SavedResult from "../components/SavedList";
 import setAuthToken from "../utils/setAuthToken";
-import PostRequest from "../components/PostRequest";
+import SavedRequests from "../components/SavedRequests";
+
 
 class Saved extends Component {
   state = {
       savedGigs:[],
-      userid:""
+      userid:"",
+      savedRequests:[]
   };
 
 
@@ -32,16 +34,20 @@ class Saved extends Component {
        savedGigs: res.data 
      })
        console.log(res.data)
-   })
-     
-
-     console.log(response.data._id) 
+   }) 
      console.log(response.data) 
-   })
-   .catch(err => console.log(err.response))
+     
+  API.getRequestByUser(userId)
+  .then(res => {
+    console.log(res.data)
+    this.setState({
+      savedRequests:res.data
+    })
+  })
+  .catch(err => console.log(err.response))
+
+})
   }
-  
-  
 //   loadSavedGigs = userid =>{
 //     API.getSavedGigs(userid)
 //     .then(res => {
@@ -76,11 +82,11 @@ class Saved extends Component {
                
                  
                 
-                  {/* <div className = "col-6">
-                    <PostRequest
-                    requests= {this.state.requests}
+                  <div className = "col-6">
+                    <SavedRequests
+                    savedRequests= {this.state.savedRequests}
                     />
-                 </div> */}
+                 </div>
                  </div>
                  </div>
               </Container>

@@ -77,6 +77,10 @@ export default {
 
   getRequest:function(gigId){
     return axios.get("/api/requests/" + gigId)
+  },
+  getRequestByUser:function(userId){
+    return axios.get("/api/requests/" + userId)
   }
+  
 
 };

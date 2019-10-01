@@ -8,11 +8,12 @@ router.route("/")
 
 // Matches with "/api/requests/:id"
 router.route("/:gigid")
-  .get(requestsController.findById)
+//   .get(requestsController.findById)
   .put(requestsController.update)
   .delete(requestsController.remove);
 
-  // router.route("/:userid")
-  // .get(gigsController.findbyId);
+  
+  router.route("/:userid")
+  .get(requestsController.findById);
 
 module.exports = router;
