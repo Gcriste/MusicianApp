@@ -9,7 +9,8 @@ const gigSchema = new Schema({
   musictype: {type: String, trim: true},
   date: { type: Date, required:true },
   time:{type:String, required:true },
-  userid:{type:String}
+  userid:{type:String},
+  request:{type:String}
 });
 
 const Gig = mongoose.model("Gig", gigSchema);

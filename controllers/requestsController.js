@@ -16,12 +16,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function(req, res) {
-  //   db.Request
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  find: function(req, res) {
+    db.Request
+      .findById({gigid:req.params.gigid})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Request
       .create(req.body)
@@ -36,7 +36,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Request
-      .findById({ _id: req.params.id })
+      .findById({gigid: req.params.gigid })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

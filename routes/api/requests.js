@@ -8,7 +8,7 @@ router.route("/")
 
 // Matches with "/api/requests/:id"
 router.route("/:gigid")
-//   .get(requestsController.findById)
+//   .get(requestsController.find)
   .put(requestsController.update)
   .delete(requestsController.remove);
 

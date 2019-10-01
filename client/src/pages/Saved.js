@@ -11,7 +11,9 @@ class Saved extends Component {
   state = {
       savedGigs:[],
       userid:"",
-      savedRequests:[]
+      savedRequests:[],
+      savedRequestForGig:[],
+      gigid:""
   };
 
 
@@ -36,17 +38,17 @@ class Saved extends Component {
        console.log(res.data)
    }) 
      console.log(response.data) 
-     
+  
   API.getRequestByUser(userId)
   .then(res => {
     console.log(res.data)
     this.setState({
-      savedRequests:res.data
+      savedRequests:res.data,
     })
   })
   .catch(err => console.log(err.response))
 
-})
+    })
   }
 //   loadSavedGigs = userid =>{
 //     API.getSavedGigs(userid)
@@ -83,8 +85,10 @@ class Saved extends Component {
                  
                 
                   <div className = "col-6">
+                  
                     <SavedRequests
                     savedRequests= {this.state.savedRequests}
+                 
                     />
                  </div>
                  </div>

@@ -10,6 +10,7 @@ const SavedResult = props => {
     <div className="card">
       <div className="card-body player">
         <div className="article">
+          
             <h3>Your Posted Shows</h3>
               {props.savedGigs.map(savedgig => {
 
@@ -23,6 +24,9 @@ const SavedResult = props => {
           <Col 
               size="9" 
               className="gigInfo">
+                <Row>
+              <h3 className="gigMusician">Musician: {savedgig.musician}</h3>
+              </Row>
               <Row>
               <h3 className="gigVenue">Venue: {savedgig.venue}</h3>
               </Row>
@@ -61,5 +65,6 @@ const SavedResult = props => {
         </div>
       </div>
     )
+    
 }
 export default SavedResult;

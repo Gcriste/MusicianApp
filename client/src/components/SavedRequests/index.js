@@ -10,6 +10,13 @@ const SavedRequests = props => {
     <div className="card">
       <div className="card-body player">
         <div className="article">
+       
+         {/* {props.savedGigs.map(savedgig => {
+                return(
+                <h3 className = "gigDate"> Request for gig on: <Moment date ={savedgig.date} format="MM/DD/YYYY" /></h3>
+            )
+        })
+    } */}
             <h3>Your Show Requests</h3>
               {props.savedRequests.map(savedrequest => {
 
@@ -43,6 +50,9 @@ const SavedRequests = props => {
               </Row>
               <Row>
               <h4 className="requestLink">Link: {savedrequest.link}</h4>
+              </Row>
+              <Row>
+              <h4 className="requestGig">GigId: {savedrequest.gigdate}</h4>
               </Row>
              
           </Col>

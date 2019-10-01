@@ -10,7 +10,8 @@ const requestSchema = new Schema({
   referencenumber: { type:Number},
   link:{type:String},
   gigid:{type:String},
-  userid:{type:String}
+  userid:{type:String},
+  gigdate:{type:String}
 });
 
 const Request = mongoose.model("Request", requestSchema);

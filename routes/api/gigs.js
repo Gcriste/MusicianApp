@@ -12,7 +12,7 @@ router.route("/:userid")
   .put(gigsController.update)
   .delete(gigsController.remove);
 
-  // router.route("/:userid")
-  // .get(gigsController.findbyId);
+  router.route("/:gigid")
+  .get(gigsController.find);
 
 module.exports = router;
