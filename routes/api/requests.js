@@ -6,14 +6,14 @@ router.route("/")
   .get(requestsController.findAll)
   .post(requestsController.create);
 
-// Matches with "/api/requests/:id"
+// Matches with "/api/requests/:gigid"
 router.route("/:gigid")
-//   .get(requestsController.find)
+  .get(requestsController.find)
   .put(requestsController.update)
   .delete(requestsController.remove);
 
   
-  router.route("/:userid")
-  .get(requestsController.findById);
+//   router.route("/:userid")
+//   .get(requestsController.findById);
 
 module.exports = router;

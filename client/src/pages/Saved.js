@@ -39,7 +39,7 @@ class Saved extends Component {
    }) 
      console.log(response.data) 
   
-  API.getRequestByUser(userId)
+  API.getRequests()
   .then(res => {
     console.log(res.data)
     this.setState({
@@ -50,16 +50,8 @@ class Saved extends Component {
 
     })
   }
-//   loadSavedGigs = userid =>{
-//     API.getSavedGigs(userid)
-//     .then(res => {
-//      this.setState({ 
-//      savedGigs: res.data })
-//      console.log(res.data)
-// })
-// .catch(err => console.log(err))
-// }
-  //removes book by id
+
+  //removes gig by id
   handleDeleteButton = id => {
       API.deleteGig(id)
           .then(res => this.componentDidMount())

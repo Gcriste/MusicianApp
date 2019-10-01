@@ -80,6 +80,9 @@ export default {
   },
   getRequestByUser:function(userId){
     return axios.get("/api/requests/" + userId)
+  },
+  deleteRequest:function(gigId){
+    return axios.delete("/api/requests" + gigId)
   }
   
 

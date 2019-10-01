@@ -35,7 +35,9 @@ class IncomingRequest extends Component {
      }) 
        console.log(response.data) 
        
-    API.getRequestByUser(userId)
+
+
+    API.getRequests()
     .then(res => {
       console.log(res.data)
       this.setState({
