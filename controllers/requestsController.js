@@ -2,8 +2,14 @@ const db = require("../models");
 
 // Defining methods for the GigsController
 module.exports = {
-
-  findById: function(req,res){
+    findAll: function(req, res) {
+        db.Request
+          .find(req.query)
+          .sort({ date: -1 })
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      },
+  findById: function(req,res){  
     db.Request
     .find({userid:req.params.userid})
     .then(dbModel => res.json(dbModel))
@@ -11,17 +17,11 @@ module.exports = {
   },
   find: function(req, res) {
     db.Request
-      .findById({gigid:req.params.gigid})
+      .find({gigid:req.params.gigid})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findAll: function(req, res) {
-    db.Request
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+ 
  
   create: function(req, res) {
     db.Request

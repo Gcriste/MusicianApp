@@ -14,40 +14,43 @@ class IncomingRequest extends Component {
   
   
     componentDidMount() {
+        
+        const token = localStorage.getItem('example-app');
+        if(token){
+            setAuthToken(token);
+        }
+        
+       API.getUsers()
+       .then(response => {
+         let userId = response.data._id
+         
+          this.setState({
+              userid:response.data._id
+          })
+         
+          API.getSavedGigs(userId)
+          .then(res => {
+            let gigId = res.data[1]._id
+           this.setState({ 
+           savedGigs: res.data 
+         })
+    
           
-      const token = localStorage.getItem('example-app');
-      if(token){
-          setAuthToken(token);
-      }
-      
-     API.getUsers()
-     .then(response => {
-       let userId = response.data._id
-        this.setState({
-            userid:response.data._id
-        })
-        API.getSavedGigs(userId)
-        .then(res => {
-         this.setState({ 
-         savedGigs: res.data 
-       })
-         console.log(res.data)
-     }) 
-       console.log(response.data) 
        
-
-
-    API.getRequests()
-    .then(res => {
-      console.log(res.data)
-      this.setState({
-        savedRequests:res.data
+         console.log(res.data) 
+      
+      API.getRequest(gigId)
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          savedRequests:res.data,
+        })
       })
-    })
-    .catch(err => console.log(err.response))
-  
-  })
-    }
+      .catch(err => console.log(err.response))
+    }) 
+        })
+      }
+    
 
     handleDeleteButton = id => {
         API.deleteGig(id)

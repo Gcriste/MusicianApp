@@ -76,13 +76,13 @@ export default {
   },
 
   getRequest:function(gigId){
-    return axios.get("/api/requests/" + gigId)
+    return axios.get("/api/requests/gigs/" + gigId)
   },
   getRequestByUser:function(userId){
-    return axios.get("/api/requests/" + userId)
+    return axios.get("/api/requests/users/" + userId)
   },
   deleteRequest:function(gigId){
-    return axios.delete("/api/requests" + gigId)
+    return axios.delete("/api/requests/" + gigId)
   }
   
 
