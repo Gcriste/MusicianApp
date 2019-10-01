@@ -29,8 +29,9 @@ function App() {
           <Route exact path = "/" component= {CreateAccount}/>
           <PrivateRoute exact path ="/request" component = {PostRequest}/>
           <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
-          <Route component={NoMatch} />
           <PrivateRoute exact path = "/incomingrequest" component = {IncomingRequest} />
+          <Route component={NoMatch} />
+  
 
         </Switch>
       </div>
