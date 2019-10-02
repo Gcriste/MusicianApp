@@ -24,36 +24,50 @@ class IncomingRequest extends Component {
        API.getUsers()
        .then(response => {
          let userId = response.data._id
-         
+            console.log(response.data)
           this.setState({
               userid:response.data._id
           })
          
+          let postedGigId = [];
           API.getSavedGigs(userId)
           .then(res => {
-            // let gigId = res.data[1]._id
+              for(var i = 0; i<res.data.length; i++){
+                postedGigId.push(res.data[i]._id);
+                
+              }
+              console.log( postedGigId)
            this.setState({ 
            savedGigs: res.data 
          })
     
         // 
-         console.log() 
+         console.log(res.data) 
       
       API.getRequests()
       .then(res => {
-        for(var i =0; i< res.data.length;i++){
-                let gigId = res.data[i]._id
-                console.log(gigId)
+          let gigId = []
+        for (var i =0; i< res.data.length;i++){
+                gigId.push(res.data[i].gigid)
                }
+               console.log(gigId)
         console.log(res.data)
         this.setState({
           savedRequests:res.data,
         })
+        if (postedGigId === gigId){
+            let requestGigId = gigId
+        console.log(requestGigId)
+        API.getRequestByGig(requestGigId)
+        .then(res => {
+            console.log(res.data)
+        })
+    }
       })
-
+    
       .catch(err => console.log(err.response))
     }) 
-        })
+        }) 
       }
     
 
