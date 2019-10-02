@@ -75,11 +75,11 @@ export default {
     return axios.get("/api/requests");
   },
 
-  getRequest:function(gigId){
+  getRequestByGig:function(gigId){
     return axios.get("/api/requests/gigs/" + gigId)
   },
   getRequestByUser:function(userId){
-    return axios.get("/api/requests/users/" + userId)
+    return axios.get("/api/requests/" + userId)
   },
   deleteRequest:function(gigId){
     return axios.delete("/api/requests/" + gigId)

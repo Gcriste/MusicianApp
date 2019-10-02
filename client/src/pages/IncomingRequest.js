@@ -9,7 +9,8 @@ class IncomingRequest extends Component {
     state = {
         savedGigs:[],
         userid:"",
-        savedRequests:[]
+        savedRequests:[],
+        gigid:""
     };
   
   
@@ -30,22 +31,26 @@ class IncomingRequest extends Component {
          
           API.getSavedGigs(userId)
           .then(res => {
-            let gigId = res.data[1]._id
+            // let gigId = res.data[1]._id
            this.setState({ 
            savedGigs: res.data 
          })
     
-          
-       
-         console.log(res.data) 
+        // 
+         console.log() 
       
-      API.getRequest(gigId)
+      API.getRequests()
       .then(res => {
+        for(var i =0; i< res.data.length;i++){
+                let gigId = res.data[i]._id
+                console.log(gigId)
+               }
         console.log(res.data)
         this.setState({
           savedRequests:res.data,
         })
       })
+
       .catch(err => console.log(err.response))
     }) 
         })

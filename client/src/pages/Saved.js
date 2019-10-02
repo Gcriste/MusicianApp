@@ -38,18 +38,17 @@ class Saved extends Component {
        savedGigs: res.data 
      })
 
-      
    
      console.log(res.data) 
   
-  // API.getRequest(gigId)
-  // .then(res => {
-  //   console.log(res.data)
-  //   this.setState({
-  //     savedRequests:res.data,
-  //   })
-  // })
-  // .catch(err => console.log(err.response))
+  API.getRequestByUser(userId)
+  .then(res => {
+    console.log(res.data)
+    this.setState({
+      savedRequests:res.data,
+    })
+    })
+  .catch(err => console.log(err.response))
 }) 
     })
   }
