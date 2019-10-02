@@ -11,48 +11,43 @@ const SavedRequests = props => {
       <div className="card-body player">
         <div className="article">
        
-         {/* {props.savedGigs.map(savedgig => {
-                return(
-                <h3 className = "gigDate"> Request for gig on: <Moment date ={savedgig.date} format="MM/DD/YYYY" /></h3>
-            )
-        })
-    } */}
             <h3>Your Show Requests</h3>
-              {props.savedRequests.map(savedrequest => {
+              {props.savedRequests.map(savedRequest => {
+        
 
     return (
       <li className="search-list list-group-item">
       <Row 
       className="SearchResult row" 
-      id={savedrequest.userid} 
-      key={savedrequest._id}>
+      id={savedRequest.userid} 
+      key={savedRequest._id}>
              
           <Col 
               size="9" 
               className="requestInfo">
               <Row>
-              <h3 className="requestFirstName">First Name: {savedrequest.firstname}</h3>
+              <h3 className="requestFirstName">First Name: {savedRequest.firstname}</h3>
               </Row>
               <Row>
-              <h3 className="requestLastName">Last Name: {savedrequest.lastname}</h3>
+              <h3 className="requestLastName">Last Name: {savedRequest.lastname}</h3>
               </Row>
               <Row>
-              <h4 className="requestAge">Age: {savedrequest.age}</h4>
+              <h4 className="requestAge">Age: {savedRequest.age}</h4>
               </Row>
               <Row>
-              <h3 className="requestExperience">Experience: {savedrequest.experience}</h3>
+              <h3 className="requestExperience">Experience: {savedRequest.experience}</h3>
               </Row>
               <Row>
-              <h4 className="requestReferenceName">Reference Name: {savedrequest.referencename}</h4>
+              <h4 className="requestReferenceName">Reference Name: {savedRequest.referencename}</h4>
               </Row>
               <Row>
-              <h4 className="requestReferenceNumber">Reference Phone Number: {savedrequest.referencenumber}</h4>
+              <h4 className="requestReferenceNumber">Reference Phone Number: {savedRequest.referencenumber}</h4>
               </Row>
               <Row>
-              <h4 className="requestLink">Link: {savedrequest.link}</h4>
+              <h4 className="requestLink">Link: {savedRequest.link}</h4>
               </Row>
               <Row>
-              <h4 className="requestGig">GigId: {savedrequest.gigdate}</h4>
+              <h4 className="requestGig">GigId: {savedRequest.gigdate}</h4>
               </Row>
              
           </Col>
@@ -61,8 +56,8 @@ const SavedRequests = props => {
           <Row className="buttonDiv ">
               <button 
               className="deleteRequest btn btn-danger" 
-              id={savedrequest._id} 
-              onClick={() => props.handleDeleteButton(savedrequest._id)}>
+              id={savedRequest._id} 
+              onClick={() => props.handleDeleteButton(savedRequest._id)}>
                  Delete Request
               </button>
             </Row>

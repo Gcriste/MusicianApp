@@ -55,12 +55,11 @@ class IncomingRequest extends Component {
         
        
        let requestGigId = postedGigId.filter(element => gigId.includes(element))
-       let requestGigIdString = requestGigId.toString('')
         // if (postedGigId === gigId){
         //     let requestGigId = postedGigId
         console.log(requestGigId)
 
-    let requests = [];
+        let requests = [];
 
         for (var i = 0; i < requestGigId.length; i++) {
             API.getRequestByGig(requestGigId[i])
@@ -69,7 +68,6 @@ class IncomingRequest extends Component {
                 console.log(res.data)
             })
         }
-
         this.setState({
             savedRequests: requests
           })
