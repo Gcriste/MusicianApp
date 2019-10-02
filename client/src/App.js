@@ -26,7 +26,7 @@ function App() {
           <PrivateRoute exact path="/post" component={Post} />
           <PrivateRoute exact path="/post/:id" component={Post} />
           <Route exact path = "/login" component = {Login}/>
-          <Route exact path = "/" component= {CreateAccount}/>
+          <Route exact path = "/" component= {Login}/>
           <PrivateRoute exact path ="/request" component = {PostRequest}/>
           <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
           <PrivateRoute exact path = "/incomingrequest" component = {IncomingRequest} />

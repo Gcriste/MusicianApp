@@ -55,14 +55,18 @@ class IncomingRequest extends Component {
         this.setState({
           savedRequests:res.data,
         })
-        if (postedGigId === gigId){
-            let requestGigId = gigId
-        console.log(requestGigId)
+       
+       let requestGigId = postedGigId.filter(element => gigId.includes(element))
+       let requestGigIdString = requestGigId.toString('')
+        // if (postedGigId === gigId){
+        //     let requestGigId = postedGigId
+        console.log(requestGigIdString)
+
         API.getRequestByGig(requestGigId)
         .then(res => {
             console.log(res.data)
         })
-    }
+    // }
       })
     
       .catch(err => console.log(err.response))
