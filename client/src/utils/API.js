@@ -76,7 +76,7 @@ export default {
   },
 
   getRequestByGig:function(gigId){
-    return axios.get("/api/requests/" + gigId)
+    return axios.get("/api/requests/?gigid=" + gigId)
   },
   getRequestByUser:function(userId){
     return axios.get("/api/requests/" + userId)

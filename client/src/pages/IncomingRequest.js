@@ -52,20 +52,28 @@ class IncomingRequest extends Component {
                }
                console.log(gigId)
         console.log(res.data)
-        this.setState({
-          savedRequests:res.data,
-        })
+        
        
        let requestGigId = postedGigId.filter(element => gigId.includes(element))
        let requestGigIdString = requestGigId.toString('')
         // if (postedGigId === gigId){
         //     let requestGigId = postedGigId
-        console.log(requestGigIdString)
+        console.log(requestGigId)
 
-        API.getRequestByGig(requestGigId)
-        .then(res => {
-            console.log(res.data)
-        })
+    let requests = [];
+
+        for (var i = 0; i < requestGigId.length; i++) {
+            API.getRequestByGig(requestGigId[i])
+            .then(res => {
+                requests.push(res.data);
+                console.log(res.data)
+            })
+        }
+
+        this.setState({
+            savedRequests: requests
+          })
+        
     // }
       })
     
