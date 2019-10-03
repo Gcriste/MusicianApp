@@ -55,16 +55,11 @@ return (
 
                         <br></br>
                         <Row className="buttonDiv ">
-                            <a href={"/request/" + gig._id} target="_blank">
+                            <a href={"/request/" + gig._id}>
                             <button className="requestGig btn btn-primary">
                                          Request To Play Gig
                                 </button>
                                 </a>
-                            {/* <a href={"/saved/" + gig.userid} target="_blank">
-                                <button className="viewGig btn btn-success">
-                                    View Details
-                                </button>
-                            </a> */}
                         </Row>
                             </li>
                             );
