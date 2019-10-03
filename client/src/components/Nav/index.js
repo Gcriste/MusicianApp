@@ -11,7 +11,7 @@ function Nav() {
               <ul className="navbar-nav">
                  
                   <li className="nav-item" id="saved">
-                      <a className="nav-link" href="/saved">My Profile</a>
+                      <a className="nav-link" href="/saved">Home</a>
                   </li>
                   <li className="nav-item" id="search">
                       <a className="nav-link" href="/search">Search Shows</a>

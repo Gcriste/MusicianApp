@@ -15,10 +15,13 @@ export function PostButton(props) {
     return (
        
         <button type="submit" 
-              className="PostBtn btn btn-primary" 
+              className="ui primary horizontal animated button" tabindex = "0"
               onClick={(event) => props.handleLoginSubmit(event)}>
-                      Submit
+                    <div className = "visible content">Login </div>
+                    <div className = "hidden content">
+                    <i className = "right arrow icon"></i>
+                    </div> 
                 </button>
-
+    
     )
   };
