@@ -67,6 +67,32 @@ export function Input(props) {
     )
   };
   
+  export function MusicType(props) {
+    return (
+       
+    <div className="field">
+    <label>Music Type</label>
+    <select className = "ui fluid search dropdown" {...props} >
+    <option value="">Genre</option>
+          <option value="Standard Broadway Tunes">Standard Broadway Tunes</option>
+          <option value="Old Country">Old Country</option>
+          <option value="Pop Country">Pop Country</option>
+          <option value="Rock">Rock</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Blues">Blues</option>
+          <option value="Funk">Funk</option>
+          <option value="Other">Other</option>
+            </select>
+       </div>
+    )
+  };
+
+
+
+
+
+
+
 
   export function PostButton(props) {
     return (

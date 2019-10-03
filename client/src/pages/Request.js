@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, PostButton } from "../components/PostRequest";
+import { Input, PostButton, Age, Experience } from "../components/PostRequest";
 import { Container, Row, Col } from "../components/Grid";
 import API from "../utils/API";
 import setAuthToken from "../utils/setAuthToken";
@@ -118,13 +118,13 @@ class PostRequest extends Component {
                 name="lastname"
                 placeholder="Last Name"
               />
-               <Input
+               <Age
                 value={this.state.age}
                 onChange={this.handlePostChange}
                 name="age"
                 placeholder="Age"
               />
-              <Input
+              <Experience
                 value={this.state.experience}
                 onChange={this.handlePostChange}
                 name="experience"
