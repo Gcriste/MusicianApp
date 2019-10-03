@@ -61,10 +61,13 @@ const SavedRequests = props => {
               <br></br>
           <Row className="buttonDiv ">
               <button 
-              className="deleteRequest btn btn-danger" 
+              className="ui red vertical animated button" tabindex = "0"
               id={savedRequest._id} 
               onClick={() => props.handleDeleteRequest(savedRequest._id)}>
-                 Delete Request
+                 <div className = "visible content">Remove Request </div>
+                    <div className = "hidden content">
+                        DELETE
+                    </div>  
               </button>
             </Row>
       </li>

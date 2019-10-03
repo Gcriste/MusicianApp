@@ -82,7 +82,7 @@ class Login extends Component {
       const {errors, redirect} = this.state;
 
       if (redirect)  {
-        return <Redirect to="/search"/>
+        return <Redirect to="/saved"/>
       }
 
         return (
@@ -147,6 +147,13 @@ class Login extends Component {
                
               </button>
               </div>
+               {/* <button className = "ui orange animated button" tabindex ="0"
+                     onClick = { this.handleLogout}> 
+                     <div className = "visible content">Logout</div>
+                      <div className = "hidden content">
+                      <i className = "left arrow icon"></i>
+                    </div> 
+                   </button> */}
             </form>
           
                         </div>

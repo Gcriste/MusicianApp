@@ -133,11 +133,11 @@ class Saved extends Component {
                          {' '}
                      <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
                          {' '}
-                     <button className = "ui orange  animated button" tabindex ="0"
+                     <button className = "ui orange animated button" tabindex ="0"
                      onClick = { this.handleLogout}> 
                      <div className = "visible content">Logout</div>
                       <div className = "hidden content">
-                      <i className = "right arrow icon"></i>
+                      <i className = "left arrow icon"></i>
                     </div> 
                    </button>
 
