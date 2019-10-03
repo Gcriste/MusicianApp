@@ -52,11 +52,16 @@ const SavedResult = props => {
               <br></br>
           <Row className="buttonDiv ">
               <button 
-              className="deleteGig btn btn-danger" 
+              className="ui red vertical animated button" tabindex ="0"
               id={savedgig._id} 
               onClick={() => props.handleDeleteButton(savedgig._id)}>
-                 Delete Gig
+
+                 <div className = "visible content">Remove Gig </div>
+                                <div className = "hidden content">
+                                 DELETE
+                                  </div>  
               </button>
+
             </Row>
       </li>
 );

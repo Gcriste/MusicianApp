@@ -108,45 +108,116 @@ class Saved extends Component {
     }
   
       return (
-          <Container fluid className="container">
-              <div className = "form profileForm">
-                    <h1 className="text-black">Search for upcoming Gigs!</h1>
-                    <p> You have successfully authenticated!</p>
-                    <p> <strong> Welcome: {user.firstname}</strong></p>
-                        {' '}
-                    <p> <strong> Email Address: {user.email}</strong></p>
-                        {' '}
-                    <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
-                        {' '}
-                    <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
-                        {' '}
-                     <button className = "btn btn-danger" onClick = { this.handleLogout}> Logout </button>
+        <Container>
+           
+        <div className="ui pointing menu">
+  <a className="active item">
+   Profile
+   
+  </a>
+  <a className="item">
+   My Posted Gigs
+  </a>
+  <a className="item">
+   My Gig Requests
+  </a>
+      </div>
+      <div className="ui segment">
+  <div className = "form profileForm">
+                   
+                     <p> <strong> Welcome: {user.firstname}</strong></p>
+                         {' '}
+                     <p> <strong> Email Address: {user.email}</strong></p>
+                         {' '}
+                     <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
+                         {' '}
+                     <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
+                         {' '}
+                     <button className = "ui orange  animated button" tabindex ="0"
+                     onClick = { this.handleLogout}> 
+                     <div className = "visible content">Logout</div>
+                      <div className = "hidden content">
+                      <i className = "right arrow icon"></i>
+                    </div> 
+                   </button>
+
+
                 </div>
-              <Container>
-                <div className = "container">
-                  <div className = "row">
+ <br></br>
+  <div className = "container">
+                <div className = "row">
                     <div className = "col-6">
-                    <SavedResult 
+                     <SavedResult 
                   savedGigs={this.state.savedGigs} 
                   handleDeleteButton={this.handleDeleteButton} />
                     </div>
+                   
+                    
+ 
+   
+
+      <div className = "col-6">
+                  
+                         <SavedRequests
+                     
+                        savedRequests= {this.state.savedRequests}
+                        dateForSavedRequests={this.state.dateForSavedRequests}
+                     handleDeleteRequest ={this.handleDeleteRequest}
+                        />
+                         </div>
+                     </div>
+                     </div>
+                     </div>
+      </Container>
+
+
+          // <Container fluid className="container">
+          //     <div className = "form profileForm">
+          //           <h1 className="text-black">Search for upcoming Gigs!</h1>
+          //           <p> You have successfully authenticated!</p>
+          //           <p> <strong> Welcome: {user.firstname}</strong></p>
+          //               {' '}
+          //           <p> <strong> Email Address: {user.email}</strong></p>
+          //               {' '}
+          //           <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
+          //               {' '}
+          //           <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
+          //               {' '}
+          //            <button className = "ui orange  animated button" tabindex ="0"
+          //            onClick = { this.handleLogout}> 
+          //            <div className = "visible content">Logout</div>
+          //             <div className = "hidden content">
+          //             <i className = "right arrow icon"></i>
+          //           </div> 
+          //          </button>
+
+
+          //       </div>
+              // <Container>
+              //   <div className = "container">
+              //     <div className = "row">
+              //       <div className = "col-6">
+              //       <SavedResult 
+              //     savedGigs={this.state.savedGigs} 
+              //     handleDeleteButton={this.handleDeleteButton} />
+              //       </div>
                   
                
                  
                 
-                  <div className = "col-6">
+              //     <div className = "col-6">
                   
-                    <SavedRequests
+              //       <SavedRequests
                  
-                    savedRequests= {this.state.savedRequests}
-                    dateForSavedRequests={this.state.dateForSavedRequests}
-                 handleDeleteRequest ={this.handleDeleteRequest}
-                    />
-                 </div>
-                 </div>
-                 </div>
-              </Container>
-          </Container>
+              //       savedRequests= {this.state.savedRequests}
+              //       dateForSavedRequests={this.state.dateForSavedRequests}
+              //    handleDeleteRequest ={this.handleDeleteRequest}
+              //       />
+              //    </div>
+              //    </div>
+              //    </div>
+              // </Container>
+          // </Container>
       )
   }
 }

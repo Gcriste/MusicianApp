@@ -5,11 +5,12 @@ import React from "react";
 const SearchForm = props => {
 
   return (
-    <form>
-    <div className="form-group">
-    <h3>Search for all available gigs!</h3>
-    </div>
-    </form>
+   
+    <h3 className="ui center aligned icon header">
+      <i className = "music icon"></i>
+    Search for all available gigs!</h3>
+ 
+    
 )
 }
     {/* <br></br>

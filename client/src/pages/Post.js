@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron"
 import { Container, Row, Col } from "../components/Grid";
-import { Input, PostButton } from "../components/Post";
+import { Input, PostButton, Musician } from "../components/Post";
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
 
@@ -91,51 +91,85 @@ class Post extends Component {
             <div>
     <Container fluid>
         <Row>
-          <Col size="md-6">
-             <form>
-              <Input
+          <Col size="md-6 text-center">
+             <form className = "ui form">
+             <div className="two fields">
+      
+               
+      <Musician
                 value={this.state.musician}
                 onChange={this.handlePostChange}
                 name="musician"
                 placeholder="Musician Type (required)"
               />
-               <Input
+          <div className="field">
+      <label>Date of Gig</label>
+      <Input
                 value={this.state.date}
                 onChange={this.handlePostChange}
                 name="date"
                 placeholder="Date (required)"
               />
-               <Input
+        </div>
+        </div>
+        <div className = "two fields">
+        <div className="field">
+      <label>Time</label>
+      <Input
                 value={this.state.time}
                 onChange={this.handlePostChange}
                 name="time"
                 placeholder="Time(required)"
               />
-              <Input
+        </div>
+        <div className="field">
+      <label>Pay</label>
+      <Input
                 value={this.state.pay}
                 onChange={this.handlePostChange}
                 name="pay"
                 placeholder="Pay(required)"
               />
-               <Input
+        </div>
+        </div>
+        <div className = "three fields">
+        <div className="field">
+      <label>Venue</label>
+      <Input
                 value={this.state.venue}
                 onChange={this.handlePostChange}
                 name="venue"
                 placeholder="Venue(required)"
               />
-                <Input
+        </div>
+        <div className="field">
+      <label>Band Name</label>
+      <Input
                 value={this.state.bandname}
                 onChange={this.handlePostChange}
                 name="bandname"
                 placeholder="Band Name"
               />
-               <Input
+        </div>
+       
+        <div className="field">
+      <label>Music Type</label>
+      <Input
                 value={this.state.musictype}
                 onChange={this.handlePostChange}
                 name="musictype"
                 placeholder="Music Type"
             
             />
+        </div>
+        
+  </div>
+              
+              
+              
+              
+               
+               
              <PostButton 
                 handlePostSubmit={this.handlePostSubmit}
               >

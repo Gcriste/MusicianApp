@@ -56,8 +56,11 @@ return (
                         <br></br>
                         <Row className="buttonDiv ">
                             <a href={"/request/" + gig._id}>
-                            <button className="requestGig btn btn-primary">
-                                         Request To Play Gig
+                            <button className="ui violet animated button" tabindex="0">
+                                <div className = "visible content">Request To Play Gig </div>
+                                <div className = "hidden content">
+                                    <i className = "right arrow icon"></i>
+                                  </div>      
                                 </button>
                                 </a>
                         </Row>
