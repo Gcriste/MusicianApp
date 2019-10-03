@@ -110,7 +110,7 @@ class Saved extends Component {
       return (
         <Container>
            
-        <div className="ui pointing menu">
+        {/* <div className="ui pointing menu">
   <a className="active item">
    Profile
    
@@ -121,18 +121,18 @@ class Saved extends Component {
   <a className="item">
    My Gig Requests
   </a>
-      </div>
+      </div> */}
       <div className="ui segment">
   <div className = "form profileForm">
                    
-                     <p> <strong> Welcome: {user.firstname}</strong></p>
+                     <h3> <strong> Welcome: {user.firstname}</strong></h3>
                          {' '}
-                     <p> <strong> Email Address: {user.email}</strong></p>
+                     <h3> <strong> Email Address: {user.email}</strong></h3>
                          {' '}
-                     <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
+                     <h3> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></h3>
                          {' '}
-                     <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
-                         {' '}
+                     {/* <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
+                         {' '} */}
                      <button className = "ui orange animated button" tabindex ="0"
                      onClick = { this.handleLogout}> 
                      <div className = "visible content">Logout</div>

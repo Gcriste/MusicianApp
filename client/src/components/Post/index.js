@@ -52,7 +52,6 @@ export function Input(props) {
     <label>Musician Type</label>
     <select className = "ui fluid search dropdown" {...props} >
     <option value="">Instrument</option>
-          <option value="Acme Feed">Acme Feed</option>
           <option value="Guitarist">Guitar</option>
           <option value="Bassist">Bass</option>
           <option value="Drummer">Drums</option>
