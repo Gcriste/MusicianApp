@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Jumbotron from "../components/Jumbotron"
 import { Container, Row, Col } from "../components/Grid";
-import { Input, PostButton, Musician } from "../components/Post";
+import { Input, PostButton, Musician, Venue } from "../components/Post";
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
 
@@ -134,8 +134,7 @@ class Post extends Component {
         </div>
         <div className = "three fields">
         <div className="field">
-      <label>Venue</label>
-      <Input
+      <Venue
                 value={this.state.venue}
                 onChange={this.handlePostChange}
                 name="venue"
