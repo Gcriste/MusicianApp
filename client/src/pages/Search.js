@@ -18,12 +18,7 @@ class SearchGigs extends Component {
        
     };
 
-    handleLogout = () => {
-        localStorage.removeItem('example-app')
-        this.setState({
-            redirect:true
-        })
-    }
+   
 
     componentDidMount() {
         
@@ -119,19 +114,7 @@ class SearchGigs extends Component {
             
     
             <Container fluid>
-               <div className = "form profileForm">
-                    <h1 className="text-black">Search for upcoming Gigs!</h1>
-                    <p> You have successfully authenticated!</p>
-                    <p> <strong> Welcome: {user.firstname}</strong></p>
-                        {' '}
-                    <p> <strong> Email Address: {user.email}</strong></p>
-                        {' '}
-                    <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
-                        {' '}
-                    <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
-                        {' '}
-                     <button className = "btn btn-danger" onClick = { this.handleLogout}> Logout </button>
-                </div>
+               
                 <Container>
                     <Row>
                         <Col size="12">

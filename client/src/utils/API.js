@@ -56,7 +56,7 @@ export default {
   },
   // Gets the book with the given id
   getGig: function(id) {
-    return axios.get("/api/gigs/" + id);
+    return axios.get("/api/gigs/?_id=" + id);
   },
   // Deletes the book with the given id
   deleteGig: function(id) {
@@ -81,8 +81,8 @@ export default {
   getRequestByUser:function(userId){
     return axios.get("/api/requests/" + userId)
   },
-  deleteRequest:function(gigId){
-    return axios.delete("/api/requests/" + gigId)
+  deleteRequest:function(id){
+    return axios.delete("/api/requests/" + id)
   }
   
 

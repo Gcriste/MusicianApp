@@ -6,13 +6,15 @@ router.route("/")
   .get(gigsController.findAll)
   .post(gigsController.create);
 
-// Matches with "/api/gigs/:id"
+// Matches with "/api/gigs/:userid"
 router.route("/:userid")
   .get(gigsController.findById)
   .put(gigsController.update)
+ 
+
+  router.route("/:id")
+  .get(gigsController.find)
   .delete(gigsController.remove);
 
-  router.route("/:gigid")
-  .get(gigsController.find);
 
 module.exports = router;

@@ -23,6 +23,16 @@ const IncomingRequests = props => {
           <Col 
               size="9" 
               className="requestInfo">
+                     <Row>
+              {props.dateForSavedRequests.map(data => (
+                  <h3 className="requestFirstName"> Gig Date: <Moment date={data.date} format="MM/DD/YYYY"/></h3>
+              ))}
+              </Row>
+              <Row>
+              {props.dateForSavedRequests.map(data => (
+                  <h3 className="requestFirstName"> Venue: {data.venue} </h3>
+              ))}
+              </Row>
               <Row>
               <h3 className="requestFirstName">First Name: {savedrequest.firstname}</h3>
               </Row>

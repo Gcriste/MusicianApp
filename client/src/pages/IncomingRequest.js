@@ -10,7 +10,8 @@ class IncomingRequest extends Component {
         savedGigs:[],
         userid:"",
         savedRequests:[],
-        gigid:""
+        gigid:"",
+        dateForSavedRequests:[]
     };
   
   
@@ -55,22 +56,26 @@ class IncomingRequest extends Component {
         
        
        let requestGigId = postedGigId.filter(element => gigId.includes(element))
-        // if (postedGigId === gigId){
-        //     let requestGigId = postedGigId
-        console.log(requestGigId)
 
-        let requests = [];
 
         for (var i = 0; i < requestGigId.length; i++) {
             API.getRequestByGig(requestGigId[i])
             .then(res => {
-                requests.push(res.data);
-                console.log(res.data)
+                this.setState({
+                    savedRequests: res.data
+                  })
             })
+            API.getGig(requestGigId[i])
+            .then(res => {
+            console.log(res.data)
+            this.setState({
+          dateForSavedRequests:res.data
+        })
+      
+        
+      })
         }
-        this.setState({
-            savedRequests: requests
-          })
+       
         
     // }
       })
@@ -93,6 +98,7 @@ class IncomingRequest extends Component {
                 <h1>New Requests</h1>
                 <IncomingRequests
                     savedRequests= {this.state.savedRequests}
+                    dateForSavedRequests={this.state.dateForSavedRequests}
                     />
             </div>
         )

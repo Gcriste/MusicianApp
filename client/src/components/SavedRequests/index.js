@@ -13,7 +13,6 @@ const SavedRequests = props => {
        
             <h3>Your Show Requests</h3>
               {props.savedRequests.map(savedRequest => {
-        
 
     return (
       <li className="search-list list-group-item">
@@ -25,6 +24,16 @@ const SavedRequests = props => {
           <Col 
               size="9" 
               className="requestInfo">
+                <Row>
+              {props.dateForSavedRequests.map(data => (
+                  <h3 className="requestFirstName"> Gig Date: <Moment date={data.date} format="MM/DD/YYYY"/></h3>
+              ))}
+              </Row>
+              <Row>
+              {props.dateForSavedRequests.map(data => (
+                  <h3 className="requestFirstName"> Venue: {data.venue} </h3>
+              ))}
+              </Row>
               <Row>
               <h3 className="requestFirstName">First Name: {savedRequest.firstname}</h3>
               </Row>
@@ -46,9 +55,6 @@ const SavedRequests = props => {
               <Row>
               <h4 className="requestLink">Link: {savedRequest.link}</h4>
               </Row>
-              <Row>
-              <h4 className="requestGig">GigId: {savedRequest.gigdate}</h4>
-              </Row>
              
           </Col>
       </Row>
@@ -57,7 +63,7 @@ const SavedRequests = props => {
               <button 
               className="deleteRequest btn btn-danger" 
               id={savedRequest._id} 
-              onClick={() => props.handleDeleteButton(savedRequest._id)}>
+              onClick={() => props.handleDeleteRequest(savedRequest._id)}>
                  Delete Request
               </button>
             </Row>
