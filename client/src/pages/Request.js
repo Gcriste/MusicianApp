@@ -102,19 +102,19 @@ class PostRequest extends Component {
 
         return (
             <div>
-    <Container className = "fluid">
-        <Row>
-        <Col size="md-3"></Col>
-          <Col size="md-6">
-             <form>
-                 <br></br>
-                 <br></br>
+    <div className = "ui relaxed grid">
+        <div className = "three column row">
+        <div className = "column"></div>
+          <div className = "column ">
+             <form className = "ui big form">
+                 <label><strong>First Name</strong></label>
               <Input
                 value={this.state.firstname}
                 onChange={this.handlePostChange}
                 name="firstname"
                 placeholder="First Name"
               />
+               <label><strong>Last Name</strong></label>
                <Input
                 value={this.state.lastname}
                 onChange={this.handlePostChange}
@@ -134,18 +134,21 @@ class PostRequest extends Component {
                 placeholder="Years of Experience"
               />
               <br></br>
+              <label><strong>Reference Name</strong></label>
                <Input
                 value={this.state.referencename}
                 onChange={this.handlePostChange}
                 name="referencename"
                 placeholder="Name of Reference"
               />
+               <label><strong>Reference Phone Number</strong></label>
                 <Input
                 value={this.state.referencenumber}
                 onChange={this.handlePostChange}
                 name="referencenumber"
                 placeholder="Phone number for Reference"
               />
+               <label><strong>Link</strong></label>
                <Input
                 value={this.state.link}
                 onChange={this.handlePostChange}
@@ -160,9 +163,9 @@ class PostRequest extends Component {
 
            
             </form>
-            </Col>
-            </Row>
-            </Container>
+            </div>
+            </div>
+            </div>
              
 
 

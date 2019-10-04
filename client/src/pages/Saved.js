@@ -123,16 +123,24 @@ class Saved extends Component {
   </a>
       </div> */}
       <div className="ui segment">
+        <div className = "container">
+         
   <div className = "form profileForm">
-                   
-                     <h3> <strong> Welcome: {user.firstname}</strong></h3>
+                   <div className = "row">
+                     <div className = "col-md-4">
+                     <h3> <strong> Welcome {user.firstname}</strong></h3>
                          {' '}
-                     <h3> <strong> Email Address: {user.email}</strong></h3>
+                     {/* <h3> <strong> Email Address {user.email}</strong></h3>
                          {' '}
+                      */}
+                     
                      <h3> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></h3>
                          {' '}
                      {/* <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
                          {' '} */}
+                          </div> 
+                          <div className= "col-md-6"></div>
+                        <div className= "col-md-2">  
                      <button className = "ui orange animated button" tabindex ="0"
                      onClick = { this.handleLogout}> 
                      <div className = "visible content">Logout</div>
@@ -140,13 +148,15 @@ class Saved extends Component {
                       <i className = "left arrow icon"></i>
                     </div> 
                    </button>
+                   </div>
+                   </div>
 
-
+                </div>
                 </div>
  <br></br>
   <div className = "container">
                 <div className = "row">
-                    <div className = "col-6">
+                    <div className = "col-md-6">
                      <SavedResult 
                   savedGigs={this.state.savedGigs} 
                   handleDeleteButton={this.handleDeleteButton} />
@@ -167,57 +177,12 @@ class Saved extends Component {
                          </div>
                      </div>
                      </div>
+                    
                      </div>
-      </Container>
+    
 
-
-          // <Container fluid className="container">
-          //     <div className = "form profileForm">
-          //           <h1 className="text-black">Search for upcoming Gigs!</h1>
-          //           <p> You have successfully authenticated!</p>
-          //           <p> <strong> Welcome: {user.firstname}</strong></p>
-          //               {' '}
-          //           <p> <strong> Email Address: {user.email}</strong></p>
-          //               {' '}
-          //           <p> <strong> Member since: <Moment date={user.createdAt} format="MM/DD/YYYY" /></strong></p>
-          //               {' '}
-          //           <p> <strong> Last Updated: <Moment date={user.updatedAt} format="MM/DD/YYYY" /></strong></p>
-          //               {' '}
-          //            <button className = "ui orange  animated button" tabindex ="0"
-          //            onClick = { this.handleLogout}> 
-          //            <div className = "visible content">Logout</div>
-          //             <div className = "hidden content">
-          //             <i className = "right arrow icon"></i>
-          //           </div> 
-          //          </button>
-
-
-          //       </div>
-              // <Container>
-              //   <div className = "container">
-              //     <div className = "row">
-              //       <div className = "col-6">
-              //       <SavedResult 
-              //     savedGigs={this.state.savedGigs} 
-              //     handleDeleteButton={this.handleDeleteButton} />
-              //       </div>
-                  
-               
-                 
-                
-              //     <div className = "col-6">
-                  
-              //       <SavedRequests
-                 
-              //       savedRequests= {this.state.savedRequests}
-              //       dateForSavedRequests={this.state.dateForSavedRequests}
-              //    handleDeleteRequest ={this.handleDeleteRequest}
-              //       />
-              //    </div>
-              //    </div>
-              //    </div>
-              // </Container>
-          // </Container>
+                     </Container>
+       
       )
   }
 }

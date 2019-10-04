@@ -92,19 +92,20 @@ class Post extends Component {
               <Container className = "fluid">
                 <Row>
                 <Col size = "md-12">
-               
+               <br></br>
     <div className ="ui relaxed center aligned grid">
-          <div className = "six wide column" >
+          <div className = "eight wide column" >
              <form className = "ui big form">
-             <div className="two fields">
+             <div className="three fields">
       
-               
+             <div className="field"> 
       <Musician
                 value={this.state.musician}
                 onChange={this.handlePostChange}
                 name="musician"
                 placeholder="Musician Type (required)"
               />
+              </div>
           <div className="field">
       <label>Date of Gig</label>
       <Input
@@ -114,8 +115,7 @@ class Post extends Component {
                 placeholder="Date (required)"
               />
         </div>
-        </div>
-        <div className = "two fields">
+       
         <div className="field">
       <label>Time</label>
       <Input
@@ -125,7 +125,10 @@ class Post extends Component {
                 placeholder="Time(required)"
               />
         </div>
-        <div className="field">
+        </div>
+        
+        <div className="two fields">
+        <div className=" four wide field">
       <label>Pay</label>
       <Input
                 value={this.state.pay}
@@ -134,9 +137,7 @@ class Post extends Component {
                 placeholder="Pay(required)"
               />
         </div>
-        </div>
-        <div className = "three fields">
-        <div className="field">
+        <div className="twelve wide field">
       <Venue
                 value={this.state.venue}
                 onChange={this.handlePostChange}
@@ -144,6 +145,8 @@ class Post extends Component {
                 placeholder="Venue(required)"
               />
         </div>
+        </div>
+        <div className = "two fields">
         <div className="field">
       <label>Band Name</label>
       <Input
@@ -163,10 +166,9 @@ class Post extends Component {
             
             />
         </div>
-        
-  </div>
+       
               
-              
+     </div>        
               
               
                

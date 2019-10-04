@@ -1,8 +1,7 @@
-/* .row{
-    background:grey
-} */
+.row{
+    text-align:center;
+}
 
-/* .container{
-    border:5px solid black;
-    background: #DCDCDC;
-} */
+.col{
+    text-align:center;
+}

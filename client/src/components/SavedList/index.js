@@ -22,7 +22,6 @@ const SavedResult = props => {
       key={savedgig._id}>
              
           <Col 
-              size="9" 
               className="gigInfo">
                 <Row>
               <h3 className="gigMusician">Musician: {savedgig.musician}</h3>
