@@ -62,7 +62,7 @@ class Post extends Component {
            musician:this.state.musician,
           pay: this.state.pay,
           venue: this.state.venue,
-          bandname: this.state.pay,
+          bandname: this.state.bandname,
           musictype: this.state.musictype,
           date: this.state.date,
           time:this.state.time,
@@ -89,18 +89,19 @@ class Post extends Component {
 
         return (
             <div>
-              <Container className = "fluid">
-                <Row>
-                <Col size = "md-12">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
                <br></br>
     <div className ="ui relaxed center aligned grid">
-          <div className = "eight wide column" >
+          <div className = "ten wide column" >
              <form className = "ui big form">
              <div className="three fields">
       
              <div className="field"> 
       <Musician
-                value={this.state.musician}
+                value={this.state.Musician}
                 onChange={this.handlePostChange}
                 name="musician"
                 placeholder="Musician Type (required)"
@@ -184,9 +185,6 @@ class Post extends Component {
             </div>
           
              
-            </Col>
-                </Row>
-            </Container>
             </div>
         )
     }

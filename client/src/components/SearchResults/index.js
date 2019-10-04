@@ -13,7 +13,7 @@ return (
     <div className="card">
         <div className="card-body player">
             <div className="article">
-                <h3>Upcoming Gigs</h3>
+                <h1>Upcoming Gigs</h1>
                 {props.gigs.map(gig => {                            
                     return (
                     <li className="search-list list-group-item">
@@ -23,27 +23,21 @@ return (
                         key={gig._id}>
                                
                             <Col 
-                                size="9" 
-                                className="gigInfo">
+                              
+                                className="col-md-6 gigInfo">
                                 
                                 <Row>
-                                <h4 className="gigMusician">Musician Type: {gig.musician}</h4>
+                                <h2 className="gigMusician">Looking For {gig.musician} On  <Moment date={gig.date} format="MM/DD/YYYY"/></h2>
                                 </Row>
                                 <Row>
-                                <h3 className="gigDate">Date: <Moment date={gig.date} format="MM/DD/YYYY"/></h3>
+                                <h3 className="gigVenue"> At {gig.venue} For ${gig.pay}</h3>
                                 </Row>
                                 <Row>
-                                <h3 className="gigVenue">Venue: {gig.venue}</h3>
-                                </Row>
-                                <Row>
-                                <h3 className="gigPay">Pay: ${gig.pay}</h3>
-                                </Row>
-                                <Row>
-                                <h4 className="gigTime">Time: {gig.time}</h4>
+                                <h4 className="gigTime">From {gig.time}</h4>
                                 </Row>
                                
                                 <Row>
-                                <h4 className="gigBandName">Band Name: {gig.bandname}</h4>
+                                <h4 className="gigBandName">With {gig.bandname}</h4>
                                 </Row>
                                 <Row>
                                 <h4 className="gigMusicType">Music Type: {gig.musictype}</h4>
@@ -56,7 +50,7 @@ return (
                         <br></br>
                         <Row className="buttonDiv ">
                             <a href={"/request/" + gig._id}>
-                            <button className="ui violet animated button" tabindex="0">
+                            <button className="ui primary animated button" tabindex="0">
                                 <div className = "visible content">Request To Play Gig </div>
                                 <div className = "hidden content">
                                     <i className = "right arrow icon"></i>

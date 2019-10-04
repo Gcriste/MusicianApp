@@ -101,12 +101,17 @@ class PostRequest extends Component {
       }
 
         return (
-            <div>
-    <div className = "ui relaxed grid">
-        <div className = "three column row">
-        <div className = "column"></div>
-          <div className = "column ">
-             <form className = "ui big form">
+<div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <div className = "ui relaxed center aligned grid">
+        <div className = "ten wide column">
+        <form className = "ui big form">
+             <div className="three fields">
+      
+             <div className="field"> 
                  <label><strong>First Name</strong></label>
               <Input
                 value={this.state.firstname}
@@ -114,26 +119,37 @@ class PostRequest extends Component {
                 name="firstname"
                 placeholder="First Name"
               />
-               <label><strong>Last Name</strong></label>
+               </div>
+                <div className="field">
+                <label><strong>Last Name</strong></label>
                <Input
                 value={this.state.lastname}
                 onChange={this.handlePostChange}
                 name="lastname"
                 placeholder="Last Name"
               />
+                </div>
+                <div className="field">
                <Age
                 value={this.state.age}
                 onChange={this.handlePostChange}
                 name="age"
                 placeholder="Age"
               />
+              </div>
+            </div>
+
+        <br></br>
+            <div className="three fields">
+                <div className = "field">
               <Experience
                 value={this.state.experience}
                 onChange={this.handlePostChange}
                 name="experience"
                 placeholder="Years of Experience"
               />
-              <br></br>
+              </div>
+              <div className = "field">
               <label><strong>Reference Name</strong></label>
                <Input
                 value={this.state.referencename}
@@ -141,35 +157,42 @@ class PostRequest extends Component {
                 name="referencename"
                 placeholder="Name of Reference"
               />
+              </div>
+              <div className = "field">
                <label><strong>Reference Phone Number</strong></label>
                 <Input
                 value={this.state.referencenumber}
                 onChange={this.handlePostChange}
                 name="referencenumber"
-                placeholder="Phone number for Reference"
+                placeholder="Enter Phone Number"
               />
+              </div>
+              </div>
+
+        <br></br>
+              <div className="one field">
+              <div className="field">  
                <label><strong>Link</strong></label>
                <Input
                 value={this.state.link}
                 onChange={this.handlePostChange}
                 name="link"
                 placeholder="Link for video or website"
-            
             />
+            </div>
+            </div>
              <PostButton 
                 handlePostRequest={this.handlePostRequest}
               >
               </PostButton>
+            </form>
+        </div>
+    </div>
+</div>
+        
+
 
            
-            </form>
-            </div>
-            </div>
-            </div>
-             
-
-
-            </div>
         )
     }
 }

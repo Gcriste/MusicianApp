@@ -12,13 +12,12 @@ export function Input(props) {
 
   export function PostButton(props) {
     return (
+        
         <button type="submit" 
-              className="ui primary horizontal animated button" tabindex = "0"
+              className="ui violet horizontal animated button" tabindex = "0"
               onClick={(event) => props.handlePostRequest(event)}>
-                    <div className = "visible content">Submit </div>
-                    <div className = "hidden content">
-                    <i className = "right arrow icon"></i>
-                    </div> 
+                    <div className = "visible content">Post Request</div>
+                    <div className = "hidden content">Submit</div> 
                 </button>
        
 
@@ -51,7 +50,7 @@ export function Input(props) {
     return (
        <div className = "ui big form">
     <div className="field">
-    <label>Experience (How Many Times Have You Played Downtown?)</label>
+    <label># of Gigs Played Downtown</label>
     <select className = "ui fluid search dropdown" {...props} >
     <option value="0">0</option>
           <option value="Never Played Downtown"> Never Played Downtown</option>
