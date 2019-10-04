@@ -102,10 +102,13 @@ class PostRequest extends Component {
 
         return (
             <div>
-    <Container fluid>
+    <Container className = "fluid">
         <Row>
+        <Col size="md-3"></Col>
           <Col size="md-6">
              <form>
+                 <br></br>
+                 <br></br>
               <Input
                 value={this.state.firstname}
                 onChange={this.handlePostChange}
@@ -130,6 +133,7 @@ class PostRequest extends Component {
                 name="experience"
                 placeholder="Years of Experience"
               />
+              <br></br>
                <Input
                 value={this.state.referencename}
                 onChange={this.handlePostChange}

@@ -89,10 +89,13 @@ class Post extends Component {
 
         return (
             <div>
-    <Container fluid>
-        <Row>
-          <Col size="md-6 text-center">
-             <form className = "ui form">
+              <Container className = "fluid">
+                <Row>
+                <Col size = "md-12">
+               
+    <div className ="ui relaxed center aligned grid">
+          <div className = "six wide column" >
+             <form className = "ui big form">
              <div className="two fields">
       
                
@@ -175,12 +178,13 @@ class Post extends Component {
 
            
             </form>
-            </Col>
-            </Row>
-            </Container>
+            </div>
+            </div>
+          
              
-
-
+            </Col>
+                </Row>
+            </Container>
             </div>
         )
     }

@@ -2,29 +2,32 @@ import React from 'react';
 
 export function Input(props) {
     return (
-       
+        <div className = "ui big form">
       <div className="form-group">
         <input className="form-control" {...props} />
       </div>
-
+</div>
     )
   };
 
   export function PostButton(props) {
     return (
-       
         <button type="submit" 
-              className="PostBtn btn btn-primary" 
+              className="ui primary horizontal animated button" tabindex = "0"
               onClick={(event) => props.handlePostRequest(event)}>
-                      Submit
+                    <div className = "visible content">Submit </div>
+                    <div className = "hidden content">
+                    <i className = "right arrow icon"></i>
+                    </div> 
                 </button>
+       
 
     )
   };
 
   export function Age(props) {
     return (
-       
+        <div className = "ui big form">
     <div className="field">
     <label>Age</label>
     <select className = "ui fluid search dropdown" {...props} >
@@ -39,13 +42,14 @@ export function Input(props) {
           <option value="Over 65">Over 65</option>
             </select>
        </div>
+       </div>
     )
   };
 
 
   export function Experience(props) {
     return (
-       
+       <div className = "ui big form">
     <div className="field">
     <label>Experience (How Many Times Have You Played Downtown?)</label>
     <select className = "ui fluid search dropdown" {...props} >
@@ -59,6 +63,7 @@ export function Input(props) {
           <option value="50-100 Times">50-100 Times</option>
           <option value="Over 100 Times">Over 100 Times</option>
             </select>
+       </div>
        </div>
     )
   };
