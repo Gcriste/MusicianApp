@@ -18,8 +18,8 @@ export function Input(props) {
     return (
        
     <div className="required field">
-    <label>Venue</label>
     <select className = "ui fluid search dropdown" {...props} >
+    <option value="">Venue</option>
           <option value="Acme Feed and Seed">Acme Feed and Seed</option>
           <option value="Tootsies">Tootsies</option>
           <option value="Famous Saloon">Famous Saloon</option>
@@ -52,8 +52,8 @@ export function Input(props) {
     return (
        
     <div className="required field">
-    <label>Musician Type</label>
     <select className = "ui fluid search dropdown" {...props} >
+      <option value="">Instrument</option>
           <option value="Guitarist">Guitar</option>
           <option value="Bassist">Bass</option>
           <option value="Drummer">Drums</option>

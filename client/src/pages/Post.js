@@ -68,6 +68,12 @@ class Post extends Component {
          console.log("hi")
 let errors = {}
 
+if (!this.state.musician){
+  
+  errors.musician = "Please click on the musicican type";
+  this.setState({errors})
+  
+}
 if (!this.state.pay){
   
     errors.pay = "Please type in the pay";
@@ -76,7 +82,7 @@ if (!this.state.pay){
 }
 if (!this.state.venue){
   
-  errors.venue = "Please type in the venue name";
+  errors.venue = "Please click on the venue name";
   this.setState({errors})
   
 }
@@ -138,7 +144,9 @@ else{
              <form className = "ui big form">
              <div className="three fields">
       
-             <div className="required field">
+             <div className={`required field ${errors.musician ? 'error' : ''}`}>
+      <label>Musician Type</label>
+            {errors.musician && <div style = {styles.error}>{errors.musician}</div>}
               <Musician
                 value={this.state.Musician}
                 onChange={this.handlePostChange}
@@ -180,7 +188,9 @@ else{
                 placeholder="Pay(required)"
               />
         </div>
-        <div className="twelve wide required field">
+        <div className={`twelve wide required field ${errors.venue ? 'error' : ''}`}>
+      <label>Venue</label>
+            {errors.venue && <div style = {styles.error}>{errors.venue}</div>}
       <Venue
                 value={this.state.venue}
                 onChange={this.handlePostChange}
