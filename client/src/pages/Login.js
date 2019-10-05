@@ -96,9 +96,12 @@ class Login extends Component {
                 <div className = "container">
                   <div className = "row">
                     <div className = "col-md-6 m-auto">
+                    <div className = "ui form">
                       <div className = "card">
+                     
                         <div className = "card-body">
                           <h1 className = "display-4 text-center">
+                           
                             Log In  {' '}
                           </h1>
                           <h4 className = "text-center">
@@ -107,6 +110,8 @@ class Login extends Component {
                           <br></br>
 
                           <form>
+              <div className={`required field ${errors.user? 'error' : ''}`}>
+              {errors.user && (<div style={styles.error}> {errors.user}</div>)}
               <Input
                 value={this.state.email}
                 type="email"
@@ -114,15 +119,10 @@ class Login extends Component {
                 name="email"
                 placeholder="Enter Email Address"
               />
+             </div>
              
-              {
-                errors.user && (
-                    <div style={styles.error}>
-                    {errors.user}
-                    </div>
-                    )
-              }
-          
+             <div className={`required field ${errors.password ? 'error' : ''}`}>
+              {errors.password && (<div style={styles.error}> {errors.password}</div>)}
                <Input
                 value={this.state.password}
                 onChange={this.handleLoginChange}
@@ -130,13 +130,8 @@ class Login extends Component {
                 type="password"
                 placeholder="Enter Password"
               />
-               {
-                errors.password && (
-                    <div style={styles.error}>
-                    {errors.password}
-                    </div>
-                    )
-              }
+              </div>
+             
           <div className="text-left">
              <PostButton 
                 handleLoginSubmit={this.handleLoginSubmit}
@@ -151,16 +146,10 @@ class Login extends Component {
                
               </button>
               </div>
-               {/* <button className = "ui orange animated button" tabindex ="0"
-                     onClick = { this.handleLogout}> 
-                     <div className = "visible content">Logout</div>
-                      <div className = "hidden content">
-                      <i className = "left arrow icon"></i>
-                    </div> 
-                   </button> */}
             </form>
           
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>
