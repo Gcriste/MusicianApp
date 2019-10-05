@@ -5,6 +5,10 @@ import {Link} from "react-router-dom";
 import Moment from 'react-moment';
 
 const SearchResult = props => {
+    let gigsSorted = props.gigs.sort( (a,b) => {
+       return new Date(a.date) - new Date(b.date);
+    })
+   
 return (
 
     <div>
@@ -14,7 +18,9 @@ return (
         <div className="card-body player">
             <div className="article">
                 <h1>Upcoming Gigs</h1>
-                {props.gigs.map(gig => {                            
+              
+                {gigsSorted.map(gig => { 
+                                          
                     return (
                     <li className="search-list list-group-item">
                         <Row 

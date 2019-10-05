@@ -44,6 +44,7 @@ class SearchGigs extends Component {
     loadGigs = () => {
         API.getGigs()
         .then(res => {
+            
             this.setState({ 
                 gigs: res.data, 
                 })
@@ -94,6 +95,7 @@ class SearchGigs extends Component {
             return <Redirect to="/" />
         }
       
+        
            
 
         return (

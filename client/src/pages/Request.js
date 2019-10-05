@@ -114,6 +114,12 @@ class PostRequest extends Component {
             this.setState({errors})
             
           } 
+          if (!this.state.link){
+           
+            errors.link = "Please provide a link";
+            this.setState({errors})
+            
+          }
 else{
       
          const newRequest = {
@@ -227,8 +233,9 @@ else{
 
         <br></br>
               <div className="one field">
-              <div className="field">  
-               <label><strong>Link</strong></label>
+              <div className={`required field ${errors.link ? 'error' : ''}`}>
+                 <label><strong>Link</strong></label>
+                 {errors.link && <div style = {styles.error}>{errors.link}</div>}
                <Input
                 value={this.state.link}
                 onChange={this.handlePostChange}
