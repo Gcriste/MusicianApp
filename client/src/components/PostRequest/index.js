@@ -27,8 +27,7 @@ export function Input(props) {
   export function Age(props) {
     return (
         <div className = "ui big form">
-    <div className="field">
-    <label>Age</label>
+    <div className="required field">
     <select className = "ui fluid search dropdown" {...props} >
     <option value="">0</option>
           <option value="Under 18"> Under 18</option>
@@ -49,8 +48,7 @@ export function Input(props) {
   export function Experience(props) {
     return (
        <div className = "ui big form">
-    <div className="field">
-    <label># of Gigs Played Downtown</label>
+    <div className="required field">
     <select className = "ui fluid search dropdown" {...props} >
     <option value="0">0</option>
           <option value="Never Played Downtown"> Never Played Downtown</option>

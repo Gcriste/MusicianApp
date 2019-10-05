@@ -6,6 +6,14 @@ import { Input, PostButton, Musician, Venue, MusicType } from "../components/Pos
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
 
+
+const styles = {
+  error:{
+    color:'red',
+    fontSize: '0.8rem',
+    margin:0
+  }
+}
 class Post extends Component {
 
     state = {
@@ -20,7 +28,8 @@ class Post extends Component {
         message:"",
         userid:"",
         user:{},
-        redirect:false
+        redirect:false,
+        errors:{}
     };
 
   
@@ -57,6 +66,34 @@ class Post extends Component {
      handlePostSubmit = event => {
          event.preventDefault();
          console.log("hi")
+let errors = {}
+
+if (!this.state.pay){
+  
+    errors.pay = "Please type in the pay";
+    this.setState({errors})
+    
+}
+if (!this.state.venue){
+  
+  errors.venue = "Please type in the venue name";
+  this.setState({errors})
+  
+}
+if (!this.state.date){
+  
+  errors.date = "Please type in the date";
+  this.setState({errors})
+  
+}
+if (!this.state.time){
+  
+  errors.time = "Please type in the show time";
+  this.setState({errors})
+  
+}
+
+else{
 
          const newGig = {
            musician:this.state.musician,
@@ -78,10 +115,12 @@ class Post extends Component {
            )
          .catch(err => console.log(err));
         }
+        }
 
     render() {
 
-      const {redirect} = this.state;
+      const {errors, redirect} = this.state;
+     
 
       if (redirect)  {
         return <Redirect to="/search"/>
@@ -99,16 +138,17 @@ class Post extends Component {
              <form className = "ui big form">
              <div className="three fields">
       
-             <div className="field"> 
-      <Musician
+             <div className="required field">
+              <Musician
                 value={this.state.Musician}
                 onChange={this.handlePostChange}
                 name="musician"
                 placeholder="Musician Type (required)"
               />
               </div>
-          <div className="field">
+              <div className={`required field ${errors.date ? 'error' : ''}`}>
       <label>Date of Gig</label>
+            {errors.date && <div style = {styles.error}>{errors.date}</div>}
       <Input
                 value={this.state.date}
                 onChange={this.handlePostChange}
@@ -117,8 +157,9 @@ class Post extends Component {
               />
         </div>
        
-        <div className="field">
+        <div className={`required field ${errors.time ? 'error' : ''}`}>
       <label>Time</label>
+      {errors.time && <div style = {styles.error}>{errors.time}</div>}
       <Input
                 value={this.state.time}
                 onChange={this.handlePostChange}
@@ -129,8 +170,9 @@ class Post extends Component {
         </div>
         
         <div className="two fields">
-        <div className=" four wide field">
+        <div className={`four wide required field ${errors.pay ? 'error' : ''}`}>
       <label>Pay</label>
+      {errors.pay && <div style = {styles.error}>{errors.pay}</div>}
       <Input
                 value={this.state.pay}
                 onChange={this.handlePostChange}
@@ -138,7 +180,7 @@ class Post extends Component {
                 placeholder="Pay(required)"
               />
         </div>
-        <div className="twelve wide field">
+        <div className="twelve wide required field">
       <Venue
                 value={this.state.venue}
                 onChange={this.handlePostChange}

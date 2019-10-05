@@ -5,7 +5,13 @@ import API from "../utils/API";
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
 
-
+const styles = {
+    error:{
+      color:'red',
+      fontSize: '0.8rem',
+      margin:0
+    }
+  }
 class PostRequest extends Component {
 
 
@@ -23,7 +29,8 @@ class PostRequest extends Component {
         user:{},
         redirect:false,
         post:[],
-        gigdate:""
+        gigdate:"",
+        errors:{}
     };
 
 
@@ -67,8 +74,48 @@ class PostRequest extends Component {
      handlePostRequest = event => {
          event.preventDefault();
          console.log("hi")
-        
-         console.log(this.props)
+     
+         let errors = {}
+
+         if (!this.state.firstname){
+           
+             errors.firstname = "Please type in your first name";
+             this.setState({errors})
+             
+         }
+         if (!this.state.lastname){
+           
+           errors.lastname = "Please type in your last name";
+           this.setState({errors})
+           
+         }
+         if (!this.state.age){
+           
+           errors.age = "Please type in your age";
+           this.setState({errors})
+           
+         }
+         if (!this.state.experience){
+           
+           errors.experience = "Please type in your show experience";
+           this.setState({errors})
+           
+         }        
+         if (!this.state.referencename){
+           
+            errors.referencename = "Please type in a reference";
+            this.setState({errors})
+            
+          } 
+
+          if (!this.state.referencenumber){
+           
+            errors.referencenumber = "Please type in your reference phone number";
+            this.setState({errors})
+            
+          } 
+else{
+      
          const newRequest = {
            firstname:this.state.firstname,
           lastname: this.state.lastname,
@@ -91,10 +138,11 @@ class PostRequest extends Component {
            )
          .catch(err => console.log(err));
         }
+    }
 
     render() {
 
-      const {redirect} = this.state;
+      const {errors, redirect} = this.state;
 
       if (redirect)  {
         return <Redirect to="/saved"/>
@@ -111,8 +159,9 @@ class PostRequest extends Component {
         <form className = "ui big form">
              <div className="three fields">
       
-             <div className="field"> 
+             <div className={`required field ${errors.firstname ? 'error' : ''}`}>
                  <label><strong>First Name</strong></label>
+                 {errors.firstname && <div style = {styles.error}>{errors.firstname}</div>}
               <Input
                 value={this.state.firstname}
                 onChange={this.handlePostChange}
@@ -120,8 +169,9 @@ class PostRequest extends Component {
                 placeholder="First Name"
               />
                </div>
-                <div className="field">
-                <label><strong>Last Name</strong></label>
+               <div className={`required field ${errors.lastname ? 'error' : ''}`}>
+                 <label><strong>Last Name</strong></label>
+                 {errors.lastname && <div style = {styles.error}>{errors.lastname}</div>}
                <Input
                 value={this.state.lastname}
                 onChange={this.handlePostChange}
@@ -129,7 +179,9 @@ class PostRequest extends Component {
                 placeholder="Last Name"
               />
                 </div>
-                <div className="field">
+                <div className={`required field ${errors.age ? 'error' : ''}`}>
+                <label><strong>Age</strong></label>
+                 {errors.age && <div style = {styles.error}>{errors.age}</div>}
                <Age
                 value={this.state.age}
                 onChange={this.handlePostChange}
@@ -141,7 +193,9 @@ class PostRequest extends Component {
 
         <br></br>
             <div className="three fields">
-                <div className = "field">
+            <div className={`required field ${errors.experience ? 'error' : ''}`}>
+                <label><strong># of Gigs Played Downtown</strong></label>
+                 {errors.experience && <div style = {styles.error}>{errors.experience}</div>}
               <Experience
                 value={this.state.experience}
                 onChange={this.handlePostChange}
@@ -149,8 +203,9 @@ class PostRequest extends Component {
                 placeholder="Years of Experience"
               />
               </div>
-              <div className = "field">
-              <label><strong>Reference Name</strong></label>
+              <div className={`required field ${errors.referencename ? 'error' : ''}`}>
+                <label><strong>Reference Name</strong></label>
+                 {errors.referencename && <div style = {styles.error}>{errors.referencename}</div>}
                <Input
                 value={this.state.referencename}
                 onChange={this.handlePostChange}
@@ -158,13 +213,14 @@ class PostRequest extends Component {
                 placeholder="Name of Reference"
               />
               </div>
-              <div className = "field">
-               <label><strong>Reference Phone Number</strong></label>
+              <div className={`required field ${errors.referencenumber ? 'error' : ''}`}>
+                <label><strong>Reference Phone Number</strong></label>
+                 {errors.referencenumber && <div style = {styles.error}>{errors.referencenumber}</div>}
                 <Input
                 value={this.state.referencenumber}
                 onChange={this.handlePostChange}
                 name="referencenumber"
-                placeholder="Enter Phone Number"
+                placeholder="Enter phone"
               />
               </div>
               </div>
