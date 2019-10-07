@@ -134,14 +134,21 @@ else{
 
         return (
             <div>
-        <br></br>
+              
+       
         <br></br>
         <br></br>
         <br></br>
                <br></br>
     <div className ="ui relaxed center aligned grid">
+    
           <div className = "ten wide column" >
+          <h1>Post a Gig</h1> 
              <form className = "ui big form">
+             <div className = "card">
+        <div className="card-body player">
+            <div className="article">
+             
              <div className="three fields">
       
              <div className={`required field ${errors.musician ? 'error' : ''}`}>
@@ -231,11 +238,13 @@ else{
               >
               </PostButton>
 
-           
+              </div>  
+               </div>
+               </div>
             </form>
             </div>
             </div>
-          
+       
              
             </div>
         )

@@ -139,7 +139,7 @@ else{
          API.postRequest(newRequest)
          .then(this.setState({ 
            redirect:true,
-           message: alert("Your posted a request! ") 
+        //    message: alert("Your posted a request! ") 
           })
            )
          .catch(err => console.log(err));
@@ -159,10 +159,17 @@ else{
     <br></br>
     <br></br>
     <br></br>
+
+   
     <br></br>
     <div className = "ui relaxed center aligned grid">
         <div className = "ten wide column">
+            <h1>Request to Play Gig</h1> 
         <form className = "ui big form">
+        <div className = "card">
+        <div className="card-body player">
+            <div className="article">
+             
              <div className="three fields">
       
              <div className={`required field ${errors.firstname ? 'error' : ''}`}>
@@ -248,11 +255,15 @@ else{
                 handlePostRequest={this.handlePostRequest}
               >
               </PostButton>
+              </div>
+    </div>
+</div>
+       
             </form>
         </div>
     </div>
-</div>
-        
+    </div>
+ 
 
 
            

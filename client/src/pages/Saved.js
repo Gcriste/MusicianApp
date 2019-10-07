@@ -128,7 +128,7 @@ class Saved extends Component {
   <div className = "form profileForm">
                    <div className = "row">
                      <div className = "col-md-4">
-                     <h3> <strong> Welcome {user.firstname}!</strong></h3>
+                     <h1> <strong> Welcome {user.firstname}</strong></h1>
                          {' '}
                      {/* <h3> <strong> Email Address {user.email}</strong></h3>
                          {' '}

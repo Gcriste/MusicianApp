@@ -1,3 +1,8 @@
+Depoyable Link:
+https://gcriste-musicianapp.herokuapp.com/
+
+
+
 pseudocode
 -need login password page
 four navbars - search shows, (fill out request), my shows(ones I've posted or requested) and post a show
