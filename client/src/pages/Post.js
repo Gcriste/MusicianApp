@@ -5,7 +5,8 @@ import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton, Musician, Venue, MusicType } from "../components/Post";
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
-
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 const styles = {
   error:{
@@ -16,21 +17,41 @@ const styles = {
 }
 class Post extends Component {
 
-    state = {
-        musician:"",
-        date: "",
-        pay: "",
-        venue: "",
-        bandname: "",
-        musictype: "",
-        savedGigs:[],
-        time:"",
-        message:"",
-        userid:"",
-        user:{},
-        redirect:false,
-        errors:{}
+  constructor(props) {
+    super(props);
+    this.handleDayChange = this.handleDayChange.bind(this);
+    this.state = {
+      selectedDay: undefined,
+      isEmpty: true,
+      isDisabled: false,
+      musician:"",
+      date: "",
+      pay: "",
+      venue: "",
+      bandname: "",
+      musictype: "",
+      savedGigs:[],
+      time:"",
+      message:"",
+      userid:"",
+      user:{},
+      redirect:false,
+      errors:{}
     };
+  }
+
+  handleDayChange(selectedDay, modifiers, dayPickerInput) {
+    const input = dayPickerInput.getInput();
+    this.setState({
+      selectedDay,
+      isEmpty: !input.value.trim(),
+      isDisabled: modifiers.disabled === true,
+    });
+  }
+
+    // state = {
+       
+    // };
 
   
     componentDidMount() {
@@ -123,9 +144,12 @@ else{
         }
         }
 
+
+     
+
     render() {
 
-      const {errors, redirect} = this.state;
+      const {errors, redirect,  selectedDay, isDisabled, isEmpty} = this.state;
      
 
       if (redirect)  {
@@ -134,7 +158,10 @@ else{
 
         return (
             <div>
-              
+                   <div>
+        
+       
+      </div>
        
         <br></br>
         <br></br>
@@ -155,7 +182,7 @@ else{
       <label>Musician Type</label>
             {errors.musician && <div style = {styles.error}>{errors.musician}</div>}
               <Musician
-                value={this.state.Musician}
+                value={this.state.musician}
                 onChange={this.handlePostChange}
                 name="musician"
                 placeholder="Musician Type (required)"
@@ -164,12 +191,26 @@ else{
               <div className={`required field ${errors.date ? 'error' : ''}`}>
       <label>Date of Gig</label>
             {errors.date && <div style = {styles.error}>{errors.date}</div>}
-      <Input
-                value={this.state.date}
-                onChange={this.handlePostChange}
-                name="date"
-                placeholder="Date (required)"
-              />
+            <div>
+        <p>
+          {isEmpty && 'Please type or pick a day'}
+          {!isEmpty && !selectedDay && 'This day is invalid'}
+          {selectedDay && isDisabled && 'This day is disabled'}
+          {selectedDay &&
+            !isDisabled &&
+            `You chose ${selectedDay.toLocaleDateString()}`}
+        </p>
+        <DayPickerInput
+          value={selectedDay}
+          onDayChange={this.handleDayChange}
+          dayPickerProps={{
+            selectedDays: selectedDay,
+            disabledDays: {
+              daysOfWeek: [0, 6],
+            },
+          }}
+        />
+      </div>
         </div>
        
         <div className={`required field ${errors.time ? 'error' : ''}`}>
