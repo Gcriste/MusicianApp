@@ -11,7 +11,7 @@ const SavedResult = props => {
       <div className="card-body player">
         <div className="article">
           
-            <h3>Your Posted Shows</h3>
+            <h3>Shows You've Posted</h3>
               {props.savedGigs.map(savedgig => {
 
     return (
@@ -24,19 +24,13 @@ const SavedResult = props => {
           <Col 
               className="gigInfo">
                 <Row>
-              <h3 className="gigMusician">Looking For {savedgig.musician}</h3>
+              <h3 className="gigMusician">Looking For {savedgig.musician} On <Moment date={savedgig.date} format="MM/DD/YYYY"/> </h3>
               </Row>
               <Row>
-              <h3 className="gigVenue">At {savedgig.venue}</h3>
+              <h3 className="gigpay">At {savedgig.venue} For ${savedgig.pay}</h3>
               </Row>
               <Row>
-              <h3 className="gigDate">On <Moment date={savedgig.date} format="MM/DD/YYYY"/> </h3>
-              </Row>
-              <Row>
-              <h4 className="gigTime">From {savedgig.time}</h4>
-              </Row>
-              <Row>
-              <h3 className="gigPay">For ${savedgig.pay} Each Member</h3>
+              <h4 className="gigtime">From {savedgig.time}</h4>
               </Row>
               <Row>
               <h4 className="gigBandName">With {savedgig.bandname}</h4>

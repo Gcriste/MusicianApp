@@ -95,7 +95,6 @@ class IncomingRequest extends Component {
     render() {
         return (
             <div>
-                <h1>New Requests</h1>
                 <IncomingRequests
                     savedRequests= {this.state.savedRequests}
                     dateForSavedRequests={this.state.dateForSavedRequests}

@@ -10,7 +10,7 @@ const IncomingRequests = props => {
     <div className="card">
       <div className="card-body player">
         <div className="article">
-            <h3>Your Show Requests</h3>
+            <h3>New Requests</h3>
               {props.savedRequests.map(savedrequest => {
 
     return (
@@ -25,34 +25,32 @@ const IncomingRequests = props => {
               className="requestInfo">
                      <Row>
               {props.dateForSavedRequests.map(data => (
-                  <h3 className="requestFirstName"> Gig Date: <Moment date={data.date} format="MM/DD/YYYY"/></h3>
+                  <h2 className="requestFirstName"> For Gig On <Moment date={data.date} format="MM/DD/YYYY"/></h2>
               ))}
               </Row>
               <Row>
               {props.dateForSavedRequests.map(data => (
-                  <h3 className="requestFirstName"> Venue: {data.venue} </h3>
+                  <h2 className="requestFirstName"> At {data.venue} </h2>
               ))}
               </Row>
+              <br></br>
               <Row>
-              <h3 className="requestFirstName">First Name: {savedrequest.firstname}</h3>
+              <h3 className="requestFirstName"> Name: {savedrequest.firstname} {savedrequest.lastname}</h3>
               </Row>
               <Row>
-              <h3 className="requestLastName">Last Name: {savedrequest.lastname}</h3>
+              <h3 className="requestAge">Age: {savedrequest.age}</h3>
               </Row>
               <Row>
-              <h4 className="requestAge">Age: {savedrequest.age}</h4>
+              <h3 className="requestExperience">Played on Broadway {savedrequest.experience}</h3>
               </Row>
               <Row>
-              <h3 className="requestExperience">Experience: {savedrequest.experience}</h3>
+              <h3 className="requestReferenceName">Reference Name: {savedrequest.referencename}</h3>
               </Row>
               <Row>
-              <h4 className="requestReferenceName">Reference Name: {savedrequest.referencename}</h4>
+              <h3 className="requestReferenceNumber">Reference Phone Number: {savedrequest.referencenumber}</h3>
               </Row>
               <Row>
-              <h4 className="requestReferenceNumber">Reference Phone Number: {savedrequest.referencenumber}</h4>
-              </Row>
-              <Row>
-              <h4 className="requestLink">Link: {savedrequest.link}</h4>
+              <h3 className="requestLink">Link: {savedrequest.link}</h3>
               </Row>
              
           </Col>
