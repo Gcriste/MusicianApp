@@ -5,8 +5,6 @@ import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton } from "../components/CreateAccount";
 import {Redirect } from "react-router-dom"
-import authenticate from '../utils/Authenticate';
-import setAuthToken from '../utils/setAuthToken';
 
 const styles = {
     error:{
@@ -63,20 +61,12 @@ class CreateAccount extends Component {
          .catch(err => {
            console.log(err)
            this.setState({
-             message:alert("This email already exists"),
              errors:err.response.data
            })
          });
         }
 
     render() {
-      const styles = {
-          error:{
-            color:'red',
-            fontSize: '0.8rem',
-            margin:0
-          }
-        }
 
       const {errors, redirect} = this.state;
 
@@ -106,7 +96,8 @@ class CreateAccount extends Component {
                     <br></br>
 
                     <form>
-
+                 <div className = "ui form">
+                   <div className = "field">
                     <Input
                 value={this.state.firstname}
                 onChange={this.handleCreateChange}
@@ -114,6 +105,8 @@ class CreateAccount extends Component {
                 placeholder="Enter First Name"
                 type="name"
               />
+             </div>
+             <div className = "field">
                <Input
                 value={this.state.lastname}
                 onChange={this.handleCreateChange}
@@ -121,6 +114,9 @@ class CreateAccount extends Component {
                 placeholder="Enter Last Name"
                 type="name"
               />
+              </div>
+                 <div className={`required field ${errors.email ? 'error' : ''}`}>
+              {errors.email && (<div style={styles.error}> {errors.email}</div>)}
              <Input
                 value={this.state.email}
                 onChange={this.handleCreateChange}
@@ -128,13 +124,8 @@ class CreateAccount extends Component {
                 placeholder="Enter Email"
                 type="email"
               />
-               {
-                errors.user && (
-                    <div style={styles.error}>
-                    {errors.user}
-                    </div>
-                    )
-              }
+                  </div>
+                  <div className = "field">
                <Input
                 value={this.state.password}
                 onChange={this.handleCreateChange}
@@ -142,13 +133,7 @@ class CreateAccount extends Component {
                 placeholder="Enter Password"
                 type="password"
               />
-              {
-              errors.user && (
-                    <div style={styles.error}>
-                    {errors.password}
-                    </div>
-                    )
-              }
+             </div>
 
 
     <div className="text-left">
@@ -167,9 +152,9 @@ class CreateAccount extends Component {
         </button>
 
         </div>
-        
+        </div>
       </form>
-    
+   
                   </div>
                 </div>
               </div>

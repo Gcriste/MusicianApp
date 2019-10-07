@@ -116,7 +116,7 @@ else{
          API.saveGig(newGig)
          .then(this.setState({ 
            redirect:true,
-           message: alert("Your posted a gig! on " + this.state.date) 
+          //  message: alert("Your posted a gig! on " + this.state.date) 
           })
            )
          .catch(err => console.log(err));
