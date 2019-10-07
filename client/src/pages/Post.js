@@ -21,7 +21,6 @@ class Post extends Component {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
     this.state = {
-      selectedDay: undefined,
       isEmpty: true,
       isDisabled: false,
       musician:"",
@@ -40,10 +39,10 @@ class Post extends Component {
     };
   }
 
-  handleDayChange(selectedDay, modifiers, dayPickerInput) {
+  handleDayChange(date, modifiers, dayPickerInput) {
     const input = dayPickerInput.getInput();
     this.setState({
-      selectedDay,
+      date,
       isEmpty: !input.value.trim(),
       isDisabled: modifiers.disabled === true,
     });
@@ -149,7 +148,7 @@ else{
 
     render() {
 
-      const {errors, redirect,  selectedDay, isDisabled, isEmpty} = this.state;
+      const {errors, redirect,  selectedDay, isDisabled, isEmpty, date} = this.state;
      
 
       if (redirect)  {
@@ -201,10 +200,10 @@ else{
             `You chose ${selectedDay.toLocaleDateString()}`}
         </p>
         <DayPickerInput
-          value={selectedDay}
+          value={date}
           onDayChange={this.handleDayChange}
           dayPickerProps={{
-            selectedDays: selectedDay,
+            selectedDays: date,
             disabledDays: {
               daysOfWeek: [0, 6],
             },
