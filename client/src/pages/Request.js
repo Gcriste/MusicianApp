@@ -4,6 +4,10 @@ import { Container, Row, Col } from "../components/Grid";
 import API from "../utils/API";
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input/basic-input'
+import 'react-phone-number-input/style.css'
+
 
 const styles = {
     error:{
@@ -229,12 +233,17 @@ else{
               <div className={`required field ${errors.referencenumber ? 'error' : ''}`}>
                 <label><strong>Reference Phone Number</strong></label>
                  {errors.referencenumber && <div style = {styles.error}>{errors.referencenumber}</div>}
-                <Input
+                {/* <Input
                 value={this.state.referencenumber}
                 onChange={this.handlePostChange}
                 name="referencenumber"
                 placeholder="Enter phone"
-              />
+              /> */}
+              <PhoneInput
+                placeholder="Enter phone number"
+                country="US"
+                value={ this.state.referencenumber }
+                onChange={ referencenumber => this.setState({ referencenumber}) } />
               </div>
               </div>
 

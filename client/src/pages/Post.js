@@ -10,7 +10,7 @@ import TimePicker from 'rc-time-picker';
 import 'react-day-picker/lib/style.css'
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
-// import TimePicker from 'react-time-picker';
+
 
 const format = 'h:mm a';
 const now = moment().hour(0).minute(0);
@@ -211,14 +211,13 @@ else{
       <label>Please Type or Pick a Day</label>
             {errors.date && <div style = {styles.error}>{errors.date}</div>}
             <div>
-        <p>
+        {/* <p>
           {isEmpty && ''}
-          {!isEmpty && !selectedDay && 'This day is invalid'}
-          {selectedDay && isDisabled && 'This day is disabled'}
-          {selectedDay &&
+      
+          {date &&
             !isDisabled &&
-            `You chose ${selectedDay.toLocaleDateString()}`}
-        </p>
+            `You chose ${date.toLocaleDateString()}`}
+        </p> */}
         <DayPickerInput
           value={date}
           onDayChange={this.handleDayChange}
@@ -240,6 +239,7 @@ else{
        {/* <TimePicker 
        value={value} 
        onChange={this.handleValueChange} /> */}
+       <p>Start time:</p>
          <TimePicker
       showSecond={false}
       defaultValue={now}
@@ -248,6 +248,7 @@ else{
        value={value} 
       onChange={this.handleValueChange}
   />
+   <p>End time:</p>
       <TimePicker
       showSecond={false}
           onChange={this.onChange}
