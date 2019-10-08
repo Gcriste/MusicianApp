@@ -6,7 +6,14 @@ import { Input, PostButton, Musician, Venue, MusicType } from "../components/Pos
 import setAuthToken from "../utils/setAuthToken";
 import {Redirect } from "react-router-dom";
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
+import TimePicker from 'rc-time-picker';
+import 'react-day-picker/lib/style.css'
+import 'rc-time-picker/assets/index.css';
+import moment from 'moment';
+// import TimePicker from 'react-time-picker';
+
+const format = 'h:mm a';
+const now = moment().hour(0).minute(0);
 
 const styles = {
   error:{
@@ -30,12 +37,14 @@ class Post extends Component {
       bandname: "",
       musictype: "",
       savedGigs:[],
-      time:"",
+      starttime:"",
+      endtime:"",
       message:"",
       userid:"",
       user:{},
       redirect:false,
-      errors:{}
+      errors:{},
+      value:moment()
     };
   }
 
@@ -48,10 +57,14 @@ class Post extends Component {
     });
   }
 
-    // state = {
-       
-    // };
+  // onChange = time => this.setState({ time })
 
+  handleValueChange = value => {
+    console.log(value && value.format('HH:mm'));
+    this.setState({ value,
+    starttime:value,
+  endtime:value});
+  };
   
     componentDidMount() {
         
@@ -112,7 +125,14 @@ if (!this.state.date){
   this.setState({errors})
   
 }
-if (!this.state.time){
+if (!this.state.firsttime){
+  
+  errors.time = "Please type in the show time";
+  this.setState({errors})
+  
+}
+
+if (!this.state.endtime){
   
   errors.time = "Please type in the show time";
   this.setState({errors})
@@ -128,7 +148,8 @@ else{
           bandname: this.state.bandname,
           musictype: this.state.musictype,
           date: this.state.date,
-          time:this.state.time,
+          starttime:this.state.starttime,
+          endtime:this.state.endtime,
           userid:this.state.userid
         }
         console.log(newGig)
@@ -148,7 +169,7 @@ else{
 
     render() {
 
-      const {errors, redirect,  selectedDay, isDisabled, isEmpty, date} = this.state;
+      const {errors, redirect,  selectedDay, isDisabled, isEmpty, date, value} = this.state;
      
 
       if (redirect)  {
@@ -168,14 +189,14 @@ else{
                <br></br>
     <div className ="ui relaxed center aligned grid">
     
-          <div className = "ten wide column" >
+          <div className = "twelve wide column" >
           <h1>Post a Gig</h1> 
              <form className = "ui big form">
              <div className = "card">
         <div className="card-body player">
             <div className="article">
              
-             <div className="three fields">
+             <div className="two fields">
       
              <div className={`required field ${errors.musician ? 'error' : ''}`}>
       <label>Musician Type</label>
@@ -188,11 +209,11 @@ else{
               />
               </div>
               <div className={`required field ${errors.date ? 'error' : ''}`}>
-      <label>Date of Gig</label>
+      <label>Please Type or Pick a Day</label>
             {errors.date && <div style = {styles.error}>{errors.date}</div>}
             <div>
         <p>
-          {isEmpty && 'Please type or pick a day'}
+          {isEmpty && ''}
           {!isEmpty && !selectedDay && 'This day is invalid'}
           {selectedDay && isDisabled && 'This day is disabled'}
           {selectedDay &&
@@ -211,21 +232,42 @@ else{
         />
       </div>
         </div>
-       
-        <div className={`required field ${errors.time ? 'error' : ''}`}>
+        </div>
+        <div className="three fields">
+        <div className={`six wide required field fluid ${errors.time ? 'error' : ''}`}>
       <label>Time</label>
       {errors.time && <div style = {styles.error}>{errors.time}</div>}
-      <Input
-                value={this.state.time}
-                onChange={this.handlePostChange}
-                name="time"
-                placeholder="Time(required)"
-              />
-        </div>
+      {/* <TimePicker
+          onChange={this.onChange}
+          value={this.state.time}
+          format={"hh:mm a"}
+        clearIcon ={null}
+        clockIcon={null}
+      
+        /> */}
+       {/* <TimePicker 
+       value={value} 
+       onChange={this.handleValueChange} /> */}
+         <TimePicker
+      showSecond={false}
+      defaultValue={now}
+      format={format}
+      use12Hours
+       value={value} 
+      onChange={this.handleValueChange}
+  />
+   <TimePicker
+      showSecond={false}
+      defaultValue={now}
+      format={format}
+      use12Hours
+       value={value} 
+      onChange={this.handleValueChange}
+  />
         </div>
         
-        <div className="two fields">
-        <div className={`four wide required field ${errors.pay ? 'error' : ''}`}>
+     
+        <div className={`two wide required field ${errors.pay ? 'error' : ''}`}>
       <label>Pay</label>
       {errors.pay && <div style = {styles.error}>{errors.pay}</div>}
       <Input

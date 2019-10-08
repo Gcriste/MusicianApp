@@ -39,7 +39,7 @@ return (
                                 <h3 className="gigVenue"> At {gig.venue} For ${gig.pay}</h3>
                                 </Row>
                                 <Row>
-                                <h4 className="gigTime">From {gig.time}</h4>
+                                <h4 className="gigtime">From <Moment date={gig.time} format="hh:mm a"/></h4>
                                 </Row>
                                
                                 <Row>

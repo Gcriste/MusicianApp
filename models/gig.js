@@ -8,7 +8,8 @@ const gigSchema = new Schema({
   bandname: String,
   musictype: {type: String, trim: true},
   date: { type: Date, required:true },
-  time:{type:String, required:true },
+  starttime:{type:String, required:true },
+  endtime:{type:String, required:true },
   userid:{type:String},
   request:{type:String}
 });
