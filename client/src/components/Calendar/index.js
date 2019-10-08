@@ -27,7 +27,7 @@ export default class DayPickers extends React.Component {
     return (
       <div>
         <p>
-          {isEmpty && 'Please type or pick a day'}
+          {isEmpty && 'Date'}
           {!isEmpty && !selectedDay && 'This day is invalid'}
           {selectedDay && isDisabled && 'This day is disabled'}
           {selectedDay &&

@@ -165,7 +165,7 @@ else{
     <br></br>
 
    
-    <br></br>
+ 
     <div className = "ui relaxed center aligned grid">
         <div className = "ten wide column">
             <h1>Request to Play Gig</h1> 
@@ -176,7 +176,7 @@ else{
              
              <div className="three fields">
       
-             <div className={`required field ${errors.firstname ? 'error' : ''}`}>
+             <div className={`six wide required field ${errors.firstname ? 'error' : ''}`}>
                  <label><strong>First Name</strong></label>
                  {errors.firstname && <div style = {styles.error}>{errors.firstname}</div>}
               <Input
@@ -186,7 +186,7 @@ else{
                 placeholder="First Name"
               />
                </div>
-               <div className={`required field ${errors.lastname ? 'error' : ''}`}>
+               <div className={`six wide required field ${errors.lastname ? 'error' : ''}`}>
                  <label><strong>Last Name</strong></label>
                  {errors.lastname && <div style = {styles.error}>{errors.lastname}</div>}
                <Input
@@ -196,7 +196,7 @@ else{
                 placeholder="Last Name"
               />
                 </div>
-                <div className={`required field ${errors.age ? 'error' : ''}`}>
+                <div className={`four wide required field ${errors.age ? 'error' : ''}`}>
                 <label><strong>Age</strong></label>
                  {errors.age && <div style = {styles.error}>{errors.age}</div>}
                <Age

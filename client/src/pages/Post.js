@@ -124,16 +124,16 @@ if (!this.state.date){
   this.setState({errors})
   
 }
-if (!this.state.firsttime){
+if (!this.state.starttime){
   
-  errors.time = "Please type in the show time";
+  errors.starttime = "Please type in the show time";
   this.setState({errors})
   
 }
 
 if (!this.state.endtime){
   
-  errors.time = "Please type in the show time";
+  errors.endtime = "Please type in the show time";
   this.setState({errors})
   
 }
@@ -185,19 +185,19 @@ else{
         <br></br>
         <br></br>
         <br></br>
-               <br></br>
+               
     <div className ="ui relaxed center aligned grid">
     
-          <div className = "twelve wide column" >
+          <div className = "ten wide column" >
           <h1>Post a Gig</h1> 
              <form className = "ui big form">
              <div className = "card">
         <div className="card-body player">
             <div className="article">
              
-             <div className="two fields">
+             <div className="four fields">
       
-             <div className={`required field ${errors.musician ? 'error' : ''}`}>
+             <div className={`four wide required field ${errors.musician ? 'error' : ''}`}>
       <label>Musician Type</label>
             {errors.musician && <div style = {styles.error}>{errors.musician}</div>}
               <Musician
@@ -208,16 +208,10 @@ else{
               />
               </div>
               <div className={`required field ${errors.date ? 'error' : ''}`}>
-      <label>Please Type or Pick a Day</label>
+      <label>Date</label>
             {errors.date && <div style = {styles.error}>{errors.date}</div>}
             <div>
-        {/* <p>
-          {isEmpty && ''}
-      
-          {date &&
-            !isDisabled &&
-            `You chose ${date.toLocaleDateString()}`}
-        </p> */}
+
         <DayPickerInput
           value={date}
           onDayChange={this.handleDayChange}
@@ -230,16 +224,12 @@ else{
         />
       </div>
         </div>
-        </div>
-        <div className="three fields">
-        <div className={`six wide required field fluid ${errors.time ? 'error' : ''}`}>
-      <label>Time</label>
-      {errors.time && <div style = {styles.error}>{errors.time}</div>}
+        
+      
+        <div className={`three wide required field ${errors.starttime ? 'error' : ''}`}>
+      {errors.starttime && <div style = {styles.error}>{errors.starttime}</div>}
   
-       {/* <TimePicker 
-       value={value} 
-       onChange={this.handleValueChange} /> */}
-       <p>Start time:</p>
+       <label>Start time:</label>
          <TimePicker
       showSecond={false}
       defaultValue={now}
@@ -248,7 +238,11 @@ else{
        value={value} 
       onChange={this.handleValueChange}
   />
-   <p>End time:</p>
+</div>
+
+<div className={`three wide required field  ${errors.endtime ? 'error' : ''}`}>
+{errors.endtime && <div style = {styles.error}>{errors.endtime}</div>}
+   <label>End time:</label>
       <TimePicker
       showSecond={false}
           onChange={this.onChange}
@@ -261,8 +255,10 @@ else{
         />
         </div>
         
-     
-        <div className={`two wide required field ${errors.pay ? 'error' : ''}`}>
+        </div>
+
+        <div className="two fields">
+        <div className={`four wide required field ${errors.pay ? 'error' : ''}`}>
       <label>Pay</label>
       {errors.pay && <div style = {styles.error}>{errors.pay}</div>}
       <Input
@@ -272,7 +268,9 @@ else{
                 placeholder="Pay(required)"
               />
         </div>
-        <div className={`twelve wide required field ${errors.venue ? 'error' : ''}`}>
+
+      
+        <div className={`ten wide required field ${errors.venue ? 'error' : ''}`}>
       <label>Venue</label>
             {errors.venue && <div style = {styles.error}>{errors.venue}</div>}
       <Venue
@@ -283,8 +281,9 @@ else{
               />
         </div>
         </div>
+        {/* </div> */}
         <div className = "two fields">
-        <div className="field">
+        <div className="ten wide field">
       <label>Band Name</label>
       <Input
                 value={this.state.bandname}
@@ -294,7 +293,7 @@ else{
               />
         </div>
        
-        <div className="field">
+        <div className="six wide field">
       <MusicType
                 value={this.state.musictype}
                 onChange={this.handlePostChange}
@@ -302,9 +301,7 @@ else{
                 placeholder="Music Type"
             
             />
-        </div>
-       
-              
+        </div>            
      </div>        
               
               
