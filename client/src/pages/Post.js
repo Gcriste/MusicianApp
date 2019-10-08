@@ -57,13 +57,12 @@ class Post extends Component {
     });
   }
 
-  // onChange = time => this.setState({ time })
+  onChange = endtime => this.setState({ endtime })
 
   handleValueChange = value => {
     console.log(value && value.format('HH:mm'));
     this.setState({ value,
-    starttime:value,
-  endtime:value});
+    starttime:value});
   };
   
     componentDidMount() {
@@ -237,14 +236,7 @@ else{
         <div className={`six wide required field fluid ${errors.time ? 'error' : ''}`}>
       <label>Time</label>
       {errors.time && <div style = {styles.error}>{errors.time}</div>}
-      {/* <TimePicker
-          onChange={this.onChange}
-          value={this.state.time}
-          format={"hh:mm a"}
-        clearIcon ={null}
-        clockIcon={null}
-      
-        /> */}
+  
        {/* <TimePicker 
        value={value} 
        onChange={this.handleValueChange} /> */}
@@ -256,14 +248,16 @@ else{
        value={value} 
       onChange={this.handleValueChange}
   />
-   <TimePicker
+      <TimePicker
       showSecond={false}
-      defaultValue={now}
-      format={format}
-      use12Hours
-       value={value} 
-      onChange={this.handleValueChange}
-  />
+          onChange={this.onChange}
+          value={this.state.endtime}
+          format={format}
+          use12Hours
+        clearIcon ={null}
+        clockIcon={null}
+      
+        />
         </div>
         
      

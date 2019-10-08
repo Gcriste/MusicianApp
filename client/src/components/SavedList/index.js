@@ -30,10 +30,7 @@ const SavedResult = props => {
               <h3 className="gigpay">At {savedgig.venue} For ${savedgig.pay}</h3>
               </Row>
               <Row>
-              <h4 className="gigtime">From <Moment date={savedgig.starttime} format="hh:mm a"/></h4>
-              </Row>
-              <Row>
-              <h4 className="gigtime">To <Moment date={savedgig.endtime} format="hh:mm a"/></h4>
+              <h4 className="gigtime">From <Moment date={savedgig.starttime} format="hh:mm a"/> To <Moment date={savedgig.endtime} format="hh:mm a"/></h4>
               </Row>
               <Row>
               <h4 className="gigBandName">With {savedgig.bandname}</h4>

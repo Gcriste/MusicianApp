@@ -76,7 +76,8 @@ class SearchGigs extends Component {
                             bandname: result.bandname,
                             musictype: result.musictype,
                             date: result.date,
-                            time:result.time,
+                            starttime:result.starttime,
+                            endtime:result.endtime,
                             userid:result.userid
                         }
                         return result;
