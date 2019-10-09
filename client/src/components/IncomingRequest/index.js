@@ -37,7 +37,8 @@ const IncomingRequests = props => {
              <hr></hr>
              <h2>Request:</h2>
               <h3 className="requestFirstName"> Name: {savedrequest.firstname} {savedrequest.lastname}</h3>             
-              <h3 className="requestAge">Age: {savedrequest.age}</h3>            
+              <h3 className="requestAge">Age: {savedrequest.age}</h3>     
+              <h3 className="requestNumber">Phone Number: {savedrequest.number}</h3>         
               <h3 className="requestExperience">Played on Broadway {savedrequest.experience}</h3>             
               <h3 className="requestReferenceName">Reference Name: {savedrequest.referencename}</h3>             
               <h3 className="requestReferenceNumber">Reference Phone Number: {savedrequest.referencenumber}</h3>             

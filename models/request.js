@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const requestSchema = new Schema({
     firstname:{type:String,required: true},
   lastname: {type: String, required: true },
+  number:{type:Number,required:true},
     age: {type: String, required: true},
  experience: {type:String,required:true},
   referencename: {type:String},

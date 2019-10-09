@@ -23,6 +23,7 @@ class PostRequest extends Component {
         firstname:"",
         lastname: "",
         age: "",
+        number:"",
         experience: "",
         referencename: "",
         referencenumber: "",
@@ -99,6 +100,12 @@ class PostRequest extends Component {
            this.setState({errors})
            
          }
+         if (!this.state.number){
+           
+          errors.number = "Please type in your phone number";
+          this.setState({errors})
+          
+        }
          if (!this.state.experience){
            
            errors.experience = "Please type in your show experience";
@@ -129,6 +136,7 @@ else{
          const newRequest = {
            firstname:this.state.firstname,
           lastname: this.state.lastname,
+          number:this.state.number,
           age: this.state.age,
           experience: this.state.experience,
           referencename: this.state.referencename,
@@ -174,9 +182,9 @@ else{
         <div className="card-body player">
             <div className="article">
              
-             <div className="three fields">
+             <div className="four fields">
       
-             <div className={`six wide required field ${errors.firstname ? 'error' : ''}`}>
+             <div className={`four wide required field ${errors.firstname ? 'error' : ''}`}>
                  <label><strong>First Name</strong></label>
                  {errors.firstname && <div style = {styles.error}>{errors.firstname}</div>}
               <Input
@@ -186,7 +194,7 @@ else{
                 placeholder="First Name"
               />
                </div>
-               <div className={`six wide required field ${errors.lastname ? 'error' : ''}`}>
+               <div className={`four wide required field ${errors.lastname ? 'error' : ''}`}>
                  <label><strong>Last Name</strong></label>
                  {errors.lastname && <div style = {styles.error}>{errors.lastname}</div>}
                <Input
@@ -206,7 +214,17 @@ else{
                 placeholder="Age"
               />
               </div>
-            </div>
+                <div className={`four required field ${errors.number ? 'error' : ''}`}>
+                <label><strong>Phone Number</strong></label>
+                 {errors.number && <div style = {styles.error}>{errors.number}</div>}
+              <PhoneInput
+                placeholder="Enter phone number"
+                country="US"
+                value={ this.state.number }
+                onChange={ number => this.setState({ number}) } />
+              </div>
+              </div>
+            
 
         <br></br>
             <div className="three fields">

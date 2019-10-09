@@ -33,7 +33,8 @@ const SavedRequests = props => {
                   <h2 className="requestFirstName"> At {data.venue} </h2>
               ))}
               
-              <h3 className="requestFirstName">Name {savedRequest.firstname} {savedRequest.lastname},  {savedRequest.age} Years Old</h3>
+              <h3 className="requestFirstName">Your Name {savedRequest.firstname} {savedRequest.lastname},  {savedRequest.age} Years Old</h3>
+              <h3 className="requestExperience">Your Phone Number {savedRequest.number}</h3>
               <h3 className="requestExperience">Played on Broadway {savedRequest.experience}</h3>
               <h3 className="requestReferenceName">Reference Name: {savedRequest.referencename}</h3>
               <h3 className="requestReferenceNumber">Reference Phone Number: {savedRequest.referencenumber}</h3>
