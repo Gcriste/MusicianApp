@@ -204,7 +204,7 @@ else{
                 placeholder="Last Name"
               />
                 </div>
-                <div className={`four wide required field ${errors.age ? 'error' : ''}`}>
+                <div className={`three wide required field ${errors.age ? 'error' : ''}`}>
                 <label><strong>Age</strong></label>
                  {errors.age && <div style = {styles.error}>{errors.age}</div>}
                <Age
@@ -214,7 +214,7 @@ else{
                 placeholder="Age"
               />
               </div>
-                <div className={`four required field ${errors.number ? 'error' : ''}`}>
+                <div className={`five wide required field ${errors.number ? 'error' : ''}`}>
                 <label><strong>Phone Number</strong></label>
                  {errors.number && <div style = {styles.error}>{errors.number}</div>}
               <PhoneInput

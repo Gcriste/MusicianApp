@@ -14,7 +14,7 @@ export function Input(props) {
     return (
         
         <button type="submit" 
-              className="ui violet horizontal animated button" tabindex = "0"
+              className="ui violet vertical animated button" tabindex = "0"
               onClick={(event) => props.handlePostRequest(event)}>
                     <div className = "visible content">Post Request</div>
                     <div className = "hidden content">Submit</div> 

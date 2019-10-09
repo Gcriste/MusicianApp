@@ -79,6 +79,10 @@ export function Input(props) {
           <option value="Jazz">Jazz</option>
           <option value="Blues">Blues</option>
           <option value="Funk">Funk</option>
+          <option value="Bluegrass">Bluegrass</option>
+          <option value="Hip Hop">Hip-Hop</option>
+          <option value="Heavy Metal">Heavy Metal</option>
+          <option value="Original">Original</option>
           <option value="Other">Other</option>
             </select>
        </div>

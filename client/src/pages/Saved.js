@@ -144,7 +144,7 @@ class Saved extends Component {
                      onClick = { this.handleLogout}> 
                      <div className = "visible content">Logout</div>
                       <div className = "hidden content">
-                      <i className = "left arrow icon"></i>
+                      <i className = "right arrow icon"></i>
                     </div> 
                    </button>
                    </div>
