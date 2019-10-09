@@ -9,6 +9,9 @@ import {Redirect } from "react-router-dom";
 import Moment from 'react-moment';
 
 
+
+
+
 class Saved extends Component {
   state = {
       savedGigs:[],
@@ -17,6 +20,7 @@ class Saved extends Component {
       gigid:"",
       user:{},
       dateForSavedRequests:[],
+      // activeTab: props.activeTab || 1
 
   };
 
@@ -30,7 +34,10 @@ class Saved extends Component {
 
 
   componentDidMount() {
-        
+
+   
+    
+
     const token = localStorage.getItem('example-app');
     if(token){
         setAuthToken(token);
@@ -99,7 +106,10 @@ class Saved extends Component {
         .then(res => this.componentDidMount())
         .catch(err => console.log(err))
 }
+
   render() {
+    
+
 
     const {redirect, user} = this.state;
 
@@ -109,19 +119,8 @@ class Saved extends Component {
   
       return (
         <Container>
-           
-        {/* <div className="ui pointing menu">
-  <a className="active item">
-   Profile
-   
-  </a>
-  <a className="item">
-   My Posted Gigs
-  </a>
-  <a className="item">
-   My Gig Requests
-  </a>
-      </div> */}
+  
+
       <div className="ui segment">
         <div className = "container">
          

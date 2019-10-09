@@ -132,7 +132,7 @@ class Login extends Component {
               />
               </div>
              
-          <div className="text-left">
+          <div className="field">
              <PostButton 
                 handleLoginSubmit={this.handleLoginSubmit}
               >
@@ -140,12 +140,19 @@ class Login extends Component {
 
               </div>
 
-                <div className="text-right">
-              <button className = "btn btn-danger">
+                <div className="field">
+              <button  className = "ui yellow button">
                 <a href= "/createaccount">  Create Account</a>
                
               </button>
               </div>
+               {/* <button className = "ui orange animated button" tabindex ="0"
+                     onClick = { this.handleLogout}> 
+                     <div className = "visible content">Logout</div>
+                      <div className = "hidden content">
+                      <i className = "left arrow icon"></i>
+                    </div> 
+                   </button> */}
             </form>
           
                         </div>

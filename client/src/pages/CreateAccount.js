@@ -136,7 +136,7 @@ class CreateAccount extends Component {
              </div>
 
 
-    <div className="text-left">
+    <div className="field">
        <PostButton 
                 handleCreateSubmit={this.handleCreateSubmit}
                
@@ -145,8 +145,8 @@ class CreateAccount extends Component {
 
         </div>
 
-          <div className="text-right">
-        <button className = "btn btn-danger">
+          <div className="field">
+        <button className = "ui yellow button">
           <a href= "/login"> Login </a>
           
         </button>

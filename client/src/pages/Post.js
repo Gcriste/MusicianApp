@@ -226,7 +226,7 @@ else{
         </div>
         
       
-        <div className={`three wide required field ${errors.starttime ? 'error' : ''}`}>
+        <div className={`four wide required field ${errors.starttime ? 'error' : ''}`}>
       {errors.starttime && <div style = {styles.error}>{errors.starttime}</div>}
   
        <label>Start time:</label>
@@ -240,7 +240,7 @@ else{
   />
 </div>
 
-<div className={`three wide required field  ${errors.endtime ? 'error' : ''}`}>
+<div className={`four wide required field  ${errors.endtime ? 'error' : ''}`}>
 {errors.endtime && <div style = {styles.error}>{errors.endtime}</div>}
    <label>End time:</label>
       <TimePicker

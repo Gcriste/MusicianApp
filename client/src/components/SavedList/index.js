@@ -11,7 +11,7 @@ const SavedResult = props => {
       <div className="card-body player">
         <div className="article">
           
-            <h3>Shows You've Posted</h3>
+            <h1>Gigs You've Posted</h1>
               {props.savedGigs.map(savedgig => {
 
     return (
@@ -22,22 +22,14 @@ const SavedResult = props => {
       key={savedgig._id}>
              
           <Col 
-              className="gigInfo">
-                <Row>
-              <h3 className="gigMusician">Looking For {savedgig.musician} On <Moment date={savedgig.date} format="MM/DD/YYYY"/> </h3>
-              </Row>
-              <Row>
-              <h3 className="gigpay">At {savedgig.venue} For ${savedgig.pay}</h3>
-              </Row>
-              <Row>
-              <h4 className="gigtime">From <Moment date={savedgig.starttime} format="hh:mm a"/> To <Moment date={savedgig.endtime} format="hh:mm a"/></h4>
-              </Row>
-              <Row>
-              <h4 className="gigBandName">With {savedgig.bandname}</h4>
-              </Row>
-              <Row>
-              <h4 className="gigMusicType">Music Type: {savedgig.musictype}</h4>
-              </Row>
+              className="giginfo">           
+              <h2 className="gigMusician">Looking For {savedgig.musician} On <Moment date={savedgig.date} format="MM/DD/YYYY"/> </h2>
+              <h2 className="gigpay">At {savedgig.venue} For ${savedgig.pay}</h2>
+              <br></br>
+              <h3 className="gigtime">From <Moment date={savedgig.starttime} format="hh:mm a"/> To <Moment date={savedgig.endtime} format="hh:mm a"/></h3>
+              <h3 className="gigBandName">With {savedgig.bandname}</h3>
+              <h3 className="gigMusicType">Music Type: {savedgig.musictype}</h3>
+             
               
              
           </Col>

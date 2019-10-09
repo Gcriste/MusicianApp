@@ -10,44 +10,27 @@ const SearchResult = props => {
     })
    
 return (
-
     <div>
-   
-
     <div className="card">
         <div className="card-body player">
             <div className="article">
                 <h1>Upcoming Gigs</h1>
-              
                 {gigsSorted.map(gig => { 
-                                          
+                  
                     return (
                     <li className="search-list list-group-item">
-                        <Row 
+                        <Row
                         className="SearchResult row" 
                         id={gig.id} 
                         key={gig._id}>
                                
-                            <Col 
-                              
+                            <Col
                                 className="col-md-6 gigInfo">
-                                
-                                <Row>
                                 <h2 className="gigMusician">Looking For {gig.musician} On  <Moment date={gig.date} format="MM/DD/YYYY"/></h2>
-                                </Row>
-                                <Row>
-                                <h3 className="gigVenue"> At {gig.venue} For ${gig.pay}</h3>
-                                </Row>
-                                <Row>
-                                <h4 className="gigtime">From <Moment date={gig.starttime} format="hh:mm a"/> To <Moment date={gig.endtime} format="hh:mm a"/></h4>
-                                </Row>
-                               
-                                <Row>
-                                <h4 className="gigBandName">With {gig.bandname}</h4>
-                                </Row>
-                                <Row>
-                                <h4 className="gigMusicType">Music Type: {gig.musictype}</h4>
-                                </Row>
+                                <h2 className="gigVenue"> At {gig.venue} For ${gig.pay}</h2>
+                                <h3 className="gigtime">From <Moment date={gig.starttime} format="hh:mm a"/> To <Moment date={gig.endtime} format="hh:mm a"/></h3>
+                                <h3 className="gigBandName">With {gig.bandname}</h3>
+                                <h3 className="gigMusicType">Music Type: {gig.musictype}</h3>
                                 
                                
                             </Col>

@@ -6,9 +6,9 @@ const SearchForm = props => {
 
   return (
    
-    <h3 className="ui center aligned icon header">
+    <h1 className="ui center aligned icon header">
       <i className = "music icon"></i>
-    Search for all available gigs!</h3>
+    All Available Gigs!</h1>
  
     
 )
