@@ -6,7 +6,7 @@ const gigSchema = new Schema({
   pay: {type: Number, required: true },
   venue: {type: String, required: true},
   bandname: String,
-  musictype: {type: String, trim: true},
+  musictype: {type: String, required:true},
   date: { type: Date, required:true },
   starttime:{type:String, required:true },
   endtime:{type:String, required:true },

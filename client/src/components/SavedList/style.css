@@ -1,5 +1,5 @@
 .card {
-    background:#E0E0E0;
+    background:white;
     /* background:#E0E0E0; */
     border-radius:15px;
     /* color:#2874A6;  */
@@ -16,8 +16,8 @@
 
 .search-list{
     border-radius:15px;
-    /* background:#F5F5F5; */
-    background:white;
+    background:#F5F5F5;
+    /* background:white; */
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     margin:20px;
     padding:25px;
@@ -29,4 +29,7 @@
   
 }
 
+.card-body{
+   background:#E0E0E0;
+}
 

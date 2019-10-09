@@ -69,8 +69,7 @@ export function Input(props) {
   export function MusicType(props) {
     return (
        
-    <div className="field">
-    <label>Music Type</label>
+    <div className="required field">
     <select className = "ui fluid search dropdown" {...props} >
     <option value="">Genre</option>
           <option value="Standard Broadway Tunes">Standard Broadway Tunes</option>

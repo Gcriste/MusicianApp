@@ -122,7 +122,7 @@ class Saved extends Component {
   
 
       <div className="card">
-        <div className = "profilecontainer">
+        <div className = "profile-container">
          
   <div className = "profile">
                    <div className = "row">

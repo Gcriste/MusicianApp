@@ -137,6 +137,12 @@ if (!this.state.endtime){
   this.setState({errors})
   
 }
+if (!this.state.musictype){
+  
+  errors.musictype = "Please type in the music type";
+  this.setState({errors})
+  
+}
 
 else{
 
@@ -293,7 +299,10 @@ else{
               />
         </div>
        
-        <div className="six wide field">
+    
+             <div className={`six wide required field ${errors.musictype ? 'error' : ''}`}>
+             <label>Music Type</label>
+             {errors.musictype && <div style = {styles.error}>{errors.musictype}</div>}
       <MusicType
                 value={this.state.musictype}
                 onChange={this.handlePostChange}
