@@ -32,7 +32,7 @@ const SavedRequests = props => {
               {props.dateForSavedRequests.map(data => (
                   <h2 className="requestFirstName"> At {data.venue} </h2>
               ))}
-              
+              <hr></hr>
               <h3 className="requestFirstName">Your Name {savedRequest.firstname} {savedRequest.lastname},  {savedRequest.age} Years Old</h3>
               <h3 className="requestExperience">Your Phone Number {savedRequest.number}</h3>
               <h3 className="requestExperience">Played on Broadway {savedRequest.experience}</h3>
