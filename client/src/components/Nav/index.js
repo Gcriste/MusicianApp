@@ -14,10 +14,10 @@ function Nav() {
                       <a className="nav-link" href="/saved">Home</a>
                   </li>
                   <li className="nav-item" id="search">
-                      <a className="nav-link" href="/search">Search Shows</a>
+                      <a className="nav-link" href="/search">Search Gigs</a>
                   </li>
                     <li className="nav-item" id="post">
-                      <a className="nav-link" href="/post">Post a Show</a>
+                      <a className="nav-link" href="/post">Post a Gig</a>
                   </li>
                   {/* {/* <li className="nav-item" id="login">
                       <a className="nav-link" href="/login">Login</a>
