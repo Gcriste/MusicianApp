@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import {Row, Col} from "../Grid";
-import {Link} from "react-router-dom";
 import Moment from 'react-moment';
 
 const SearchResult = props => {
@@ -10,7 +9,7 @@ const SearchResult = props => {
     })
    
 return (
-    <div>
+    
     <div className="card">
         <div className="card-body player">
             <div className="article">
@@ -53,7 +52,7 @@ return (
                     </div>
                 </div>
             </div>
-        </div>
+       
         )
 }
 export default SearchResult;

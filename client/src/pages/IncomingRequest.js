@@ -3,6 +3,7 @@ import API from "../utils/API";
 import SavedResult from "../components/SavedList";
 import setAuthToken from "../utils/setAuthToken";
 import IncomingRequests from "../components/IncomingRequest";
+import { Col, Row, Container } from "../components/Grid";
 
 
 class IncomingRequest extends Component {
@@ -94,12 +95,21 @@ class IncomingRequest extends Component {
   
     render() {
         return (
-            <div>
-                <IncomingRequests
+          // <div className = "container">
+          // <div className = "row">
+          //     <div className = "col-md-6">
+                <Container>
+
+                   
+              <IncomingRequests
                     savedRequests= {this.state.savedRequests}
                     dateForSavedRequests={this.state.dateForSavedRequests}
                     />
-            </div>
+            </Container>
+               
+            //         </div>
+            //         </div>
+            // </div>
         )
     }
 }

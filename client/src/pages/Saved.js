@@ -121,10 +121,10 @@ class Saved extends Component {
         <Container>
   
 
-      <div className="ui segment">
-        <div className = "container">
+      <div className="card">
+        <div className = "profilecontainer">
          
-  <div className = "form profileForm">
+  <div className = "profile">
                    <div className = "row">
                      <div className = "col-md-4">
                      <h1> <strong> Welcome {user.firstname}</strong></h1>

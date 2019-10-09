@@ -21,8 +21,8 @@ const IncomingRequests = props => {
       key={savedrequest._id}>
              
           <Col 
-              size="9" 
-              className="requestInfo">
+              
+              className="col-md-6 requestInfo">
                     
               {props.dateForSavedRequests.map(data => (
                   <h2 className="requestFirstName"> For Gig On <Moment date={data.date} format="MM/DD/YYYY"/></h2>
