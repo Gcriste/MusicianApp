@@ -224,7 +224,7 @@ else{
           dayPickerProps={{
             selectedDays: date,
             disabledDays: {
-              daysOfWeek: [0, 6],
+              // daysOfWeek: [0, 6],
             },
           }}
         />

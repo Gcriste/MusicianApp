@@ -41,7 +41,7 @@ const SavedResult = props => {
               id={savedgig._id} 
               onClick={() => props.handleDeleteButton(savedgig._id)}>
 
-                 <div className = "visible content">Remove Gig </div>
+                 <div className = "visible content">Gig Filled </div>
                                 <div className = "hidden content">
                                  DELETE
                                   </div>  

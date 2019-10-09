@@ -23,16 +23,19 @@ const IncomingRequests = props => {
           <Col 
               
               className="col-md-6 requestInfo">
-                    
+                    {props.dateForSavedRequests.map(data => (
+                  <h2 className="requestmusician"> You're Looking for A {data.musician} </h2>
+              ))} 
               {props.dateForSavedRequests.map(data => (
-                  <h2 className="requestFirstName"> For Gig On <Moment date={data.date} format="MM/DD/YYYY"/></h2>
+                  <h2 className="requestFirstName"> For Your Gig On <Moment date={data.date} format="MM/DD/YYYY"/></h2>
               ))}
              
               {props.dateForSavedRequests.map(data => (
                   <h2 className="requestFirstName"> At {data.venue} </h2>
               ))}
               <br></br>
-             
+             <hr></hr>
+             <h2>Request:</h2>
               <h3 className="requestFirstName"> Name: {savedrequest.firstname} {savedrequest.lastname}</h3>             
               <h3 className="requestAge">Age: {savedrequest.age}</h3>            
               <h3 className="requestExperience">Played on Broadway {savedrequest.experience}</h3>             

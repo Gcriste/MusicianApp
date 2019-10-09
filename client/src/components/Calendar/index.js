@@ -40,7 +40,7 @@ export default class DayPickers extends React.Component {
           dayPickerProps={{
             selectedDays: selectedDay,
             disabledDays: {
-              daysOfWeek: [0, 6],
+              // daysOfWeek: [0, 6],
             },
           }}
         />
