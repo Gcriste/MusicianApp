@@ -1,8 +1,9 @@
 .card {
     background:#E0E0E0;
+    /* background:#E0E0E0; */
     border-radius:15px;
     /* color:#2874A6;  */
-    color:#2E86C1;
+    /* color:#2E86C1; */
     box-shadow: 0 12px 24px #999, 0 12px 24px #999;
     font-family: 'Montserrat', sans-serif;
     padding:10px;
@@ -15,7 +16,8 @@
 
 .search-list{
     border-radius:15px;
-    background:#F5F5F5;
+    /* background:#F5F5F5; */
+    background:white;
     box-shadow: 0 3px 6px #999, 0 3px 6px #999;
     margin:20px;
     padding:25px;
@@ -24,6 +26,7 @@
 
 .profile{
    color:#5499C7;
+  
 }
 
 
