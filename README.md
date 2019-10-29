@@ -15,19 +15,9 @@ Post a show- form contains date, venue, time, pay, band name, music type
 Once a show is posted it is added to all shows Available
 Once a request is made, the user(who posted the show) is notified
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<img width="1209" alt="Screen Shot 2019-10-29 at 12 40 49 PM" src="https://user-images.githubusercontent.com/49124794/67793936-c4a1b780-fa49-11e9-8bcd-23fd70de5f94.png">
+<img width="805" alt="Screen Shot 2019-10-29 at 12 41 00 PM" src="https://user-images.githubusercontent.com/49124794/67793937-c4a1b780-fa49-11e9-8f12-019a442487a9.png">
+<img width="825" alt="Screen Shot 2019-10-29 at 12 41 14 PM" src="https://user-images.githubusercontent.com/49124794/67793940-c4a1b780-fa49-11e9-9b87-3be2676817d1.png">
 
 
 ## Technologies Used:
@@ -35,3 +25,6 @@ You will also see any lint errors in the console.
 
 ## Creator
 -I am the sole creator and owner. @GriffinCriste
+
+
+
