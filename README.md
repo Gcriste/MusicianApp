@@ -32,3 +32,6 @@ You will also see any lint errors in the console.
 
 ## Technologies Used:
 -Javascsript, Reactjs, Nodejs, Semantic UI, Bootstrap, CSS, ES6, MongoDB
+
+## Creator
+-I am the sole creator and owner. @GriffinCriste
