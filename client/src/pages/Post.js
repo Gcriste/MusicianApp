@@ -18,7 +18,7 @@ const now = moment().hour(0).minute(0);
 const styles = {
   error:{
     color:'red',
-    fontSize: '0.8rem',
+    fontSize: '0.7rem',
     margin:0
   }
 }

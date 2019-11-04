@@ -251,12 +251,6 @@ else{
               <div className={`required field ${errors.referencenumber ? 'error' : ''}`}>
                 <label><strong>Reference Phone Number</strong></label>
                  {errors.referencenumber && <div style = {styles.error}>{errors.referencenumber}</div>}
-                {/* <Input
-                value={this.state.referencenumber}
-                onChange={this.handlePostChange}
-                name="referencenumber"
-                placeholder="Enter phone"
-              /> */}
               <PhoneInput
                 placeholder="Enter phone number"
                 country="US"
