@@ -55,14 +55,6 @@ class PostRequest extends Component {
          this.setState({
              userid:response.data._id
          })
-         console.log(userId)
-    //      API.getSavedGigs(userId)
-    //      .then(res => {
-    //       this.setState({ 
-    //       savedGigs: res.data 
-    //     })
-    //       console.log(res.data)
-    //   })
     })
    
 
