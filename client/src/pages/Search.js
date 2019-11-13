@@ -53,9 +53,6 @@ class SearchGigs extends Component {
         .catch(err => console.log(err))
     }
 
-    handleInputChange = event => {
-        this.setState({ search: event.target.value })
-    }
 
     //submit button function
     handleFormSubmit = event => {
@@ -109,7 +106,6 @@ class SearchGigs extends Component {
                         <Col size="12">
                             <SearchForm
                                 handleFormSubmit={this.handleFormSubmit}
-                                handleInputChange={this.handleInputChange}
                             />
                         </Col>
                     </Row>
