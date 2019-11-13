@@ -128,8 +128,7 @@ class DiscussionBoard extends Component {
                         <div className = "card">
                             <div className="card-body player">
                                 <div className="article">
-                                    <div className="two fields">
-                                    <div className={`four wide required field ${errors.text ? 'error' : ''}`}>
+                                    <div className={`sixteen wide required field ${errors.text ? 'error' : ''}`}>
                                     <label>Text</label>
                                     {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                     <Input
@@ -146,8 +145,10 @@ class DiscussionBoard extends Component {
 
                                         
                                     </div>
+                                    <div className = "sixteen wide field">
                                     <DiscussionResults 
                                         discussions={this.state.discussions}/>
+                                    
                                     </div>
                                 </div>
                             </div>
