@@ -5,10 +5,13 @@ export function Input(props) {
 
     return (
        
-      <div className="form-group">
-        <input className="form-control" {...props} />
-      </div>
-
+    //   <div className="form-group">
+    //     <input className="form-control" {...props} />
+    //   </div>
+            <div className="field">
+            <label>Text</label>
+            <textarea {...props}></textarea>
+            </div>
     )
   };
 

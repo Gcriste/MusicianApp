@@ -89,9 +89,16 @@ class DiscussionBoard extends Component {
 
     //submit button function
     handlePostSubmit = event => {
-    
         event.preventDefault();
-        console.log("hi")
+        let errors = {}
+
+        if (!this.state.text){
+          errors.text = "Please enter text before submitting!";
+          this.setState({errors}) 
+        }
+
+        else{
+    
         const newDiscussion = {
          text:this.state.text,
          name:this.state.name,
@@ -108,11 +115,11 @@ class DiscussionBoard extends Component {
           )
         .catch(err => console.log(err));
        }
-
+    }
 
     render() {
 
-        const {redirect, user, errors} = this.state;
+        const {redirect, errors} = this.state;
         if(redirect){
             return <Redirect to="/" />
         }
@@ -128,14 +135,14 @@ class DiscussionBoard extends Component {
                         <div className = "card">
                             <div className="card-body player">
                                 <div className="article">
-                                    <div className={`sixteen wide required field ${errors.text ? 'error' : ''}`}>
-                                    <label>Text</label>
+                                    <div className={`sixteen wide field ${errors.text ? 'error' : ''}`}>
+                                  
                                     {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                     <Input
                                         value={this.state.text}
                                         onChange={this.handlePostChange}
                                         name="text"
-                                        placeholder="text(required)"
+                                        placeholder="Type Your Discussion Here"
                                         />
 
                                           
