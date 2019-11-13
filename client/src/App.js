@@ -11,7 +11,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import "./App.css";
 import PostRequest from "./pages/Request";
 import IncomingRequest from "./pages/IncomingRequest";
-
+import DiscussionBoard from "./pages/DiscussionBoard"
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
           <Route exact path = "/" component= {Login}/>
           <PrivateRoute exact path ="/request" component = {PostRequest}/>
           <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
+          <PrivateRoute exact path = "/discussionboard" component = {DiscussionBoard} />
           <PrivateRoute exact path = "/incomingrequest" component = {IncomingRequest} />
           <Route component={NoMatch} />
   

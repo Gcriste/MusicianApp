@@ -1,5 +1,6 @@
 module.exports = {
   Gig: require("./gig"),
   User: require("./user"),
-  Request:require("./request")
+  Request:require("./request"),
+  Discussion:require("./discussion")
 };
