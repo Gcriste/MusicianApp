@@ -55,36 +55,36 @@ class SearchGigs extends Component {
 
 
     //submit button function
-    handleFormSubmit = event => {
-        event.preventDefault();
-        // api call to search
-        API.getGigs(this.state.search)
-            .then(res => {
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     // api call to search
+    //     API.getGigs(this.state.search)
+    //         .then(res => {
                 
-                    let results = res.data.items
-                    //map through the array of gigs
-                    results = results.map(result => {
-                        //store each gig information in a new object 
-                        result = {
-                            key: result.id,
-                            id: result.id,
-                            pay: result.pay,
-                            venue: result.venue,
-                            bandname: result.bandname,
-                            musictype: result.musictype,
-                            date: result.date,
-                            starttime:result.starttime,
-                            endtime:result.endtime,
-                            userid:result.userid
-                        }
-                        return result;
-                    })
+    //                 let results = res.data.items
+    //                 //map through the array of gigs
+    //                 results = results.map(result => {
+    //                     //store each gig information in a new object 
+    //                     result = {
+    //                         key: result.id,
+    //                         id: result.id,
+    //                         pay: result.pay,
+    //                         venue: result.venue,
+    //                         bandname: result.bandname,
+    //                         musictype: result.musictype,
+    //                         date: result.date,
+    //                         starttime:result.starttime,
+    //                         endtime:result.endtime,
+    //                         userid:result.userid
+    //                     }
+    //                     return result;
+    //                 })
    
-                    this.setState({ gigs: results, error: "" })
+    //                 this.setState({ gigs: results, error: "" })
                 
-            })
-            .catch(err => this.setState({ error: err.items }));
-    }
+    //         })
+    //         .catch(err => this.setState({ error: err.items }));
+    // }
     render() {
 
         const {redirect, user} = this.state;
@@ -101,7 +101,7 @@ class SearchGigs extends Component {
     
             <Container fluid>
                
-                <Container>
+                {/* <Container>
                     <Row>
                         <Col size="12">
                             <SearchForm
@@ -109,7 +109,7 @@ class SearchGigs extends Component {
                             />
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
                 <br></br>
                 <Container>
 

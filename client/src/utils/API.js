@@ -71,8 +71,11 @@ export default {
     return axios.delete("/api/requests/" + id)
   },
 
-  postDiscussion: function(savedDiscussion){
-    return axios.post("/api/discussions", savedDiscussion)
+  postDiscussion: function(newDiscussion){
+    return axios.post("/api/discussions", newDiscussion)
+  },
+  getDiscussions: function() {
+    return axios.get("/api/discussions");
   },
 
 };

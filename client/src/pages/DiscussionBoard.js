@@ -7,7 +7,7 @@ import {Redirect } from "react-router-dom";
 import setAuthToken from "../utils/setAuthToken";
 import { Input, PostButton } from "../components/Discussion"
 import axios from 'axios';
-
+import DiscussionResults from "../components/DiscussionResults"
 
 const styles = {
     error:{
@@ -33,7 +33,8 @@ class DiscussionBoard extends Component {
         avatar:"",
         name:"",
         text:"",
-        errors:{}
+        errors:{},
+        discussions:[]
         };
       }
     
@@ -45,13 +46,14 @@ class DiscussionBoard extends Component {
         })
     }
 
+   
     componentDidMount() {
         
         const token = localStorage.getItem('example-app');
         if(token){
             setAuthToken(token);
         }
-    
+       this.loadDiscussions();
         
        API.getUsers()
        .then(response => {
@@ -64,6 +66,18 @@ class DiscussionBoard extends Component {
        .catch(err => console.log(err.response))
 
 
+    }
+
+    loadDiscussions = () => {
+        API.getDiscussions()
+        .then(res => {
+            
+            this.setState({ 
+                discussions: res.data, 
+                })
+                console.log(res.data)
+            })
+        .catch(err => console.log(err))
     }
 
     handlePostChange= event => {
@@ -79,8 +93,6 @@ class DiscussionBoard extends Component {
         event.preventDefault();
         console.log("hi")
         const newDiscussion = {
-       
-         date: this.state.date,
          text:this.state.text,
          name:this.state.name,
          comments:this.state.comments,
@@ -111,7 +123,7 @@ class DiscussionBoard extends Component {
         return (
             <div className ="ui relaxed center aligned grid">
                 <div className = "ten wide column" >
-                <h1>Post a Gig</h1> 
+                <h1>Discussions</h1> 
                     <form className = "ui big form">
                         <div className = "card">
                             <div className="card-body player">
@@ -132,7 +144,10 @@ class DiscussionBoard extends Component {
                                             handlePostSubmit={this.handlePostSubmit}>
                                         </PostButton>
 
+                                        
                                     </div>
+                                    <DiscussionResults 
+                                        discussions={this.state.discussions}/>
                                     </div>
                                 </div>
                             </div>
