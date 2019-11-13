@@ -69,7 +69,10 @@ export default {
   },
   deleteRequest:function(id){
     return axios.delete("/api/requests/" + id)
-  }
-  
+  },
+
+  postDiscussion: function(savedDiscussion){
+    return axios.post("/api/discussions", savedDiscussion)
+  },
 
 };

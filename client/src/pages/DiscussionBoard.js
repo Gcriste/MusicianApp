@@ -6,7 +6,7 @@ import SearchResult from "../components/SearchResults"
 import {Redirect } from "react-router-dom";
 import setAuthToken from "../utils/setAuthToken";
 import { Input, PostButton } from "../components/Discussion"
-import axios from 'axios'
+import axios from 'axios';
 
 
 const styles = {
@@ -66,8 +66,6 @@ class DiscussionBoard extends Component {
 
     }
 
-    
-
     handlePostChange= event => {
         const { name, value } = event.target;
         this.setState({
@@ -76,46 +74,30 @@ class DiscussionBoard extends Component {
       };
 
     //submit button function
-    handleBudgetSubmit = event => {
+    handlePostSubmit = event => {
+    
         event.preventDefault();
         console.log("hi")
-      
-      
-        API.getUsers()
-        .then(response => {
-            const savedBudgets = [
-                {date:this.state.date},
-                {text:this.state.text},
-                {comments:this.state.comments},
-                {likes:this.state.likes},
-                {name:this.state.name},
-                {userid:this.state.userid},
-        ]
-    
-        this.setState({
-            budgets:savedBudgets
-        })
-            console.log(savedBudgets)
-        //    API.saveBudget(savedBudgets)
-        // axios.put('/api/budgets/' + response.data._id, savedBudgets)
-        axios.put('/api/discussions/' + response.data._id, savedBudgets)
-        .then(res=>{
-            console.log(res.data)
-                this.setState({
-            budgets:res.data.budgets,
-            redirect:true,
-          })
-            }
-        )
-          
-        .catch(err => {
-          this.setState({
-            errors:err.response.data
-          })
-        });
-        })
+        const newDiscussion = {
+       
+         date: this.state.date,
+         text:this.state.text,
+         name:this.state.name,
+         comments:this.state.comments,
+         likes:this.state.likes,
+         userid:this.state.userid
        }
-    
+       console.log(newDiscussion)
+        // api call to post gig
+        API.postDiscussion(newDiscussion)
+        .then(this.setState({ 
+          redirect:true,
+         })
+          )
+        .catch(err => console.log(err));
+       }
+
+
     render() {
 
         const {redirect, user, errors} = this.state;
