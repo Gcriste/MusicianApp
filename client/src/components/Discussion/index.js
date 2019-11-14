@@ -20,7 +20,6 @@ export function Input(props) {
        
         
 <button 
-to ='/discussionboard'
 className="ui violet vertical animated button" tabindex ="0"
 onClick={(event) => props.handlePostSubmit(event)}>
     

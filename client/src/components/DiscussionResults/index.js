@@ -19,7 +19,7 @@ return (
                     <li className="search-list list-group-item">
                         <Row
                         className="SearchResult row" 
-                        id={discussion._id} 
+                        id={discussion.userid} 
                         key={discussion._id}>
                                
                             <Col
@@ -38,13 +38,15 @@ return (
                         <button 
                             className="ui red vertical animated button" tabindex ="0"
                             id={discussion._id} 
-                            onClick={() => props.handleDeleteButton(discussion._id)}>
+                            onClick={() => props.handleDeleteDiscussion(discussion._id)}>
 
                                 <div className = "visible content">Delete Post </div>
                                                 <div className = "hidden content">
                                                 DELETE
                                                 </div>  
                             </button>
+
+                            
                             <a href={"/discussionboard/" + discussion._id}>
                             <button 
                             className="ui blue vertical animated button" tabindex ="0"

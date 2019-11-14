@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Row, Col } from "../components/Grid";
-import SearchForm from "../components/Form";
-import SearchResult from "../components/SearchResults"
 import {Redirect } from "react-router-dom";
 import setAuthToken from "../utils/setAuthToken";
 import { Input, PostButton } from "../components/Discussion"
@@ -109,16 +107,19 @@ class DiscussionBoard extends Component {
        console.log(newDiscussion)
         // api call to post gig
         API.postDiscussion(newDiscussion)
-        .then(this.componentDidMount())
+        .then(res => this.componentDidMount())
         .catch(err => console.log(err));
        }
     }
 
-    handleDeleteButton= id => {
+    handleDeleteDiscussion= id => {
         API.deleteDiscussion(id)
-            .then(this.componentDidMount())
+            .then(res => this.componentDidMount())
             .catch(err => console.log(err))
     }
+
+
+
     handleCommentButton= event => {
         API.getUsers()
     .then(response => {
@@ -190,7 +191,7 @@ class DiscussionBoard extends Component {
                                     <div className = "sixteen wide field">
                                     <DiscussionResults 
                                         discussions={this.state.discussions}
-                                        handleDeleteButton={this.handleDeleteButton}
+                                        handleDeleteDiscussion={this.handleDeleteDiscussion}
                                         handleCommentButton = {this.handleCommentButton}
                                         />
                                     
