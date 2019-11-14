@@ -45,6 +45,7 @@ return (
                                                 DELETE
                                                 </div>  
                             </button>
+                            <a href={"/discussionboard/" + discussion._id}>
                             <button 
                             className="ui blue vertical animated button" tabindex ="0"
                             id={discussion._id} 
@@ -55,6 +56,7 @@ return (
                                                 Comment
                                                 </div>  
                             </button>
+                            </a>
                             </li>
                             );
                         })}

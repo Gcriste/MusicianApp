@@ -30,10 +30,17 @@ module.exports = {
   },
   update: function(req, res) {
     db.Discussion
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+    .findOneAndUpdate({userid: req.params.userid },  {$set: {comments:req.body}}, { new: true, upsert: true })
+    .then(()=>{
+      db.Discussion.findOne({userid:req.params.userid})
+      .then(comment =>{
+        res.status(200).json(comment)
+      })
+    }
+      
+    )
+    .catch(err => res.status(422).json(err));
+},
   remove: function(req, res) {
     db.Discussion
       .findById({ _id: req.params.id })
