@@ -109,14 +109,14 @@ class DiscussionBoard extends Component {
        console.log(newDiscussion)
         // api call to post gig
         API.postDiscussion(newDiscussion)
-        .then(res => this.componentDidMount())
+        .then(this.componentDidMount())
         .catch(err => console.log(err));
        }
     }
 
     handleDeleteButton= id => {
         API.deleteDiscussion(id)
-            .then(res => this.componentDidMount())
+            .then(this.componentDidMount())
             .catch(err => console.log(err))
     }
     handleCommentButton= event => {
