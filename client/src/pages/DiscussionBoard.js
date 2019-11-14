@@ -109,12 +109,15 @@ class DiscussionBoard extends Component {
        console.log(newDiscussion)
         // api call to post gig
         API.postDiscussion(newDiscussion)
-        .then(this.setState({ 
-          redirect:true,
-         })
-          )
+        .then(res => this.componentDidMount())
         .catch(err => console.log(err));
        }
+    }
+
+    handleDeleteButton= id => {
+        API.deleteDiscussion(id)
+            .then(res => this.componentDidMount())
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -154,7 +157,10 @@ class DiscussionBoard extends Component {
                                     </div>
                                     <div className = "sixteen wide field">
                                     <DiscussionResults 
-                                        discussions={this.state.discussions}/>
+                                        discussions={this.state.discussions}
+                                        handleDeleteButton={this.handleDeleteButton}
+                                        />
+                                    
                                     
                                     </div>
                                 </div>

@@ -35,16 +35,16 @@ return (
                         </Row>
 
                         <br></br>
-                        {/* <Row className="buttonDiv ">
-                            <a href={"/discussion/" + discussion._id}>
-                            <button className="ui primary animated button" tabindex="0">
-                                <div className = "visible content">Comment on Post</div>
-                                <div className = "hidden content">
-                                    <i className = "right arrow icon"></i>
-                                  </div>      
-                                </button>
-                                </a>
-                        </Row> */}
+                        <button 
+                            className="ui red vertical animated button" tabindex ="0"
+                            id={discussion._id} 
+                            onClick={() => props.handleDeleteButton(discussion._id)}>
+
+                                <div className = "visible content">Delete Post </div>
+                                                <div className = "hidden content">
+                                                DELETE
+                                                </div>  
+                            </button>
                             </li>
                             );
                         })}

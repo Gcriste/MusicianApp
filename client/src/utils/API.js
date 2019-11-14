@@ -77,5 +77,8 @@ export default {
   getDiscussions: function() {
     return axios.get("/api/discussions");
   },
+  deleteDiscussion:function(id){
+    return axios.delete("/api/discussions/" + id)
+  },
 
 };
