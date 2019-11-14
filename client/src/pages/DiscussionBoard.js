@@ -119,6 +119,11 @@ class DiscussionBoard extends Component {
             .then(res => this.componentDidMount())
             .catch(err => console.log(err))
     }
+    handleCommentButton= id => {
+        API.deleteDiscussion(id)
+            .then(res => this.componentDidMount())
+            .catch(err => console.log(err))
+    }
 
     render() {
 
@@ -159,6 +164,7 @@ class DiscussionBoard extends Component {
                                     <DiscussionResults 
                                         discussions={this.state.discussions}
                                         handleDeleteButton={this.handleDeleteButton}
+                                        handleCommentButton = {this.handleCommentButton}
                                         />
                                     
                                     

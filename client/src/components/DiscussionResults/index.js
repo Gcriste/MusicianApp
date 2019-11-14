@@ -19,11 +19,11 @@ return (
                     <li className="search-list list-group-item">
                         <Row
                         className="SearchResult row" 
-                        id={discussion.id} 
+                        id={discussion._id} 
                         key={discussion._id}>
                                
                             <Col
-                                className="col-md-6 discussionInfo">
+                                className="discussionInfo">
                                 <h2 className="discussionMusician">Post: {discussion.text} On  <Moment date={discussion.date} format="MM/DD/YYYY"/></h2>
                                 {/* <h2 className="discussionVenue"> At {discussion.venue} For ${discussion.pay}</h2>
                                 <h3 className="discussiontime">From <Moment date={discussion.starttime} format="hh:mm a"/> To <Moment date={discussion.endtime} format="hh:mm a"/></h3>
@@ -43,6 +43,16 @@ return (
                                 <div className = "visible content">Delete Post </div>
                                                 <div className = "hidden content">
                                                 DELETE
+                                                </div>  
+                            </button>
+                            <button 
+                            className="ui blue vertical animated button" tabindex ="0"
+                            id={discussion._id} 
+                            onClick={() => props.handleCommentButton(discussion._id)}>
+
+                                <div className = "visible content">Comment On Post </div>
+                                                <div className = "hidden content">
+                                                Comment
                                                 </div>  
                             </button>
                             </li>
