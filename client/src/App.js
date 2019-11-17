@@ -12,6 +12,8 @@ import "./App.css";
 import PostRequest from "./pages/Request";
 import IncomingRequest from "./pages/IncomingRequest";
 import DiscussionBoard from "./pages/DiscussionBoard"
+import Comment from "./pages/Comment";
+
 
 function App() {
   return (
@@ -30,7 +32,7 @@ function App() {
           <PrivateRoute exact path ="/request" component = {PostRequest}/>
           <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
           <PrivateRoute exact path = "/discussionboard" component = {DiscussionBoard} />
-          <PrivateRoute exact path = "/discussionboard/:id" component = {DiscussionBoard} />
+          <PrivateRoute exact path = "/discussionboard/:id" component = {Comment} />
           <PrivateRoute exact path = "/incomingrequest" component = {IncomingRequest} />
           <Route component={NoMatch} />
   
