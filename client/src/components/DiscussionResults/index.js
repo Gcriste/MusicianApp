@@ -45,9 +45,18 @@ return (
                                                 DELETE
                                                 </div>  
                             </button>
-
-                            
-                            <a href={"/discussionboard/" + discussion._id}>
+                            <div className="buttonDiv ">
+                            <a href={"/disccusionboard/" + discussion._id}>
+                            <button className="ui primary animated button" tabindex="0">
+                                <div className = "visible content">Comment on Post </div>
+                                <div className = "hidden content">
+                                   Comment
+                                  </div>      
+                                </button>
+                                </a>
+                       
+                            </div>
+                            {/* <a href={"/discussionboard/" + discussion._id}>
                             <button 
                             className="ui blue vertical animated button" tabindex ="0"
                             id={discussion._id} 
@@ -58,7 +67,7 @@ return (
                                                 Comment
                                                 </div>  
                             </button>
-                            </a>
+                            </a> */}
                             </li>
                             );
                         })}
