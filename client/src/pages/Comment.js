@@ -133,8 +133,8 @@ class Comment extends Component {
     this.setState({
         comments:savedComments
     })
-        console.log(savedComments)
-    //    API.saveBudget(savedComments)
+    //     console.log(savedComments)
+    // //    API.saveBudget(savedComments)
     axios.put('/api/discussions/' + response.data._id, savedComments)
     .then(res=>{
         console.log(res.data)
