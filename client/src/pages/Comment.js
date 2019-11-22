@@ -59,7 +59,7 @@ class Comment extends Component {
               user:response.data,
               userid: response.data._id
           })
-         console.log(response.data._id) 
+        
        })
        .catch(err => console.log(err.response))
 
