@@ -121,6 +121,7 @@ class Comment extends Component {
 
 
     handleCommentButton= event => {
+        event.preventDefault();
         API.getUsers()
     .then(response => {
         const savedComments = [
