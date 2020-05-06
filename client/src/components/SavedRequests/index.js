@@ -8,7 +8,7 @@ const SavedRequests = props => {
   return (
     
     <div className="card">
-      <div className="card-body player">
+     <div className="card-body player">
         <div className="article">
        
             <h1>Requests You've Made</h1>
@@ -22,8 +22,8 @@ const SavedRequests = props => {
       key={savedRequest._id}>
              
           <Col 
-              size="9" 
-              className="requestInfo">
+             
+              className="requestinfo">
               
               {props.dateForSavedRequests.map(data => (
                   <h2 className="requestFirstName"> For The Gig With {data.bandname} On <Moment date={data.date} format="MM/DD/YYYY"/></h2>
@@ -59,7 +59,7 @@ const SavedRequests = props => {
 })}
           </div>
         </div>
-      </div>
+     </div>
     )
 }
 export default SavedRequests;

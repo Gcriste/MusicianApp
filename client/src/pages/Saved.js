@@ -164,8 +164,8 @@ class Saved extends Component {
                     
  
    
-
-      <div className = "col-6">
+        
+          <div className = "col-md-6">
                   
                          <SavedRequests
                      
@@ -179,7 +179,7 @@ class Saved extends Component {
                     
                      </div>
     
-
+                    
                      </Container>
        
       )
