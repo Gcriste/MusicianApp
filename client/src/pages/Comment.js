@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import setAuthToken from "../utils/setAuthToken";
-import { Input, PostButton } from "../components/Discussion"
 import axios from 'axios';
 import {InputBox, PostComment} from "../components/Comment";
 import CommentResults from "../components/CommentResults";
@@ -63,6 +62,7 @@ class Comment extends Component {
           this.setState({
               user:response.data,
               userid: response.data._id
+            
           })
         
        })
@@ -74,11 +74,13 @@ class Comment extends Component {
    
 
 
-    loadDiscussion = (id) => {
+    loadDiscussion = () => {
 
-        API.getDiscussionById(id)
+        let newid = this.state.id
+       
+        API.getDiscussionById(newid)
         .then(res => {
-            
+            console.log(res.data)
             this.setState({ 
                 
                 savedDiscussions: res.data, 
