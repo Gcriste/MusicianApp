@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the GigsController
 module.exports = {
 
-  findById: function(req,res){
+  find: function(req,res){
     db.Discussion
     .find({userid:req.params.userid})
     .then(dbModel => res.json(dbModel))
@@ -16,9 +16,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  find: function(req, res) {
+  findById: function(req, res) {
     db.Discussion
-      .findById({_id:req.params.id})
+      .find({_id:req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -7,13 +7,13 @@ router.route("/")
   .post(discussionsController.create);
 
 // Matches with "/api/discussions/:userid"
-router.route("/:userid")
-  .get(discussionsController.findById)
-  .put(discussionsController.update)
+// router.route("/:userid")
+//   .get(discussionsController.findById)
+//   .put(discussionsController.update)
  
-
+//Matches with "/api/discussions/:id"
   router.route("/:id")
-  .get(discussionsController.find)
+  .get(discussionsController.findById)
   .delete(discussionsController.remove);
 
 
