@@ -15,7 +15,7 @@ const discussionSchema = new Schema({
             type: String
         },
         name: {
-            type: String,
+            type: String
         },
         avatar: {
             type: String

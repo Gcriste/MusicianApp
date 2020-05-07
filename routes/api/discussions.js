@@ -7,14 +7,16 @@ router.route("/")
   .post(discussionsController.create);
 
 // Matches with "/api/discussions/:userid"
-// router.route("/:userid")
-//   .get(discussionsController.findById)
+// router.route("/:id")
+// //   .get(discussionsController.findById)
 //   .put(discussionsController.update)
  
 //Matches with "/api/discussions/:id"
   router.route("/:id")
   .get(discussionsController.findById)
-  .delete(discussionsController.remove);
+  .delete(discussionsController.remove)
+  .put(discussionsController.update)
+
 
 
 module.exports = router;

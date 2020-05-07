@@ -80,5 +80,8 @@ export default {
   deleteDiscussion:function(id){
     return axios.delete("/api/discussions/" + id)
   },
+  getDiscussionById: function(id) {
+    return axios.get("/api/discussions/?_id=" + id)
+  }
 
 };

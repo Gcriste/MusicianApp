@@ -30,15 +30,16 @@ module.exports = {
   },
   update: function(req, res) {
     db.Discussion
-    .findOneAndUpdate({userid: req.params.userid },  {$set: {comments:req.body}}, { new: true, upsert: true })
-    .then(()=>{
-      db.Discussion.findOne({userid:req.params.userid})
-      .then(comment =>{
-        res.status(200).json(comment)
-      })
-    }
-      
-    )
+    .findByIdAndUpdate({_id:req.params.id}, req.body)
+    .then(dbModel => res.json(dbModel))
+    // .find({_id: req.params.id})
+    // .then(()=>{
+    //   db.Discussion.replaceOne(req.body)
+    //   .then(dbModel =>{
+    //     res.json(dbModel)
+    //   })
+  // },
+      // )
     .catch(err => res.status(422).json(err));
 },
   remove: function(req, res) {
@@ -49,4 +50,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
  
+
+
+
 };
