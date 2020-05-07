@@ -26,7 +26,9 @@ return (
                             <Col
                                 className="discussionInfo">
                                 <h2 className="discussionMusician">Post: {discussion.text} On  <Moment date={discussion.date} format="MM/DD/YYYY"/></h2>
-                                <p>Comments: {discussion.comments[0].text}</p>
+                                {discussion.comments.map(comment => 
+                                 <p>Comments: {comment.text}</p>)}
+                              
                                
                             </Col>
                         </Row>
