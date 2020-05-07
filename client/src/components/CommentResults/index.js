@@ -45,7 +45,7 @@ return (
                             id={savedDiscussion._id} 
                             onClick={() => props.handleDeletesavedDiscussion(savedDiscussion._id)}>
 
-                                <div className = "visible content">Delete Post </div>
+                                <div className = "visible content">Delete Comment</div>
                                                 <div className = "hidden content">
                                                 DELETE
                                                 </div>  

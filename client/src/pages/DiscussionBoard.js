@@ -122,43 +122,6 @@ class DiscussionBoard extends Component {
             .catch(err => console.log(err))
     }
 
-
-
-//     handleCommentButton= id => {
-//         API.getDiscussionById(id)
-//         .then(res => console.log(res))
-//     // .then(response => {
-//     //     console.log(response.data)
-//     // //     const savedComments = [
-//     // //         {text:this.state.text},
-//     // //         {name:this.state.name},
-//     // //         {avatar:this.state.avatar},
-//     // //         {userid:this.state.userid},
-//     // // ]
-
-//     // // this.setState({
-//     // //     comments:savedComments
-//     // // })
-//     // //     // console.log(savedComments)
-//     // // //    API.saveBudget(savedComments)
-//     // // axios.put('/api/discussions/' + response.data._id, savedComments)
-//     // // .then(res=>{
-//     // //     console.log(res.data)
-//     // //         this.setState({
-//     // //     comments:res.data.comments,
-//     // //   })
-//     // //     }
-//     // // )
-      
-//     // // .catch(err => {
-//     // //   this.setState({
-//     // //     errors:err.response.data
-//     // //   })
-//     // // });
-//     // // })
-//     // })
-// }
-
     render() {
 
         const {redirect, errors} = this.state;

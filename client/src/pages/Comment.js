@@ -4,7 +4,7 @@ import setAuthToken from "../utils/setAuthToken";
 import axios from 'axios';
 import {InputBox, PostComment} from "../components/Comment";
 import CommentResults from "../components/CommentResults";
-
+import {Redirect } from "react-router-dom"
 
 const styles = {
     error:{
@@ -97,15 +97,15 @@ class Comment extends Component {
         });
       };
 
-    // //submit button function
-    // handlePostSubmit = event => {
-    //     event.preventDefault();
-    //     let errors = {}
+    //submit button function
+    handlePostSubmit = event => {
+        event.preventDefault();
+        let errors = {}
 
-    //     if (!this.state.text){
-    //       errors.text = "Please enter text before submitting!";
-    //       this.setState({errors}) 
-    //     }
+        if (!this.state.text){
+          errors.text = "Please enter text before submitting!";
+          this.setState({errors}) 
+        }
 
     //     else{
     
@@ -122,21 +122,21 @@ class Comment extends Component {
     //     .then(res => this.componentDidMount())
     //     .catch(err => console.log(err));
     //    }
-    // }
+    }
 
-    // handleDeleteDiscussion= id => {
-    //     API.deleteDiscussion(id)
-    //         .then(res => this.componentDidMount())
-    //         .catch(err => console.log(err))
-    // }
+    handleDeleteDiscussion= id => {
+        API.deleteDiscussion(id)
+            .then(res => this.componentDidMount())
+            .catch(err => console.log(err))
+    }
 
 
     render() {
 
         const {redirect, errors} = this.state;
-        // if(redirect){
-        //     return <Redirect to="/" />
-        // }
+        if(redirect){
+            return <Redirect to="/" />
+        }
       
         
            
@@ -152,7 +152,7 @@ class Comment extends Component {
                                     <div className={`sixteen wide field ${errors.text ? 'error' : ''}`}>
                                         <h1> Hello</h1>
                                        
-
+                                        {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                         <InputBox
                                         value={this.state.text}
                                         onChange={this.handlePostChange}
