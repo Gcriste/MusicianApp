@@ -90,12 +90,12 @@ class Comment extends Component {
         .catch(err => console.log(err))
     }
 
-    // handlePostChange= event => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //       [name]: value
-    //     });
-    //   };
+    handlePostChange= event => {
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+      };
 
     // //submit button function
     // handlePostSubmit = event => {
