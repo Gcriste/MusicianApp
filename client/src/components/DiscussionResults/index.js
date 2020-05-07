@@ -45,29 +45,27 @@ return (
                                                 DELETE
                                                 </div>  
                             </button>
-                            <div className="buttonDiv ">
-                            <a href={"/disccusionboard/" + discussion._id}>
-                            <button className="ui primary animated button" tabindex="0">
+                      
+                            {/* <button className="ui primary animated button" tabindex="0"
+                            id={discussion._id} 
+                            onClick={() => props.handleCommentButton(discussion._id)}>
                                 <div className = "visible content">Comment on Post </div>
                                 <div className = "hidden content">
                                    Comment
                                   </div>      
+                                </button> */}
+                       
+                            
+                             
+                            <a href={"/comment/" + discussion._id}>
+                            <button className="ui primary animated button" tabindex="0">
+                                <div className = "visible content">Comment </div>
+                                <div className = "hidden content">
+                                    <i className = "right arrow icon"></i>
+                                  </div>      
                                 </button>
                                 </a>
                        
-                            </div>
-                            {/* <a href={"/discussionboard/" + discussion._id}>
-                            <button 
-                            className="ui blue vertical animated button" tabindex ="0"
-                            id={discussion._id} 
-                            onClick={() => props.handleCommentButton(discussion._id)}>
-
-                                <div className = "visible content">Comment On Post </div>
-                                                <div className = "hidden content">
-                                                Comment
-                                                </div>  
-                            </button>
-                            </a> */}
                             </li>
                             );
                         })}

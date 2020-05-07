@@ -63,6 +63,7 @@ class DiscussionBoard extends Component {
        })
        .catch(err => console.log(err.response))
 
+       
 
     }
 
@@ -76,6 +77,9 @@ class DiscussionBoard extends Component {
                 console.log(res.data)
             })
         .catch(err => console.log(err))
+
+
+
     }
 
     handlePostChange= event => {
@@ -120,39 +124,40 @@ class DiscussionBoard extends Component {
 
 
 
-    handleCommentButton= event => {
-        event.preventDefault();
-        API.getUsers()
-    .then(response => {
-        const savedComments = [
-            {text:this.state.text},
-            {name:this.state.name},
-            {avatar:this.state.avatar},
-            {userid:this.state.userid},
-    ]
+//     handleCommentButton= id => {
+//         API.getDiscussionById(id)
+//         .then(res => console.log(res))
+//     // .then(response => {
+//     //     console.log(response.data)
+//     // //     const savedComments = [
+//     // //         {text:this.state.text},
+//     // //         {name:this.state.name},
+//     // //         {avatar:this.state.avatar},
+//     // //         {userid:this.state.userid},
+//     // // ]
 
-    this.setState({
-        comments:savedComments
-    })
-        // console.log(savedComments)
-    //    API.saveBudget(savedComments)
-    axios.put('/api/discussions/' + response.data._id, savedComments)
-    .then(res=>{
-        console.log(res.data)
-            this.setState({
-        comments:res.data.comments,
-        redirect:true,
-      })
-        }
-    )
+//     // // this.setState({
+//     // //     comments:savedComments
+//     // // })
+//     // //     // console.log(savedComments)
+//     // // //    API.saveBudget(savedComments)
+//     // // axios.put('/api/discussions/' + response.data._id, savedComments)
+//     // // .then(res=>{
+//     // //     console.log(res.data)
+//     // //         this.setState({
+//     // //     comments:res.data.comments,
+//     // //   })
+//     // //     }
+//     // // )
       
-    .catch(err => {
-      this.setState({
-        errors:err.response.data
-      })
-    });
-    })
-    }
+//     // // .catch(err => {
+//     // //   this.setState({
+//     // //     errors:err.response.data
+//     // //   })
+//     // // });
+//     // // })
+//     // })
+// }
 
     render() {
 
@@ -193,7 +198,7 @@ class DiscussionBoard extends Component {
                                     <DiscussionResults 
                                         discussions={this.state.discussions}
                                         handleDeleteDiscussion={this.handleDeleteDiscussion}
-                                        handleCommentButton = {this.handleCommentButton}
+                                        // handleCommentButton = {this.handleCommentButton}
                                         />
                                     
                                     
