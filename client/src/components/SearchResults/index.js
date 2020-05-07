@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import {Row, Col} from "../Grid";
 import Moment from 'react-moment';
+import {Link} from 'react-router-dom';
 
 const SearchResult = props => {
     let gigsSorted = props.gigs.sort( (a,b) => {
@@ -37,14 +38,14 @@ return (
 
                         <br></br>
                         <Row className="buttonDiv ">
-                            <a href={"/request/" + gig._id}>
+                            <Link to={"/request/" + gig._id}>
                             <button className="ui primary animated button" tabindex="0">
                                 <div className = "visible content">Request To Play Gig </div>
                                 <div className = "hidden content">
                                     <i className = "right arrow icon"></i>
                                   </div>      
                                 </button>
-                                </a>
+                                </Link>
                         </Row>
                             </li>
                             );

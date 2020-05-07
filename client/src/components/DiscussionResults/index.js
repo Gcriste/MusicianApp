@@ -1,6 +1,7 @@
 import React from "react";
 import {Row, Col} from "../Grid";
 import Moment from 'react-moment';
+import {Link} from 'react-router-dom';
 
 const DiscussionResults = props => {
     let discussionsSorted = props.discussions.sort( (a,b) => {
@@ -25,16 +26,21 @@ return (
                             <Col
                                 className="discussionInfo">
                                 <h2 className="discussionMusician">Post: {discussion.text} On  <Moment date={discussion.date} format="MM/DD/YYYY"/></h2>
-                                {/* <h2 className="discussionVenue"> At {discussion.venue} For ${discussion.pay}</h2>
-                                <h3 className="discussiontime">From <Moment date={discussion.starttime} format="hh:mm a"/> To <Moment date={discussion.endtime} format="hh:mm a"/></h3>
-                                <h3 className="discussionBandName">With {discussion.bandname}</h3>
-                                <h3 className="discussionMusicType">Music Type: {discussion.musictype}</h3>
-                                 */}
+                                <p>Comments: {discussion.comments[0].text}</p>
                                
                             </Col>
                         </Row>
 
                         <br></br>
+                        <Row className="buttonDiv" >
+                       <Link to={"/comment/" + discussion._id} className="ui primary animated button" tabindex="0" >   
+                                <div className = "visible content">Comment </div>
+                                <div className = "hidden content">
+                                    <i className = "right arrow icon"></i>
+                                </div>   
+                        </Link>
+                              
+                       </Row>
                         <button 
                             className="ui red vertical animated button" tabindex ="0"
                             id={discussion._id} 
@@ -56,16 +62,7 @@ return (
                                 </button> */}
                        
                             
-                             
-                            <a href={"/comment/" + discussion._id}>
-                            <button className="ui primary animated button" tabindex="0">
-                                <div className = "visible content">Comment </div>
-                                <div className = "hidden content">
-                                    <i className = "right arrow icon"></i>
-                                  </div>      
-                                </button>
-                                </a>
-                       
+                      
                             </li>
                             );
                         })}
