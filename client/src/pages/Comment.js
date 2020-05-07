@@ -144,13 +144,23 @@ class Comment extends Component {
         return (
             <div className ="ui relaxed center aligned grid">
                 <div className = "ten wide column" >
-                <h1>Discussions</h1> 
+                <h1>Comment On This Post</h1> 
                     <form className = "ui big form">
                         <div className = "card">
                             <div className="card-body player">
                                 <div className="article">
+                                       
+
+                                        <CommentResults 
+                                        savedDiscussions={this.state.savedDiscussions}/>
+                                        <br></br>
+                                        <PostComment
+                                            handlePostSubmit={this.handlePostSubmit}>
+                                        </PostComment>
+
+                                        <hr></hr>
                                     <div className={`sixteen wide field ${errors.text ? 'error' : ''}`}>
-                                        <h1> Hello</h1>
+                                       
                                        
                                         {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                         <InputBox
@@ -161,12 +171,7 @@ class Comment extends Component {
                                         />
 
                                           
-                                        <PostComment
-                                            handlePostSubmit={this.handlePostSubmit}>
-                                        </PostComment>
-
-                                        <CommentResults 
-                                        savedDiscussions={this.state.savedDiscussions}/>
+                                      
 {/*                                   
                                     {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                     <Input

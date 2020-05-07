@@ -10,37 +10,32 @@ return (
     <div className="card">
         <div className="card-body player">
             <div className="article">
-                <h1>All Posts</h1>
+               
                 {props.savedDiscussions.map(savedDiscussion => { 
-                  
+                   
                     return (
+                        
                     <li className="search-list list-group-item">
                         <Row
                         className="SearchResult row" 
                         id={savedDiscussion.userid} 
                         key={savedDiscussion._id}>
-                               
+                           
+                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY"/></h2>
+                           
+                        </Row>
+                        <Row>
                             <Col
                                 className="savedDiscussionInfo">
-                                <h2 className="savedDiscussionMusician">Post: {savedDiscussion.text} On  <Moment date={savedDiscussion.date} format="MM/DD/YYYY"/></h2>
+                                <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
+                                
                                 {savedDiscussion.comments.map(comment => 
                                  <p>Comments: {comment.text}</p>)}
                               
                                
                             </Col>
                         </Row>
-
-                        <br></br>
-                        <Row className="buttonDiv" >
-                       <Link to={"/comment/" + savedDiscussion._id} className="ui primary animated button" tabindex="0" >   
-                                <div className = "visible content">Comment </div>
-                                <div className = "hidden content">
-                                    <i className = "right arrow icon"></i>
-                                </div>   
-                        </Link>
-                              
-                       </Row>
-                        <button 
+                        {/* <button 
                             className="ui red vertical animated button" tabindex ="0"
                             id={savedDiscussion._id} 
                             onClick={() => props.handleDeletesavedDiscussion(savedDiscussion._id)}>
@@ -49,7 +44,7 @@ return (
                                                 <div className = "hidden content">
                                                 DELETE
                                                 </div>  
-                            </button>
+                            </button> */}
                       
                             {/* <button className="ui primary animated button" tabindex="0"
                             id={discussion._id} 
