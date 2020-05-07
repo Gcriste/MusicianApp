@@ -3,7 +3,9 @@ import API from "../utils/API";
 import setAuthToken from "../utils/setAuthToken";
 import { Input, PostButton } from "../components/Discussion"
 import axios from 'axios';
-import DiscussionResults from "../components/DiscussionResults"
+import {InputBox, PostComment} from "../components/Comment";
+import CommentResults from "../components/CommentResults";
+
 
 const styles = {
     error:{
@@ -30,10 +32,14 @@ class Comment extends Component {
         name:"",
         text:"",
         errors:{},
-        discussions:[]
+        savedDiscussions:[],
+        id:props.match.params.id
         };
+      
       }
     
+     
+
 
       handleLogout = () => {
         localStorage.removeItem('example-app')
@@ -49,8 +55,9 @@ class Comment extends Component {
         if(token){
             setAuthToken(token);
         }
-    //    this.loadDiscussions();
         
+        this.loadDiscussion();
+
        API.getUsers()
        .then(response => {
           this.setState({
@@ -64,17 +71,22 @@ class Comment extends Component {
 
     }
 
-    // loadDiscussions = () => {
-    //     API.getDiscussions()
-    //     .then(res => {
+   
+
+
+    loadDiscussion = (id) => {
+
+        API.getDiscussionById(id)
+        .then(res => {
             
-    //         this.setState({ 
-    //             discussions: res.data, 
-    //             })
-    //             console.log(res.data)
-    //         })
-    //     .catch(err => console.log(err))
-    // }
+            this.setState({ 
+                
+                savedDiscussions: res.data, 
+                })
+                console.log(res.data)
+            })
+        .catch(err => console.log(err))
+    }
 
     // handlePostChange= event => {
     //     const { name, value } = event.target;
@@ -117,43 +129,6 @@ class Comment extends Component {
     // }
 
 
-
-    handleCommentButton= event => {
-        event.preventDefault();
-        API.getDiscussionById()
-       
-    .then(response => {
-        console.log(response.data)
-        const savedComments = [
-            {text:this.state.text},
-            {name:this.state.name},
-            {avatar:this.state.avatar},
-            {userid:this.state.userid},
-    ]
-
-    this.setState({
-        comments:savedComments
-    })
-    //     console.log(savedComments)
-    // //    API.saveBudget(savedComments)
-    axios.put('/api/discussions/' + response.data._id, savedComments)
-    .then(res=>{
-        console.log(res.data)
-            this.setState({
-        comments:res.data.comments,
-        // redirect:true,
-      })
-        }
-    )
-      
-    .catch(err => {
-      this.setState({
-        errors:err.response.data
-      })
-    });
-    })
-    }
-
     render() {
 
         const {redirect, errors} = this.state;
@@ -174,6 +149,22 @@ class Comment extends Component {
                                 <div className="article">
                                     <div className={`sixteen wide field ${errors.text ? 'error' : ''}`}>
                                         <h1> Hello</h1>
+                                       
+
+                                        <InputBox
+                                        value={this.state.text}
+                                        onChange={this.handlePostChange}
+                                        name="text"
+                                        placeholder="Type Your Discussion Here"
+                                        />
+
+                                          
+                                        <PostComment
+                                            handlePostSubmit={this.handlePostSubmit}>
+                                        </PostComment>
+
+                                        <CommentResults 
+                                        savedDiscussions={this.state.savedDiscussions}/>
 {/*                                   
                                     {errors.text && <div style = {styles.error}>{errors.text}</div>}
                                     <Input
