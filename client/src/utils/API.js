@@ -83,8 +83,8 @@ export default {
   getDiscussionById: function(id) {
     return axios.get("/api/discussions/?_id=" + id)
   },
-  // postCommentById: function(id) {
-  //   return axios.put("/api/discussions/?")
-  // }
+  updateCommentById: function(id) {
+    return axios.put("/api/discussions/?_id=" + id)
+  }
 
 };

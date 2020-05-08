@@ -102,26 +102,34 @@ class Comment extends Component {
         event.preventDefault();
         let errors = {}
 
+
         if (!this.state.text){
           errors.text = "Please enter text before submitting!";
           this.setState({errors}) 
         }
 
-    //     else{
-    
-    //     const newDiscussion = {
-    //      text:this.state.text,
-    //      name:this.state.name,
-    //      comments:this.state.comments,
-    //      likes:this.state.likes,
-    //      userid:this.state.userid
-    //    }
-    //    console.log(newDiscussion)
-    //     // api call to post gig
-    //     API.postDiscussion(newDiscussion)
-    //     .then(res => this.componentDidMount())
-    //     .catch(err => console.log(err));
-    //    }
+        else{
+
+        let newComment = {
+            commments:this.state.text,
+            date:this.state.date,
+            likes:this.state.likes,
+            userid:this.state.userid,
+            name:this.state.name,
+
+        };
+        this.state.savedDiscussions[0].comments.push(newComment)
+
+        const newDiscussion = {
+        id: this.state.id,
+         comments:this.state.savedDiscussions[0].comments,
+       }
+       console.log(newDiscussion)
+        // api call to post gig
+        API.updateCommentById(newDiscussion)
+        .then(res => this.componentDidMount())
+        .catch(err => console.log(err));
+       }
     }
 
     handleDeleteDiscussion= id => {
