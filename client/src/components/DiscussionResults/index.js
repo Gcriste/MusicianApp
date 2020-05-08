@@ -22,11 +22,11 @@ return (
                         className="SearchResult row" 
                         id={discussion.userid} 
                         key={discussion._id}>
+                            
                                
-                         
-                            <Col
-                                className="discussionInfo">
-                                <h3 className="discussionMusician">{discussion.text}</h3> 
+                         <Col>
+                            
+                                <h3 className="discussionMusician">{discussion.name} {discussion.avatar}: {discussion.text}</h3> 
                                
                                 {discussion.comments.map(comment => {
                                    if(comment.text){
@@ -44,12 +44,13 @@ return (
                                    }
                                  } )}
                                     
-                               
-                            </Col>
+                                    </Col>  
+                            
                         </Row>
+                       
 
-                        <br></br>
                         <Row className="buttonDiv" >
+                            <Col>
                        <Link to={"/comment/" + discussion._id} className="ui primary animated button" tabindex="0" >   
                                 <div className = "visible content">Comment </div>
                                 <div className = "hidden content">
@@ -57,7 +58,7 @@ return (
                                 </div>   
                         </Link>
                               
-                       </Row>
+                       
                         <button 
                             className="ui red vertical animated button" tabindex ="0"
                             id={discussion._id} 
@@ -68,7 +69,8 @@ return (
                                                 DELETE
                                                 </div>  
                             </button>
-                      
+                            </Col>
+                            </Row>
                             {/* <button className="ui primary animated button" tabindex="0"
                             id={discussion._id} 
                             onClick={() => props.handleCommentButton(discussion._id)}>

@@ -25,6 +25,7 @@ return (
                            
                         </Row>
                         <Row>
+                           
                             <Col
                                 className="savedDiscussionInfo">
                                 <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
