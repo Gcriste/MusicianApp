@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const discussionSchema = new Schema({
     // user: {type: Schema.Types.ObjectId, ref: 'Users'},
-    text: {type: String,required: true},
+    text: {type: String},
     name: {type: String},
     avatar: {type: String},
     likes: [{

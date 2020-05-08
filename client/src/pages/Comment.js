@@ -130,7 +130,9 @@ class Comment extends Component {
        }
        console.log(newDiscussion)
         // api call to post gig
-        API.updateCommentById(newDiscussion)
+       let newid= this.state.id
+        axios.put("/api/discussions/?_id=" + newid, newDiscussion)
+        // API.updateCommentById({newid},newDiscussion)
         .then(res => this.componentDidMount())
         .catch(err => console.log(err));
        }
