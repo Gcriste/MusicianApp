@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Row, Col} from "../Grid";
 import Moment from 'react-moment';
 import {Link} from 'react-router-dom';
@@ -21,17 +21,30 @@ return (
                         id={savedDiscussion.userid} 
                         key={savedDiscussion._id}>
                            
-                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY"/></h2>
+                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY HH:mm"/></h2>
                            
                         </Row>
                         <Row>
                             <Col
                                 className="savedDiscussionInfo">
                                 <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
-                                
-                                {savedDiscussion.comments.map(comment => 
-                                 <p>Comment by {comment.name} on {comment.date}: {comment.text}</p>)}
-                              
+                               
+                                {savedDiscussion.comments.map(comment => {
+                                   if(comment.text.length > 0){
+                                     return (
+                                         <>
+                                 <h4>{comment.name}: {comment.text}</h4>
+                                 <p><Moment date={comment.date} format="MM/DD/YYYY hh:mm"/></p>
+                                 </>
+                                     )
+                                   }
+                                   else{
+                                       return (
+                                       <h4>There are no comments yet</h4>
+                                       )
+                                   }
+                                 } )}
+                                    
                                
                             </Col>
                         </Row>
