@@ -32,7 +32,8 @@ class Comment extends Component {
         text:"",
         errors:{},
         savedDiscussions:[],
-        id:props.match.params.id
+        id:props.match.params.id,
+        
         };
       
       }
@@ -111,18 +112,21 @@ class Comment extends Component {
         else{
 
         let newComment = {
-            commments:this.state.text,
             date:this.state.date,
-            likes:this.state.likes,
-            userid:this.state.userid,
-            name:this.state.name,
+            text:this.state.text,
+            _id:this.state.id,
+           
 
         };
         this.state.savedDiscussions[0].comments.push(newComment)
-
+        
         const newDiscussion = {
-        id: this.state.id,
-         comments:this.state.savedDiscussions[0].comments,
+            userid:this.state.savedDiscussions[0].userid,
+            name:this.state.user.firstname,
+            _id: this.state.savedDiscussions[0]._id,
+            comments:this.state.savedDiscussions[0].comments,
+            text:this.state.savedDiscussions[0].text,
+            date: this.state.savedDiscussions[0].date
        }
        console.log(newDiscussion)
         // api call to post gig
