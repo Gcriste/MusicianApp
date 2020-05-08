@@ -33,7 +33,6 @@ class Comment extends Component {
         errors:{},
         savedDiscussions:[],
         id:props.match.params.id,
-        
         };
       
       }
@@ -113,17 +112,14 @@ class Comment extends Component {
 
         let newComment = {
             date:this.state.date,
-            text:this.state.text,
-            _id:this.state.id,
-           
-
+            text:this.state.text
         };
         this.state.savedDiscussions[0].comments.push(newComment)
         
         const newDiscussion = {
             userid:this.state.savedDiscussions[0].userid,
             name:this.state.user.firstname,
-            _id: this.state.savedDiscussions[0]._id,
+            id:this.state.savedDiscussions[0].id,
             comments:this.state.savedDiscussions[0].comments,
             text:this.state.savedDiscussions[0].text,
             date: this.state.savedDiscussions[0].date
@@ -131,7 +127,7 @@ class Comment extends Component {
        console.log(newDiscussion)
         // api call to post gig
        let newid= this.state.id
-        axios.put("/api/discussions/?_id=" + newid, newDiscussion)
+        axios.put("/api/discussions/" + newid, newDiscussion)
         // API.updateCommentById({newid},newDiscussion)
         .then(res => this.componentDidMount())
         .catch(err => console.log(err));
