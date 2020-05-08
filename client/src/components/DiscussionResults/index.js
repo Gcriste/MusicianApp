@@ -23,12 +23,27 @@ return (
                         id={discussion.userid} 
                         key={discussion._id}>
                                
+                         
                             <Col
                                 className="discussionInfo">
-                                <h2 className="discussionMusician">Post: {discussion.text} On  <Moment date={discussion.date} format="MM/DD/YYYY"/></h2>
-                                {discussion.comments.map(comment => 
-                                 <p>Comments: {comment.text}</p>)}
-                              
+                                <h3 className="discussionMusician">{discussion.text}</h3> 
+                               
+                                {discussion.comments.map(comment => {
+                                   if(comment.text){
+                                     return (
+                                         <>
+                                 <h4>{comment.name}: {comment.text}</h4>
+                                 <p><Moment date={comment.date} format="MM/DD/YYYY hh:mm"/></p>
+                                 </>
+                                     )
+                                   }
+                                   else{
+                                       return (
+                                       <h4>Comments:</h4>
+                                       )
+                                   }
+                                 } )}
+                                    
                                
                             </Col>
                         </Row>

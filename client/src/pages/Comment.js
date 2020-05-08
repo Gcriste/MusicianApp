@@ -133,6 +133,10 @@ class Comment extends Component {
         .then(res => this.componentDidMount())
         .catch(err => console.log(err));
        }
+
+       this.setState({
+           text:""
+       })
     }
 
     handleDeleteDiscussion= id => {

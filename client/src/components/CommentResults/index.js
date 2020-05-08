@@ -30,7 +30,7 @@ return (
                                 <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
                                
                                 {savedDiscussion.comments.map(comment => {
-                                   if(comment.text.length > 0){
+                                   if(comment.text){
                                      return (
                                          <>
                                  <h4>{comment.name}: {comment.text}</h4>
@@ -40,7 +40,7 @@ return (
                                    }
                                    else{
                                        return (
-                                       <h4>There are no comments yet</h4>
+                                       <h4>Comments:</h4>
                                        )
                                    }
                                  } )}
