@@ -111,8 +111,9 @@ class Comment extends Component {
         else{
 
         let newComment = {
-            date:this.state.date,
-            text:this.state.text
+            date:this.state.savedDiscussions[0].date,
+            text:this.state.text,
+            name:this.state.user.firstname,
         };
         this.state.savedDiscussions[0].comments.push(newComment)
         

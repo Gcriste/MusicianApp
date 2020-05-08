@@ -30,7 +30,7 @@ return (
                                 <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
                                 
                                 {savedDiscussion.comments.map(comment => 
-                                 <p>Comments: {comment.text}</p>)}
+                                 <p>Comment by {comment.name} on {comment.date}: {comment.text}</p>)}
                               
                                
                             </Col>
