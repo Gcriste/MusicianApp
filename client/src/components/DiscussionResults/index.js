@@ -32,7 +32,7 @@ return (
                                    if(comment.text){
                                      return (
                                          <>
-                                 <h4>{comment.name}: {comment.text}</h4>
+                                 <h4>{props.user.email}: {comment.text}</h4>
                                  <p><Moment date={comment.date} format="MM/DD/YYYY hh:mm"/></p>
                                  </>
                                      )

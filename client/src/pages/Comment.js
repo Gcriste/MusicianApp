@@ -167,7 +167,8 @@ class Comment extends Component {
                                        
 
                                         <CommentResults 
-                                        savedDiscussions={this.state.savedDiscussions}/>
+                                        savedDiscussions={this.state.savedDiscussions}
+                                        />
                                         <br></br>
                                         <PostComment
                                             handlePostSubmit={this.handlePostSubmit}>

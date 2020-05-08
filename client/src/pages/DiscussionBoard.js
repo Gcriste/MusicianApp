@@ -161,6 +161,7 @@ class DiscussionBoard extends Component {
                                     <DiscussionResults 
                                         discussions={this.state.discussions}
                                         handleDeleteDiscussion={this.handleDeleteDiscussion}
+                                        user={this.state.user}
                                         // handleCommentButton = {this.handleCommentButton}
                                         />
                                     
