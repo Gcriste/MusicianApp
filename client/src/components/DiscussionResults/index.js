@@ -26,7 +26,7 @@ return (
                             
                                
                          <Col>
-                            <div className="card">
+                            <div className="card discussion-post">
                             <img src = {discussion.avatar}></img>
                             <div className="container">
                             <h2 className="discussionMusician">{discussion.name}</h2> 
@@ -34,7 +34,24 @@ return (
                                 <p><Moment date={discussion.date} format="MM/DD/YYYY hh:mm"/></p>
                             </div>
                             </div>
+                            <Link to={"/comment/" + discussion._id} className="ui primary animated button" tabindex="0" >   
+                                <div className = "visible content">Comment </div>
+                                <div className = "hidden content">
+                                    <i className = "right arrow icon"></i>
+                                </div>   
+                        </Link>
                               
+                       
+                        <button 
+                            className="ui red vertical animated button" tabindex ="0"
+                            id={discussion._id} 
+                            onClick={() => props.handleDeleteDiscussion(discussion._id)}>
+
+                                <div className = "visible content">Delete Post </div>
+                                                <div className = "hidden content">
+                                                DELETE
+                                                </div>  
+                            </button>
                                <hr></hr>
                                 {discussion.comments.map(comment => {
                                    if(comment.text){
@@ -58,31 +75,14 @@ return (
                                    }
                                  } )}
                                     
-                                    </Col>  
+                                    {/* </Col>  
                             
-                        </Row>
+                        </Row> */}
                        
 
-                        <Row className="buttonDiv" >
-                            <Col>
-                       <Link to={"/comment/" + discussion._id} className="ui primary animated button" tabindex="0" >   
-                                <div className = "visible content">Comment </div>
-                                <div className = "hidden content">
-                                    <i className = "right arrow icon"></i>
-                                </div>   
-                        </Link>
-                              
-                       
-                        <button 
-                            className="ui red vertical animated button" tabindex ="0"
-                            id={discussion._id} 
-                            onClick={() => props.handleDeleteDiscussion(discussion._id)}>
-
-                                <div className = "visible content">Delete Post </div>
-                                                <div className = "hidden content">
-                                                DELETE
-                                                </div>  
-                            </button>
+                        {/* <Row className="buttonDiv" >
+                            <Col> */}
+                      
                             </Col>
                             </Row>
                             {/* <button className="ui primary animated button" tabindex="0"
