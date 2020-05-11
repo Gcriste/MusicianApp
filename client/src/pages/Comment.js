@@ -111,7 +111,6 @@ class Comment extends Component {
         else{
 
         let newComment = {
-            date:this.state.date,
             text:this.state.text,
             name:this.state.user.firstname,
         };

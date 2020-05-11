@@ -27,6 +27,7 @@ return (
                          <Col>
                             
                                 <h3 className="discussionMusician">{discussion.name} {discussion.avatar}: {discussion.text}</h3> 
+                                <p><Moment date={discussion.date} format="MM/DD/YYYY hh:mm"/></p>
                                
                                 {discussion.comments.map(comment => {
                                    if(comment.text){

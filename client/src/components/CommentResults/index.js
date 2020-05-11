@@ -21,7 +21,7 @@ return (
                         id={savedDiscussion.userid} 
                         key={savedDiscussion._id}>
                            
-                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY HH:mm"/></h2>
+                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY hh:mm"/></h2>
                            
                         </Row>
                         <Row>
