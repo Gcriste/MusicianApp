@@ -103,7 +103,7 @@ class DiscussionBoard extends Component {
     
         const newDiscussion = {
          text:this.state.text,
-         name:this.state.name,
+         name:this.state.user.firstname,
          comments:this.state.comments,
          likes:this.state.likes,
          userid:this.state.userid
@@ -114,6 +114,10 @@ class DiscussionBoard extends Component {
         .then(res => this.componentDidMount())
         .catch(err => console.log(err));
        }
+
+       this.setState({
+        text:""
+    })
     }
 
     handleDeleteDiscussion= id => {

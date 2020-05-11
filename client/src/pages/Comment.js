@@ -111,7 +111,7 @@ class Comment extends Component {
         else{
 
         let newComment = {
-            date:this.state.savedDiscussions[0].date,
+            date:this.state.date,
             text:this.state.text,
             name:this.state.user.firstname,
         };
@@ -119,7 +119,7 @@ class Comment extends Component {
         
         const newDiscussion = {
             userid:this.state.savedDiscussions[0].userid,
-            name:this.state.user.firstname,
+            name:this.state.savedDiscussions[0].name,
             id:this.state.savedDiscussions[0].id,
             comments:this.state.savedDiscussions[0].comments,
             text:this.state.savedDiscussions[0].text,
