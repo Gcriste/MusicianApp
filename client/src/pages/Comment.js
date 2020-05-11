@@ -61,7 +61,7 @@ class Comment extends Component {
        .then(response => {
           this.setState({
               user:response.data,
-              userid: response.data._id
+              userid: response.data._id,
             
           })
         
@@ -113,6 +113,7 @@ class Comment extends Component {
         let newComment = {
             text:this.state.text,
             name:this.state.user.firstname,
+            avatar:this.state.user.avatar
         };
         this.state.savedDiscussions[0].comments.push(newComment)
         
@@ -122,7 +123,8 @@ class Comment extends Component {
             id:this.state.savedDiscussions[0].id,
             comments:this.state.savedDiscussions[0].comments,
             text:this.state.savedDiscussions[0].text,
-            date: this.state.savedDiscussions[0].date
+            date: this.state.savedDiscussions[0].date,
+            avatar: this.state.savedDiscussions[0].avatar
        }
        console.log(newDiscussion)
         // api call to post gig

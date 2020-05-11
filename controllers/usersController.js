@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
+const gravatar = require('gravatar');
 
 
 // Defining methods for the UserController
@@ -35,11 +36,17 @@ module.exports = {
       if (user) {
         return res.status(400).json({ email: 'This email already exists.' });
       } else {
+        const avatar = gravatar.url(email, {
+          s: '200',
+          r: 'pg',
+          d: 'mm'
+        });
         const newUser = {
           firstname,
           lastname,
           email,
-          password
+          password,
+          avatar
         };
 
         bcrypt.genSalt(10, (err, salt) => {

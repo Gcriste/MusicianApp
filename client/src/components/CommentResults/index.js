@@ -2,6 +2,7 @@ import React, {Fragment} from "react";
 import {Row, Col} from "../Grid";
 import Moment from 'react-moment';
 import {Link} from 'react-router-dom';
+import "./style.css"
 
 const CommentResults = props => {
 
@@ -21,21 +22,35 @@ return (
                         id={savedDiscussion.userid} 
                         key={savedDiscussion._id}>
                            
-                            <h2>Post on <Moment date={savedDiscussion.date} format="MM/DD/YYYY hh:mm"/></h2>
+                           <div className="card">
+                           <img src = {savedDiscussion.avatar}></img>
+                           <div className="container">
+                           <h2>{savedDiscussion.name}</h2>
+                           <p className="savedDiscussionMusician">{savedDiscussion.text}</p>
+                            <p><Moment date={savedDiscussion.date} format="MM/DD/YYYY hh:mm"/></p>
+                           </div>
+                           </div>
+                           
                            
                         </Row>
                         <Row>
                            
                             <Col
                                 className="savedDiscussionInfo">
-                                <h3 className="savedDiscussionMusician">{savedDiscussion.text}</h3> 
+                                
                                
                                 {savedDiscussion.comments.map(comment => {
                                    if(comment.text){
                                      return (
-                                         <>
-                                 <h4>{comment.name}: {comment.text}</h4>
+                                        <>
+                                      <div className="card"> 
+                                      <img src={comment.avatar}></img>
+                                      <div className="container">
+                                 <h2>{comment.name}</h2> 
+                                 <p>{comment.text}</p>
                                  <p><Moment date={comment.date} format="MM/DD/YYYY hh:mm"/></p>
+                                 </div>
+                                 </div> 
                                  </>
                                      )
                                    }

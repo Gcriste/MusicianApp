@@ -57,7 +57,8 @@ class DiscussionBoard extends Component {
        .then(response => {
           this.setState({
               user:response.data,
-              userid: response.data._id
+              userid: response.data._id,
+              avatar:response.data.avatar
           })
          console.log(response.data._id) 
        })
@@ -106,7 +107,8 @@ class DiscussionBoard extends Component {
          name:this.state.user.firstname,
          comments:this.state.comments,
          likes:this.state.likes,
-         userid:this.state.userid
+         userid:this.state.userid,
+         avatar:this.state.avatar
        }
        console.log(newDiscussion)
         // api call to post gig

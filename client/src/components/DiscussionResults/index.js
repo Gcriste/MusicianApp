@@ -2,6 +2,7 @@ import React from "react";
 import {Row, Col} from "../Grid";
 import Moment from 'react-moment';
 import {Link} from 'react-router-dom';
+import "./style.css"
 
 const DiscussionResults = props => {
     let discussionsSorted = props.discussions.sort( (a,b) => {
@@ -25,16 +26,28 @@ return (
                             
                                
                          <Col>
-                            
-                                <h3 className="discussionMusician">{discussion.name} {discussion.avatar}: {discussion.text}</h3> 
+                            <div className="card">
+                            <img src = {discussion.avatar}></img>
+                            <div className="container">
+                            <h2 className="discussionMusician">{discussion.name}</h2> 
+                             <p>{discussion.text}</p>
                                 <p><Moment date={discussion.date} format="MM/DD/YYYY hh:mm"/></p>
-                               
+                            </div>
+                            </div>
+                              
+                               <hr></hr>
                                 {discussion.comments.map(comment => {
                                    if(comment.text){
                                      return (
                                          <>
-                                 <h4>{comment.name}: {comment.text}</h4>
+                                      <div className="card"> 
+                                      <img src={comment.avatar}></img>
+                                      <div className="container">
+                                 <h2>{comment.name}</h2> 
+                                 <p>{comment.text}</p>
                                  <p><Moment date={comment.date} format="MM/DD/YYYY hh:mm"/></p>
+                                 </div>
+                                 </div> 
                                  </>
                                      )
                                    }
