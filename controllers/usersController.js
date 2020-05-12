@@ -75,7 +75,8 @@ module.exports = {
       .update({_id:req.user.id}, {
         firstname:req.body.firstname,
         lastname:req.body.lastname,
-        email:req.body.email
+        email:req.body.email,
+        avatar:req.body.avatar
       })
       .then(()=>{
         db.User.findOne({_id:req.user.id})
@@ -84,6 +85,7 @@ module.exports = {
             firstname:user.firstname,
             lastname:user.lastname,
             email:user.email,
+            avatar:user.avatar,
             message:"user account successfully updated",
             userUpdated:true
           })
@@ -120,7 +122,8 @@ module.exports = {
               id:user._id,
               email:user.email,
               firstname:user.firstname,
-              lastname:user.lastname
+              lastname:user.lastname,
+              avatar:user.avatar
             }
             jwt.sign(
               payload,
