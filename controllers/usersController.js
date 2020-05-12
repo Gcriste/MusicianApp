@@ -122,8 +122,7 @@ module.exports = {
               id:user._id,
               email:user.email,
               firstname:user.firstname,
-              lastname:user.lastname,
-              avatar:user.avatar
+              lastname:user.lastname
             }
             jwt.sign(
               payload,
