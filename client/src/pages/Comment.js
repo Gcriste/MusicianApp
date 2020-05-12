@@ -104,7 +104,7 @@ class Comment extends Component {
 
 
         if (!this.state.text){
-          errors.text = "Please enter text before submitting!";
+          errors.text = "Please enter text before submitting!!";
           this.setState({errors}) 
         }
 
