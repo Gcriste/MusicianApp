@@ -91,7 +91,7 @@ class CreateAccount extends Component {
                       Create Account  {' '}
                     </h1>
                     <h4 className = "text-center">
-                    Or if you have an account hit the login button
+                    If you have an account hit the login button
                     </h4>
                     <br></br>
 
