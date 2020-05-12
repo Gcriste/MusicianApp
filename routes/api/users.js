@@ -8,7 +8,7 @@ router
    .route("/")
   .get(passport.authenticate('jwt', {session:false}), usersController.findAll)
   .post(usersController.create)
-  .put(passport.authenticate('jwt', {session:false}), usersController.update);
+  // .put(passport.authenticate('jwt', {session:false}), usersController.update);
 
   router
   .route("/test")
