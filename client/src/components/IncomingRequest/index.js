@@ -48,6 +48,7 @@ const IncomingRequests = props => {
       </Row>
               <br></br>
           <Row className="buttonDiv ">
+            <Col>
           <button 
               className="ui red vertical animated button" tabindex ="0"
               id={savedrequest._id} 
@@ -58,6 +59,7 @@ const IncomingRequests = props => {
                                  DELETE
                                   </div>  
               </button>
+              </Col>
             </Row>
 
            
