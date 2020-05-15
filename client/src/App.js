@@ -31,8 +31,8 @@ function App() {
           <Route exact path = "/" component= {Login}/>
           <PrivateRoute exact path ="/request" component = {PostRequest}/>
           <PrivateRoute exact path = "/request/:id" component= {PostRequest}/>
-          <PrivateRoute exact path = "/discussionboard" component = {DiscussionBoard} />
-          <PrivateRoute exact path = "/comment/:id" component = {Comment} />
+          {/* <PrivateRoute exact path = "/discussionboard" component = {DiscussionBoard} />
+          <PrivateRoute exact path = "/comment/:id" component = {Comment} /> */}
           <PrivateRoute exact path = "/incomingrequest" component = {IncomingRequest} />
           <Route component={NoMatch} />
   

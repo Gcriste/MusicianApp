@@ -25,9 +25,9 @@ function Nav() {
                   <li className="nav-item" id="incomingrequest">
                       <a className="nav-link" href="/incomingrequest">Incoming Request</a>
                   </li> 
-                  <li className="nav-item" id="discussionboard">
+                  {/* <li className="nav-item" id="discussionboard">
                       <a className="nav-link" href="/discussionboard">Discussion Board</a>
-                  </li> 
+                  </li>  */}
               </ul>
           </div>
       </nav>

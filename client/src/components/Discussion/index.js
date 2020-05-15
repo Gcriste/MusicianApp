@@ -1,35 +1,35 @@
-import React from 'react';
+// import React from 'react';
 
-export function Input(props) {
+// export function Input(props) {
 
 
-    return (
+//     return (
        
-    //   <div className="form-group">
-    //     <input className="form-control" {...props} />
-    //   </div>
-            <div className="field">
-            <label>Text</label>
-            <textarea {...props}></textarea>
-            </div>
-    )
-  };
+//     //   <div className="form-group">
+//     //     <input className="form-control" {...props} />
+//     //   </div>
+//             <div className="field">
+//             <label>Text</label>
+//             <textarea {...props}></textarea>
+//             </div>
+//     )
+//   };
 
-  export function PostButton(props) {
-    return (
+//   export function PostButton(props) {
+//     return (
        
         
-<button 
-className="ui violet vertical animated button" tabindex ="0"
-onClick={(event) => props.handlePostSubmit(event)}>
+// <button 
+// className="ui violet vertical animated button" tabindex ="0"
+// onClick={(event) => props.handlePostSubmit(event)}>
     
-   <div className = "visible content">Post Discussion </div>
-      <div className = "hidden content">
-            Submit
-          </div>  
-</button>
+//    <div className = "visible content">Post Discussion </div>
+//       <div className = "hidden content">
+//             Submit
+//           </div>  
+// </button>
 
 
-    )
-  };
+//     )
+//   };
 
