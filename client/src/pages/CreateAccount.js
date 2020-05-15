@@ -25,7 +25,8 @@ class CreateAccount extends Component {
           errors:{},
           firstname:"",
           lastname:"",
-          message:""
+          message:"",
+          avatar:""
       }
     }
 
@@ -45,7 +46,8 @@ class CreateAccount extends Component {
           email:this.state.email,
           password:this.state.password,
           firstname:this.state.firstname,
-          lastname:this.state.lastname
+          lastname:this.state.lastname,
+          avatar:this.state.avatar
          }
           axios
           .post('api/users', newUser)
