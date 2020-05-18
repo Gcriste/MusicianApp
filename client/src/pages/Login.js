@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import axios from "axios";
-import { Container, Row, Col } from "../components/Grid";
 import { Input, PostButton } from "../components/Login";
 import {Redirect } from "react-router-dom"
 import authenticate from '../utils/Authenticate';
@@ -82,7 +81,7 @@ class Login extends Component {
       const {errors, redirect} = this.state;
 
       if (redirect)  {
-        return <Redirect to="/saved"/>
+        return <Redirect to={"/saved"}/>
       }
 
         return (
