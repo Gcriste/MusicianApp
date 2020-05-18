@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
-const gravatar = require('gravatar');
 
 
 // Defining methods for the UserController
@@ -29,26 +28,18 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-   
     const {email, password, firstname, lastname} = req.body;
-    const avatar = gravatar.url(email, {
-      s: '200',
-      r: 'pg',
-      d: 'mm'
-    });
     db.User
     .findOne({email})
     .then((user) => {
       if (user) {
         return res.status(400).json({ email: 'This email already exists.' });
       } else {
-       
         const newUser = {
           firstname,
           lastname,
           email,
-          password,
-          avatar
+          password
         };
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -74,8 +65,7 @@ module.exports = {
   update: function(req, res) {
     console.log(req.user)
     db.User
-      .findOneAndUpdate({_id:req.params.id}, 
-       {$set:req.body})
+      .findOneAndUpdate({_id:req.params.id}, {$set:req.body})
       .then(()=>{
         db.User.findOne({_id:req.params.id})
         .then(user =>{
@@ -83,7 +73,6 @@ module.exports = {
             firstname:user.firstname,
             lastname:user.lastname,
             email:user.email,
-            avatar:user.avatar,
             message:"user account successfully updated",
             userUpdated:true
           })
@@ -121,7 +110,6 @@ module.exports = {
               email:user.email,
               firstname:user.firstname,
               lastname:user.lastname,
-              avatar:user.avatar
             }
             jwt.sign(
               payload,
