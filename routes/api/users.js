@@ -1,14 +1,13 @@
 const router = require("express").Router();
 const usersController = require("../../controllers/usersController");
 const passport = require("passport");
-const bcrypt = require("bcryptjs")
 
 
 router
    .route("/")
   .get(passport.authenticate('jwt', {session:false}), usersController.findAll)
   .post(usersController.create)
-  // .put(passport.authenticate('jwt', {session:false}), usersController.update);
+//   .put(passport.authenticate('jwt', {session:false}), usersController.update);
 
   router
   .route("/test")

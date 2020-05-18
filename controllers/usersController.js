@@ -29,18 +29,20 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+   
     const {email, password, firstname, lastname} = req.body;
+    const avatar = gravatar.url(email, {
+      s: '200',
+      r: 'pg',
+      d: 'mm'
+    });
     db.User
     .findOne({email})
     .then((user) => {
       if (user) {
         return res.status(400).json({ email: 'This email already exists.' });
       } else {
-        const avatar = gravatar.url(email, {
-          s: '200',
-          r: 'pg',
-          d: 'mm'
-        });
+       
         const newUser = {
           firstname,
           lastname,
@@ -72,14 +74,10 @@ module.exports = {
   update: function(req, res) {
     console.log(req.user)
     db.User
-      .update({_id:req.user.id}, {
-        firstname:req.body.firstname,
-        lastname:req.body.lastname,
-        email:req.body.email,
-        avatar:req.body.avatar
-      })
+      .findOneAndUpdate({_id:req.params.id}, 
+       {$set:req.body})
       .then(()=>{
-        db.User.findOne({_id:req.user.id})
+        db.User.findOne({_id:req.params.id})
         .then(user =>{
           res.status(200).json({
             firstname:user.firstname,
@@ -122,7 +120,8 @@ module.exports = {
               id:user._id,
               email:user.email,
               firstname:user.firstname,
-              lastname:user.lastname
+              lastname:user.lastname,
+              avatar:user.avatar
             }
             jwt.sign(
               payload,

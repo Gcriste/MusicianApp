@@ -47,7 +47,7 @@ class CreateAccount extends Component {
           password:this.state.password,
           firstname:this.state.firstname,
           lastname:this.state.lastname,
-          avatar:this.state.avatar
+          // avatar:this.state.avatar
          }
           axios
           .post('api/users', newUser)
