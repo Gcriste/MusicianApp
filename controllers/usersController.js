@@ -98,7 +98,7 @@ module.exports = {
         return res.status(404).json({user: "Email not found"})
       }
      
-      
+      // let currentUser =user.get();
       bcrypt.compare(password, user.password)
       .then(isMatch => {
         if (isMatch){
