@@ -1,7 +1,7 @@
 Depoyable Link:
 https://gcriste-musicianapp.herokuapp.com/
 
-## A must log in/ create an account
+## A user must log in/ create an account
 ## Once a user is logged in they can can search shows from the database, post a show, or request to play an existing show
 ## If another user requests to play a gig, the user who posted the gig is notified 
 
