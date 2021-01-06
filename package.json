@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@syncfusion/ej2-react-navigations": "^17.3.14",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
